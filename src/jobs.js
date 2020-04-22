@@ -3,7 +3,7 @@ export const jobs = [
     id: 1,
     company: 'Forethought',
     jobTitle: 'Software Engineer, Frontend',
-    location: 'San Francisco, CA',
+    location: 'San Carlos, CA 94070 - Remote',
     thumb:
       'https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/c8614ed0797768bfd1e7fb4dac77f5df',
     description: {
@@ -28,11 +28,22 @@ export const jobs = [
       Medical, dental and vision coverage
       Unlimited PTO policy`,
     },
+    tags: [
+      'JavaScript',
+      'React',
+      'Node',
+      'JavaScript',
+      'React',
+      'Node',
+      'JavaScript',
+      'React',
+      'Node',
+    ],
   },
   {
     id: 2,
     company: 'Forethought',
-    jobTitle: 'Software Engineer, Frontend',
+    jobTitle: 'Performance Marketing Manager',
     location: 'San Francisco, CA',
     thumb:
       'https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/c8614ed0797768bfd1e7fb4dac77f5df',
@@ -58,6 +69,7 @@ export const jobs = [
       Medical, dental and vision coverage
       Unlimited PTO policy`,
     },
+    tags: ['JavaScript', 'React', 'Node'],
   },
   {
     id: 3,
@@ -88,6 +100,7 @@ export const jobs = [
       Medical, dental and vision coverage
       Unlimited PTO policy`,
     },
+    tags: ['JavaScript', 'React', 'Node'],
   },
   {
     id: 4,
@@ -118,5 +131,6 @@ export const jobs = [
       Medical, dental and vision coverage
       Unlimited PTO policy`,
     },
+    tags: ['JavaScript', 'React', 'Node'],
   },
 ];

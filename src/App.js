@@ -1,64 +1,44 @@
 import React from 'react';
+import { createGlobalStyle } from 'styled-components';
 import { jobs } from './jobs';
-import styled from 'styled-components';
+import JobList from './components/JobList';
 
-const JobContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: lightgray;
+const GlobalStyle = createGlobalStyle`
+  html {
+    font-family: 'IBM Plex Sans', sans-serif;
+    box-sizing: border-box;
+    font-size: 10px;
+  }
+
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+  body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+  }
+
+  ol, ul {
+    list-style: none;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 `;
-
-const CompanyThumbContainer = styled.div`
-  max-width: 50px;
-`;
-
-const CompanyThumbImg = styled.img`
-  width: 100%;
-`;
-
-const Job = ({ thumb, company, jobTitle, location }) => {
-  return (
-    <JobContainer>
-      <CompanyThumbContainer>
-        <CompanyThumbImg src={thumb} alt={`${company} logo`} />
-      </CompanyThumbContainer>
-      <div>
-        <h3>{company}</h3>
-        <h2>{jobTitle}</h2>
-        <h4>{location}</h4>
-      </div>
-      <div>
-        <button>Apply</button>
-      </div>
-    </JobContainer>
-  );
-};
-
-const JobList = ({ jobs }) => {
-  return (
-    <div>
-      {jobs.map((job) => {
-        return (
-          <Job
-            key={job.id}
-            thumb={job.thumb}
-            company={job.company}
-            jobTitle={job.jobTitle}
-            location={job.location}
-          />
-        );
-      })}
-    </div>
-  );
-};
 
 function App() {
   return (
-    <div>
-      <h1>Today Jobs</h1>
-      <JobList jobs={jobs} />
-    </div>
+    <React.Fragment>
+      <GlobalStyle />
+      <div>
+        <h1>Today Jobs</h1>
+        <JobList jobs={jobs} />
+      </div>
+    </React.Fragment>
   );
 }
 
