@@ -21,6 +21,9 @@ const CompanyThumbContainer = styled.div`
   align-items: center;
   justify-content: center;
   width: 50px;
+  color: #bdc3c7;
+  font-size: 3rem;
+  font-weight: 900;
 `;
 
 const CompanyThumbImg = styled.img`
@@ -60,7 +63,7 @@ const SalaryContainer = styled.div`
 
 const TagsContainer = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap-reverse;
   justify-content: center;
   align-items: center;
 `;
@@ -79,6 +82,7 @@ const TimeContainer = styled.div`
   display: flex;
   align-items: center;
   font-size: 1.45rem;
+  min-width: 26px;
   color: #7f8c8d;
 `;
 
@@ -122,10 +126,23 @@ const JobCard = ({
   tags,
   time,
 }) => {
+  const setCompanyLogoFromName = (companyName) => {
+    const companyNameArray = companyName.split(' ');
+    if (companyNameArray.length > 1) {
+      return `${companyNameArray[0][0]}${companyNameArray[1][0]}`;
+    } else {
+      return `${companyName.slice(0, 2)}`;
+    }
+  };
+
   return (
     <JobCardContainer>
       <CompanyThumbContainer>
-        <CompanyThumbImg src={thumb} alt={`${company} logo`} />
+        {thumb ? (
+          <CompanyThumbImg src={thumb} alt={`${company} logo`} />
+        ) : (
+          setCompanyLogoFromName(company)
+        )}
       </CompanyThumbContainer>
       <JobInfoContainer>
         <h3>{company}</h3>

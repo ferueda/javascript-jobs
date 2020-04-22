@@ -149,12 +149,10 @@ export const jobs = [
     salary: '$140,000 - $170,000 a year',
   },
   {
-    id: 1,
-    company: 'Forethought',
+    id: 5,
+    company: 'Forethought Caca',
     jobTitle: 'Software Engineer, Frontend',
     location: 'San Carlos, CA 94070 - Remote',
-    thumb:
-      'https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/c8614ed0797768bfd1e7fb4dac77f5df',
     description: {
       company: `Founded by a team of Facebook, Dropbox, and LinkedIn alumni in 2017, Forethought’s mission is to "enable everyone to be a genius at their job". We're building AI-driven user experiences that embed information into employee workflows, starting with our AI solution for customer support agents: Agatha.
       Forethought has raised over $10M in VC funding from top-investors including New Enterprise Associates (NEA), Village Global (the venture firm backed by Mark Zuckerberg, Bill Gates, and Reid Hoffman), K9 Ventures, and the CEOs of Robinhood, Front, and Carta. In 2018, Forethought launched and won at TechCrunch Disrupt - the world's most prestigious startup competition - and was featured in Forbes 30 Under 30.
@@ -190,9 +188,9 @@ export const jobs = [
     time: '5h',
   },
   {
-    id: 2,
+    id: 6,
     company: 'Pinterest',
-    jobTitle: 'Customer Operations, Support Specialist (SF, NYC)',
+    jobTitle: 'Customer Operations, Support Specialist',
     location: 'San Francisco, CA 94103 (South of Market area)',
     thumb:
       'https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/b44747a6375c2ed09b323e76516c2fb7',
@@ -218,26 +216,15 @@ export const jobs = [
       Medical, dental and vision coverage
       Unlimited PTO policy`,
     },
-    tags: [
-      'JavaScript',
-      'React',
-      'Node',
-      'Vue',
-      'Front-end',
-      'Back-end',
-      'TypeScript',
-      'Angular',
-    ],
-    time: '5h',
+    tags: ['JavaScript', 'Front-end', 'Back-end', 'TypeScript', 'Angular'],
+    time: '2mo',
     salary: '$800 - $900 a day',
   },
   {
-    id: 4,
+    id: 7,
     company: 'Cognizant Technology Solutions',
     jobTitle: 'React Lead',
     location: 'San Francisco, CA 94102 (Downtown area)',
-    thumb:
-      'https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/c364697f22ef8e192ea1ba9c5fa44096',
     description: {
       company: `Founded by a team of Facebook, Dropbox, and LinkedIn alumni in 2017, Forethought’s mission is to "enable everyone to be a genius at their job". We're building AI-driven user experiences that embed information into employee workflows, starting with our AI solution for customer support agents: Agatha.
       Forethought has raised over $10M in VC funding from top-investors including New Enterprise Associates (NEA), Village Global (the venture firm backed by Mark Zuckerberg, Bill Gates, and Reid Hoffman), K9 Ventures, and the CEOs of Robinhood, Front, and Carta. In 2018, Forethought launched and won at TechCrunch Disrupt - the world's most prestigious startup competition - and was featured in Forbes 30 Under 30.
@@ -261,6 +248,6 @@ export const jobs = [
       Unlimited PTO policy`,
     },
     tags: ['JavaScript', 'React', 'Node'],
-    time: '5h',
+    time: '28d',
   },
 ];
