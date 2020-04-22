@@ -36,13 +36,31 @@ const ApplyBtnContainer = styled.div`
 
 const ContentContainer = styled.div`
   width: 100%;
+  padding: 10px;
   display: flex;
   flex-direction: column;
+  font-size: 1.35rem;
+  border-bottom: 1px solid #ecf0f1;
+  h3 {
+    margin: 10px auto;
+  }
+  ul {
+    list-style-position: inside;
+  }
+
+  li {
+    margin-left: 3rem;
+    line-height: 1.5;
+  }
 `;
 
-const JobDescription = () => {
+const JobDescription = ({ data }) => {
   return (
     <ContentContainer>
+      <ApplyBtnContainer>
+        <ApplyBtn>Apply now</ApplyBtn>
+      </ApplyBtnContainer>
+      <div dangerouslySetInnerHTML={{ __html: data.test }}></div>
       <ApplyBtnContainer>
         <ApplyBtn>Apply now</ApplyBtn>
       </ApplyBtnContainer>

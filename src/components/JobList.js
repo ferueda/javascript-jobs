@@ -25,7 +25,7 @@ const JobList = ({ jobs }) => {
             time={job.time}
             salary={job.salary}
             active={job.active}
-            descrition={job.description}
+            description={job.description}
           />
         );
       })}

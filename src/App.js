@@ -19,11 +19,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     font-weight: normal;
   }
-
-  ol, ul {
-    list-style: none;
-  }
-
+  
   img {
     max-width: 100%;
     height: auto;
