@@ -2,7 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 
 const JobCardContainer = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 3fr 1fr 3fr auto;
+  grid-template-rows: 1fr;
+  gap: 15px;
   width: 100%;
   padding: 10px;
   border-bottom: 1px solid #ecf0f1;
@@ -18,7 +21,6 @@ const CompanyThumbContainer = styled.div`
   align-items: center;
   justify-content: center;
   width: 50px;
-  padding: 0;
 `;
 
 const CompanyThumbImg = styled.img`
@@ -28,7 +30,6 @@ const CompanyThumbImg = styled.img`
 
 const JobInfoContainer = styled.div`
   display: flex;
-  margin-left: 15px;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
@@ -50,13 +51,18 @@ const JobInfoContainer = styled.div`
   }
 `;
 
+const SalaryContainer = styled.div`
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1.4rem;
+`;
+
 const TagsContainer = styled.div`
-  margin-left: auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  max-width: 40%;
 `;
 
 const Tags = styled.span`
@@ -69,29 +75,53 @@ const Tags = styled.span`
   margin: 2px 2px;
 `;
 
-const ApplyBtn = styled.button`
+const TimeContainer = styled.div`
+  display: flex;
+  align-items: center;
+  font-size: 1.45rem;
+  color: #7f8c8d;
+`;
+
+const BaseBtn = styled.button`
   background-color: #2980b9;
   color: #fff;
   padding: 10px 55px;
-  border: none;
+  border: 2px solid #2980b9;
   border-radius: 3px;
   font-size: 1.5rem;
   font-weight: 600;
   outline: none;
   cursor: pointer;
+`;
+
+const ApplyBtn = styled(BaseBtn)`
   &:hover {
     opacity: 0.8;
   }
-  margin: auto 0;
+`;
+
+const ApplyBtnTransparent = styled(BaseBtn)`
+  background-color: transparent;
+  color: #2980b9;
+  &:hover {
+    opacity: 0.8;
+  }
 `;
 
 const ApplyBtnContainer = styled.div`
-  margin-left: auto;
   display: flex;
   align-content: center;
 `;
 
-const JobCard = ({ thumb, company, jobTitle, location, tags }) => {
+const JobCard = ({
+  thumb,
+  company,
+  jobTitle,
+  location,
+  salary,
+  tags,
+  time,
+}) => {
   return (
     <JobCardContainer>
       <CompanyThumbContainer>
@@ -102,14 +132,13 @@ const JobCard = ({ thumb, company, jobTitle, location, tags }) => {
         <h2>{jobTitle}</h2>
         <h4>{location}</h4>
       </JobInfoContainer>
+      <SalaryContainer>{salary}</SalaryContainer>
       <TagsContainer>
         {tags.map((tag) => (
           <Tags key={tag} name={tag.toLowerCase()} children={tag} />
         ))}
       </TagsContainer>
-      <ApplyBtnContainer>
-        <ApplyBtn>Apply</ApplyBtn>
-      </ApplyBtnContainer>
+      <TimeContainer>{time}</TimeContainer>
     </JobCardContainer>
   );
 };
