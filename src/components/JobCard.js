@@ -5,10 +5,10 @@ const JobCardContainer = styled.div`
   display: flex;
   width: 100%;
   padding: 10px;
-  border-bottom: 1px solid #e8e8e8;
+  border-bottom: 1px solid #ecf0f1;
   cursor: pointer;
   &:hover {
-    background-color: #f2f2f2;
+    background-color: #ecf0f1;
   }
 `;
 
@@ -45,7 +45,8 @@ const JobInfoContainer = styled.div`
   }
 
   h4 {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
+    color: #7f8c8d;
   }
 `;
 
@@ -59,8 +60,8 @@ const TagsContainer = styled.div`
 `;
 
 const Tags = styled.span`
-  color: black;
-  border: 2px solid black;
+  color: #2c3e50;
+  border: 2px solid #2c3e50;
   font-size: 1.25rem;
   font-weight: 900;
   padding: 2.5px 5px;
@@ -69,7 +70,7 @@ const Tags = styled.span`
 `;
 
 const ApplyBtn = styled.button`
-  background-color: #ff4742;
+  background-color: #2980b9;
   color: #fff;
   padding: 10px 55px;
   border: none;
@@ -103,7 +104,7 @@ const JobCard = ({ thumb, company, jobTitle, location, tags }) => {
       </JobInfoContainer>
       <TagsContainer>
         {tags.map((tag) => (
-          <Tags name={tag.toLowerCase()} children={tag} />
+          <Tags key={tag} name={tag.toLowerCase()} children={tag} />
         ))}
       </TagsContainer>
       <ApplyBtnContainer>

@@ -34,10 +34,8 @@ function App() {
   return (
     <React.Fragment>
       <GlobalStyle />
-      <div>
-        <h1>Today Jobs</h1>
-        <JobList jobs={jobs} />
-      </div>
+      <h1>Today Jobs</h1>
+      <JobList jobs={jobs} />
     </React.Fragment>
   );
 }
