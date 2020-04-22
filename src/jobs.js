@@ -42,11 +42,11 @@ export const jobs = [
   },
   {
     id: 2,
-    company: 'Forethought',
-    jobTitle: 'Performance Marketing Manager',
-    location: 'San Francisco, CA',
+    company: 'Pinterest',
+    jobTitle: 'Customer Operations, Support Specialist (SF, NYC)',
+    location: 'San Francisco, CA 94103 (South of Market area)',
     thumb:
-      'https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/c8614ed0797768bfd1e7fb4dac77f5df',
+      'https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/b44747a6375c2ed09b323e76516c2fb7',
     description: {
       company: `Founded by a team of Facebook, Dropbox, and LinkedIn alumni in 2017, Forethought’s mission is to "enable everyone to be a genius at their job". We're building AI-driven user experiences that embed information into employee workflows, starting with our AI solution for customer support agents: Agatha.
       Forethought has raised over $10M in VC funding from top-investors including New Enterprise Associates (NEA), Village Global (the venture firm backed by Mark Zuckerberg, Bill Gates, and Reid Hoffman), K9 Ventures, and the CEOs of Robinhood, Front, and Carta. In 2018, Forethought launched and won at TechCrunch Disrupt - the world's most prestigious startup competition - and was featured in Forbes 30 Under 30.
@@ -73,11 +73,11 @@ export const jobs = [
   },
   {
     id: 3,
-    company: 'Forethought',
-    jobTitle: 'Software Engineer, Frontend',
-    location: 'San Francisco, CA',
+    company: 'Atlassian',
+    jobTitle: 'Head of Diversity and Belonging',
+    location: 'San Francisco, CA - Remote (temporarily available, COVID-19)',
     thumb:
-      'https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/c8614ed0797768bfd1e7fb4dac77f5df',
+      'https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/25bd0576a017a7b9da0bc74dc866c451',
     description: {
       company: `Founded by a team of Facebook, Dropbox, and LinkedIn alumni in 2017, Forethought’s mission is to "enable everyone to be a genius at their job". We're building AI-driven user experiences that embed information into employee workflows, starting with our AI solution for customer support agents: Agatha.
       Forethought has raised over $10M in VC funding from top-investors including New Enterprise Associates (NEA), Village Global (the venture firm backed by Mark Zuckerberg, Bill Gates, and Reid Hoffman), K9 Ventures, and the CEOs of Robinhood, Front, and Carta. In 2018, Forethought launched and won at TechCrunch Disrupt - the world's most prestigious startup competition - and was featured in Forbes 30 Under 30.
@@ -104,11 +104,11 @@ export const jobs = [
   },
   {
     id: 4,
-    company: 'Forethought',
-    jobTitle: 'Software Engineer, Frontend',
-    location: 'San Francisco, CA',
+    company: 'Cognizant Technology Solutions',
+    jobTitle: 'React Lead',
+    location: 'San Francisco, CA 94102 (Downtown area)',
     thumb:
-      'https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/c8614ed0797768bfd1e7fb4dac77f5df',
+      'https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/c364697f22ef8e192ea1ba9c5fa44096',
     description: {
       company: `Founded by a team of Facebook, Dropbox, and LinkedIn alumni in 2017, Forethought’s mission is to "enable everyone to be a genius at their job". We're building AI-driven user experiences that embed information into employee workflows, starting with our AI solution for customer support agents: Agatha.
       Forethought has raised over $10M in VC funding from top-investors including New Enterprise Associates (NEA), Village Global (the venture firm backed by Mark Zuckerberg, Bill Gates, and Reid Hoffman), K9 Ventures, and the CEOs of Robinhood, Front, and Carta. In 2018, Forethought launched and won at TechCrunch Disrupt - the world's most prestigious startup competition - and was featured in Forbes 30 Under 30.
