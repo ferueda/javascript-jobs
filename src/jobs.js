@@ -219,6 +219,7 @@ export const jobs = [
     tags: ['JavaScript', 'Front-end', 'Back-end', 'TypeScript', 'Angular'],
     time: '2mo',
     salary: '$800 - $900 a day',
+    active: true,
   },
   {
     id: 7,

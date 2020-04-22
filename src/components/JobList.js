@@ -1,6 +1,6 @@
 import React from 'react';
-import JobCard from './JobCard';
 import styled from 'styled-components';
+import JobCard from './JobCard';
 
 const JobsContainer = styled.div`
   display: flex;
@@ -24,6 +24,8 @@ const JobList = ({ jobs }) => {
             tags={job.tags}
             time={job.time}
             salary={job.salary}
+            active={job.active}
+            descrition={job.description}
           />
         );
       })}

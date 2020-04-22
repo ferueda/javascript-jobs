@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import JobDescription from './JobDescription';
 
 const JobCardContainer = styled.div`
   display: grid;
@@ -8,6 +9,7 @@ const JobCardContainer = styled.div`
   gap: 15px;
   width: 100%;
   padding: 10px;
+  background-color: ${({ active }) => (active ? '#ecf0f1' : '')};
   border-bottom: 1px solid #ecf0f1;
   cursor: pointer;
   &:hover {
@@ -86,37 +88,6 @@ const TimeContainer = styled.div`
   color: #7f8c8d;
 `;
 
-const BaseBtn = styled.button`
-  background-color: #2980b9;
-  color: #fff;
-  padding: 10px 55px;
-  border: 2px solid #2980b9;
-  border-radius: 3px;
-  font-size: 1.5rem;
-  font-weight: 600;
-  outline: none;
-  cursor: pointer;
-`;
-
-const ApplyBtn = styled(BaseBtn)`
-  &:hover {
-    opacity: 0.8;
-  }
-`;
-
-const ApplyBtnTransparent = styled(BaseBtn)`
-  background-color: transparent;
-  color: #2980b9;
-  &:hover {
-    opacity: 0.8;
-  }
-`;
-
-const ApplyBtnContainer = styled.div`
-  display: flex;
-  align-content: center;
-`;
-
 const JobCard = ({
   thumb,
   company,
@@ -125,6 +96,8 @@ const JobCard = ({
   salary,
   tags,
   time,
+  active,
+  description,
 }) => {
   const setCompanyLogoFromName = (companyName) => {
     const companyNameArray = companyName.split(' ');
@@ -136,27 +109,30 @@ const JobCard = ({
   };
 
   return (
-    <JobCardContainer>
-      <CompanyThumbContainer>
-        {thumb ? (
-          <CompanyThumbImg src={thumb} alt={`${company} logo`} />
-        ) : (
-          setCompanyLogoFromName(company)
-        )}
-      </CompanyThumbContainer>
-      <JobInfoContainer>
-        <h3>{company}</h3>
-        <h2>{jobTitle}</h2>
-        <h4>{location}</h4>
-      </JobInfoContainer>
-      <SalaryContainer>{salary}</SalaryContainer>
-      <TagsContainer>
-        {tags.map((tag) => (
-          <Tags key={tag} name={tag.toLowerCase()} children={tag} />
-        ))}
-      </TagsContainer>
-      <TimeContainer>{time}</TimeContainer>
-    </JobCardContainer>
+    <React.Fragment>
+      <JobCardContainer active={active}>
+        <CompanyThumbContainer>
+          {thumb ? (
+            <CompanyThumbImg src={thumb} alt={`${company} logo`} />
+          ) : (
+            setCompanyLogoFromName(company)
+          )}
+        </CompanyThumbContainer>
+        <JobInfoContainer>
+          <h3>{company}</h3>
+          <h2>{jobTitle}</h2>
+          <h4>{location}</h4>
+        </JobInfoContainer>
+        <SalaryContainer>{salary}</SalaryContainer>
+        <TagsContainer>
+          {tags.map((tag) => (
+            <Tags key={tag} name={tag.toLowerCase()} children={tag} />
+          ))}
+        </TagsContainer>
+        <TimeContainer>{time}</TimeContainer>
+      </JobCardContainer>
+      {active ? <JobDescription data={description} /> : null}
+    </React.Fragment>
   );
 };
 
