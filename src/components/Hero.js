@@ -1,14 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import Search from './Search';
+
 const HeroContainer = styled.div`
   width: 100%;
-  height: 40vh;
-  color: #fff;
-  font-size: 2.5rem;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
   text-align: center;
-  font-weight: 900;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4)),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)),
     url('/assets/sf-hero.jpg');
   background-position: center;
   background-repeat: no-repeat;
@@ -16,23 +19,17 @@ const HeroContainer = styled.div`
   position: relative;
 `;
 
-const HeroInput = styled.input`
-  border-radius: 3px;
-  border: none;
-  width: 200px;
-  height: 40px;
-  padding: 0 10px;
-  text-align: left;
-  color: black;
-  font-size: 2rem;
-  margin: 20px;
+const HeroTitle = styled.h1`
+  font-size: 5rem;
+  font-weight: 900;
+  color: #f0db4f;
 `;
 
 const Hero = () => {
   return (
     <HeroContainer>
-      <h1>Javascript Jobs</h1>
-      <HeroInput type='text' placeholder='enter test...' />
+      <HeroTitle>JavaScript Jobs</HeroTitle>
+      <Search />
     </HeroContainer>
   );
 };
