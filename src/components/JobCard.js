@@ -15,6 +15,8 @@ const JobCardContainer = styled.div`
   &:hover {
     background-color: #ecf0f1;
   }
+  border-radius: 3px;
+  overflow: hidden;
 `;
 
 const CompanyThumbContainer = styled.div`

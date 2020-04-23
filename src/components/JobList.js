@@ -10,6 +10,14 @@ const JobsContainer = styled.div`
   max-width: 1000px;
 `;
 
+const JobListTitle = styled.h2`
+  align-self: flex-start;
+  font-weight: 900;
+  font-size: 2.5rem;
+  margin: 15px auto;
+  margin-left: 2.5rem;
+`;
+
 const JobList = ({ jobs }) => {
   const [isActive, setIsActive] = useState(null);
 
@@ -23,6 +31,7 @@ const JobList = ({ jobs }) => {
 
   return (
     <JobsContainer>
+      <JobListTitle>Latest jobs</JobListTitle>
       {jobs.map((job) => {
         return (
           <JobCard
@@ -41,6 +50,7 @@ const JobList = ({ jobs }) => {
           />
         );
       })}
+      <h2></h2>
     </JobsContainer>
   );
 };

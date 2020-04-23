@@ -19,7 +19,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     font-weight: normal;
   }
-  
+
   img {
     max-width: 100%;
     height: auto;
@@ -30,7 +30,6 @@ function App() {
   return (
     <React.Fragment>
       <GlobalStyle />
-      <h1>Today Jobs</h1>
       <JobList jobs={jobs} />
     </React.Fragment>
   );
