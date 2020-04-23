@@ -20,13 +20,13 @@ const ApplyBtn = styled(BaseBtn)`
   }
 `;
 
-const ApplyBtnTransparent = styled(BaseBtn)`
-  background-color: transparent;
-  color: #2980b9;
-  &:hover {
-    opacity: 0.8;
-  }
-`;
+// const ApplyBtnTransparent = styled(BaseBtn)`
+//   background-color: transparent;
+//   color: #2980b9;
+//   &:hover {
+//     opacity: 0.8;
+//   }
+// `;
 
 const ApplyBtnContainer = styled.div`
   display: flex;

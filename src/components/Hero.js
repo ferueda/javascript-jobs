@@ -5,7 +5,7 @@ import Search from './Search';
 
 const HeroContainer = styled.div`
   width: 100%;
-  height: 30vh;
+  height: 35vh;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -20,7 +20,7 @@ const HeroContainer = styled.div`
 `;
 
 const HeroTitle = styled.h1`
-  font-size: 6rem;
+  font-size: 4.5rem;
   font-weight: 900;
   color: #f0db4f;
 
@@ -32,13 +32,19 @@ const HeroTitle = styled.h1`
     text-decoration: none;
     color: inherit;
   }
+
+  span {
+    color: #fff;
+  }
 `;
 
 const Hero = ({ handleSearch }) => {
   return (
     <HeroContainer>
       <HeroTitle>
-        <a href='/'>JavaScript Jobs</a>
+        <a href='/'>
+          JavaScript <span>Jobs</span>
+        </a>
       </HeroTitle>
       <Search placeholder='react...' handleSearch={handleSearch} />
     </HeroContainer>

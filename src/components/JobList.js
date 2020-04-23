@@ -50,7 +50,6 @@ const JobList = ({ jobs }) => {
           />
         );
       })}
-      <h2></h2>
     </JobsContainer>
   );
 };

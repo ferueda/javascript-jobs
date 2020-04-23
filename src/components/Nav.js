@@ -7,7 +7,7 @@ const StyledNav = styled.nav`
   justify-content: space-between;
   max-width: 800px;
   overflow-x: auto;
-  margin: 2rem auto 0 auto;
+  margin: 2rem auto 1rem auto;
 `;
 
 const TechContainer = styled.div`
@@ -37,12 +37,17 @@ const TechContainer = styled.div`
     transform: scale(0.95);
     background-color: #ecf0f1;
   }
+
+  span {
+    font-weight: 600;
+    font-size: 1.4rem;
+  }
 `;
 
 const Tech = ({ imgSrc, tech }) => {
   return (
     <TechContainer>
-      <div className='logo-tech-container'>
+      <div>
         <img src={imgSrc} alt={`${tech} logo`} />
       </div>
       <span>{tech}</span>
@@ -52,6 +57,8 @@ const Tech = ({ imgSrc, tech }) => {
 
 const Nav = () => {
   const logosSrc = [
+    'Front end',
+    'Back end',
     'JavaScript',
     'React',
     'Vue',
