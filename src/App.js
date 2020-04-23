@@ -2,6 +2,7 @@ import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { jobs } from './jobs';
 import JobList from './components/JobList';
+import Hero from './components/Hero';
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -30,6 +31,7 @@ function App() {
   return (
     <React.Fragment>
       <GlobalStyle />
+      <Hero />
       <JobList jobs={jobs} />
     </React.Fragment>
   );
