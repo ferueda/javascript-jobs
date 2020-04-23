@@ -453,4 +453,334 @@ export const jobs = [
     tags: ['JavaScript', 'React', 'Node'],
     time: '28d',
   },
+  {
+    id: 8,
+    company: 'Cognizant Technology Solutions',
+    jobTitle: 'React Lead',
+    location: 'San Francisco, CA 94102 (Downtown area)',
+    description: {
+      company: `Founded by a team of Facebook, Dropbox, and LinkedIn alumni in 2017, Forethought’s mission is to "enable everyone to be a genius at their job". We're building AI-driven user experiences that embed information into employee workflows, starting with our AI solution for customer support agents: Agatha.
+      Forethought has raised over $10M in VC funding from top-investors including New Enterprise Associates (NEA), Village Global (the venture firm backed by Mark Zuckerberg, Bill Gates, and Reid Hoffman), K9 Ventures, and the CEOs of Robinhood, Front, and Carta. In 2018, Forethought launched and won at TechCrunch Disrupt - the world's most prestigious startup competition - and was featured in Forbes 30 Under 30.
+      We are building the future of unstructured information in the enterprise, tackling a $30B+ market opportunity, and we’re assembling a world-class team to help us get there.`,
+      role: `As a member of the Front-End Team, you will be responsible for developing the user-facing products, features, and platforms at Forethought. You will build features ranging from beautiful search tools for workers, to integrated Zendesk, Slack, or Chrome apps. Our tech stack leverages modern technologies such as React.js, Python/Flask, and MongoDB. As an early member of the team, you will work cross-functionally with our Design, Product, and Back-End teams to build beautiful and elegant products out of complex problems. You will be responsible for architecting the front-end, should know HTML, CSS, and modern JavaScript cold, and be comfortable writing and communicating with REST APIs.`,
+      requirements: `Proficiency in HTML/CSS/JS with modern libraries (React.js, Vue.js, etc.)
+      Strong coding ability; able to work in large code-bases with fluency
+      Solid grasp of computer science, algorithms and data structures
+      Past work building web or mobile applications in a real world setting
+      Detailed ability to implement pixel-perfect UI from pixel-perfect mock-ups
+      "Full-stack" mentality; ability to write backend code in Python or Node.js
+      Adaptable, humble, and interested in making an impact
+      3+ years experience in Front-End or UI Developer job
+      [Required] BSc in Computer Science, or equivalent work experience`,
+      perks: `A fast-paced and collaborative environment
+      Build category-defining products
+      Work with world class talent (ex Facebook, Palantir, Dropbox, LinkedIn)
+      A chance to be an early member of the team, with equity to match
+      Make an impact, and help make everyone a genius at their job
+      Medical, dental and vision coverage
+      Unlimited PTO policy`,
+      content: `<div id="vjs-tab-job" data-tab-bind="job"><div id="vjs-desc"><div><div><div>CoderPad is on a mission to fix the technical interviewing process. By focusing on the candidate experience and building a product that allows interviews to be done in whichever language the candidate is most comfortable, we make it easy to quickly get a quality signal of an engineer’s skills. More than 1,500 companies have conducted over 2.5 million CoderPad interviews since our launch in 2013.</div><div></div><br>
+      <div>
+      CoderPad is headquartered in San Francisco, CA. This role may work remotely in the U.S. as a W2 FTE (sorry, no exceptions).<br>
+      </div><div></div><br>
+      <div><b>What does a Software Engineer at CoderPad do?</b></div><div></div><br>
+      <div>
+      As a Senior Frontend Engineer, you'll build candidate- and interviewer-facing interfaces that focus on simplicity and intuitive controls. Throughout every project that you work on, you'll be tasked with ensuring that candidates feel comfortable using our tools and are able to put forth the best possible version of themselves. You'll integrate with our distributed team of engineers, and partner with other engineers to define project plans and execute on them. This role reports to the VPE.
+      </div></div><div><div><h3 class="jobSectionHeader"><b>Sample Projects:</b></h3><div><ul><li>
+      Integrating IDE features like breakpoints, autocompletion, and file navigation to continue to deliver a best-in-class in-browser development experience</li><li>
+      Streamlining and optimizing account onboarding and upgrading in order to ensure that companies are using the CoderPad tool to its fullest potential</li><li>
+      Interviewing insights - delivering metrics to our partners to help them understand the efficiency of their process and what they can do to improve the time it takes to close a role and the quality of candidates hired</li><li>
+      Making decisions on how we implement in React - 75% of our app has been migrated from Rails to React, so ongoing migration and modernizing the frontend</li></ul></div></div></div>
+      <div><div><h3 class="jobSectionHeader"><b>Success Qualifications:</b></h3><div><ul><li>
+      Ability to make technical architectural decisions and provide direction on the product and to the team</li><li>
+      5-10 years of programming experience</li><li>
+      Highly proficient with JavaScript and React, HTML, CSS, and related web technologies</li><li>
+      Experience with NodeJS, and prior experience working with a Rails app is helpful</li><li>
+      Knowledge of cross-browser compatibility issues and client-side performance considerations</li><li>
+      Demonstrated design and UX sensibilities to offer opinions on how things look
+      </li><li>High-standards on the end-user experience
+      </li></ul></div></div></div><div><div>Qualified candidates must be able to work as full-time employees in the U.S. without sponsorship.<br>
+      </div><div></div><br>
+      <div>We have excellent benefits and value the contribution of every team member. If you’re up for the challenge, we are interested in hearing from you.</div><ul><li>Stock options</li><li>Competitive salaries</li><li>Remote-friendly environment</li><li>Paid time off</li><li>Medical, dental, &amp; vision insurance</li><li>401K</li><li>Apple equipment</li><li>Commuter subsidies</li><li>And more…</li></ul><div></div><br>
+      <div><i>
+      CoderPad is an equal opportunity employer. All applicants will be considered for employment regardless of race, color, national origin, religion, sex, age, disability, sexual orientation, gender identity, veteran or disability status.</i></div></div></div></div><div id="vjs-footer"><div class="result-link-bar-container result-link-bar-viewjob"><div class="result-link-bar"><span class="date date-a11y">2 days ago</span> <span id="tt_set_0" class="tt_set"></span><div id="editsaved2_e8051312ca0e60cc" class="edit_note_content" style="display:none;"></div></div></div><div id="mosaic-provider-reportcontent" class="mosaic mosaic-provider-reportcontent"><span><span class="mosaic-reportcontent-link"><a type="link">report job</a></span><div class="mosaic-reportcontent-content"></div></span></div></div></div><div id="vjs-tab-company" data-tab-bind="company" style="display: none;"></div><div id="vjs-tab-insights" data-tab-bind="insights" style="display: none;"></div>`,
+    },
+    tags: ['JavaScript', 'React', 'Node'],
+    time: '28d',
+  },
+  {
+    id: 9,
+    company: 'Cognizant Technology Solutions',
+    jobTitle: 'React Lead',
+    location: 'San Francisco, CA 94102 (Downtown area)',
+    description: {
+      company: `Founded by a team of Facebook, Dropbox, and LinkedIn alumni in 2017, Forethought’s mission is to "enable everyone to be a genius at their job". We're building AI-driven user experiences that embed information into employee workflows, starting with our AI solution for customer support agents: Agatha.
+      Forethought has raised over $10M in VC funding from top-investors including New Enterprise Associates (NEA), Village Global (the venture firm backed by Mark Zuckerberg, Bill Gates, and Reid Hoffman), K9 Ventures, and the CEOs of Robinhood, Front, and Carta. In 2018, Forethought launched and won at TechCrunch Disrupt - the world's most prestigious startup competition - and was featured in Forbes 30 Under 30.
+      We are building the future of unstructured information in the enterprise, tackling a $30B+ market opportunity, and we’re assembling a world-class team to help us get there.`,
+      role: `As a member of the Front-End Team, you will be responsible for developing the user-facing products, features, and platforms at Forethought. You will build features ranging from beautiful search tools for workers, to integrated Zendesk, Slack, or Chrome apps. Our tech stack leverages modern technologies such as React.js, Python/Flask, and MongoDB. As an early member of the team, you will work cross-functionally with our Design, Product, and Back-End teams to build beautiful and elegant products out of complex problems. You will be responsible for architecting the front-end, should know HTML, CSS, and modern JavaScript cold, and be comfortable writing and communicating with REST APIs.`,
+      requirements: `Proficiency in HTML/CSS/JS with modern libraries (React.js, Vue.js, etc.)
+      Strong coding ability; able to work in large code-bases with fluency
+      Solid grasp of computer science, algorithms and data structures
+      Past work building web or mobile applications in a real world setting
+      Detailed ability to implement pixel-perfect UI from pixel-perfect mock-ups
+      "Full-stack" mentality; ability to write backend code in Python or Node.js
+      Adaptable, humble, and interested in making an impact
+      3+ years experience in Front-End or UI Developer job
+      [Required] BSc in Computer Science, or equivalent work experience`,
+      perks: `A fast-paced and collaborative environment
+      Build category-defining products
+      Work with world class talent (ex Facebook, Palantir, Dropbox, LinkedIn)
+      A chance to be an early member of the team, with equity to match
+      Make an impact, and help make everyone a genius at their job
+      Medical, dental and vision coverage
+      Unlimited PTO policy`,
+      content: `<div id="vjs-tab-job" data-tab-bind="job"><div id="vjs-desc"><div><div><div>CoderPad is on a mission to fix the technical interviewing process. By focusing on the candidate experience and building a product that allows interviews to be done in whichever language the candidate is most comfortable, we make it easy to quickly get a quality signal of an engineer’s skills. More than 1,500 companies have conducted over 2.5 million CoderPad interviews since our launch in 2013.</div><div></div><br>
+      <div>
+      CoderPad is headquartered in San Francisco, CA. This role may work remotely in the U.S. as a W2 FTE (sorry, no exceptions).<br>
+      </div><div></div><br>
+      <div><b>What does a Software Engineer at CoderPad do?</b></div><div></div><br>
+      <div>
+      As a Senior Frontend Engineer, you'll build candidate- and interviewer-facing interfaces that focus on simplicity and intuitive controls. Throughout every project that you work on, you'll be tasked with ensuring that candidates feel comfortable using our tools and are able to put forth the best possible version of themselves. You'll integrate with our distributed team of engineers, and partner with other engineers to define project plans and execute on them. This role reports to the VPE.
+      </div></div><div><div><h3 class="jobSectionHeader"><b>Sample Projects:</b></h3><div><ul><li>
+      Integrating IDE features like breakpoints, autocompletion, and file navigation to continue to deliver a best-in-class in-browser development experience</li><li>
+      Streamlining and optimizing account onboarding and upgrading in order to ensure that companies are using the CoderPad tool to its fullest potential</li><li>
+      Interviewing insights - delivering metrics to our partners to help them understand the efficiency of their process and what they can do to improve the time it takes to close a role and the quality of candidates hired</li><li>
+      Making decisions on how we implement in React - 75% of our app has been migrated from Rails to React, so ongoing migration and modernizing the frontend</li></ul></div></div></div>
+      <div><div><h3 class="jobSectionHeader"><b>Success Qualifications:</b></h3><div><ul><li>
+      Ability to make technical architectural decisions and provide direction on the product and to the team</li><li>
+      5-10 years of programming experience</li><li>
+      Highly proficient with JavaScript and React, HTML, CSS, and related web technologies</li><li>
+      Experience with NodeJS, and prior experience working with a Rails app is helpful</li><li>
+      Knowledge of cross-browser compatibility issues and client-side performance considerations</li><li>
+      Demonstrated design and UX sensibilities to offer opinions on how things look
+      </li><li>High-standards on the end-user experience
+      </li></ul></div></div></div><div><div>Qualified candidates must be able to work as full-time employees in the U.S. without sponsorship.<br>
+      </div><div></div><br>
+      <div>We have excellent benefits and value the contribution of every team member. If you’re up for the challenge, we are interested in hearing from you.</div><ul><li>Stock options</li><li>Competitive salaries</li><li>Remote-friendly environment</li><li>Paid time off</li><li>Medical, dental, &amp; vision insurance</li><li>401K</li><li>Apple equipment</li><li>Commuter subsidies</li><li>And more…</li></ul><div></div><br>
+      <div><i>
+      CoderPad is an equal opportunity employer. All applicants will be considered for employment regardless of race, color, national origin, religion, sex, age, disability, sexual orientation, gender identity, veteran or disability status.</i></div></div></div></div><div id="vjs-footer"><div class="result-link-bar-container result-link-bar-viewjob"><div class="result-link-bar"><span class="date date-a11y">2 days ago</span> <span id="tt_set_0" class="tt_set"></span><div id="editsaved2_e8051312ca0e60cc" class="edit_note_content" style="display:none;"></div></div></div><div id="mosaic-provider-reportcontent" class="mosaic mosaic-provider-reportcontent"><span><span class="mosaic-reportcontent-link"><a type="link">report job</a></span><div class="mosaic-reportcontent-content"></div></span></div></div></div><div id="vjs-tab-company" data-tab-bind="company" style="display: none;"></div><div id="vjs-tab-insights" data-tab-bind="insights" style="display: none;"></div>`,
+    },
+    tags: ['JavaScript', 'React', 'Node'],
+    time: '28d',
+  },
+  {
+    id: 10,
+    company: 'Cognizant Technology Solutions',
+    jobTitle: 'React Lead',
+    location: 'San Francisco, CA 94102 (Downtown area)',
+    description: {
+      company: `Founded by a team of Facebook, Dropbox, and LinkedIn alumni in 2017, Forethought’s mission is to "enable everyone to be a genius at their job". We're building AI-driven user experiences that embed information into employee workflows, starting with our AI solution for customer support agents: Agatha.
+      Forethought has raised over $10M in VC funding from top-investors including New Enterprise Associates (NEA), Village Global (the venture firm backed by Mark Zuckerberg, Bill Gates, and Reid Hoffman), K9 Ventures, and the CEOs of Robinhood, Front, and Carta. In 2018, Forethought launched and won at TechCrunch Disrupt - the world's most prestigious startup competition - and was featured in Forbes 30 Under 30.
+      We are building the future of unstructured information in the enterprise, tackling a $30B+ market opportunity, and we’re assembling a world-class team to help us get there.`,
+      role: `As a member of the Front-End Team, you will be responsible for developing the user-facing products, features, and platforms at Forethought. You will build features ranging from beautiful search tools for workers, to integrated Zendesk, Slack, or Chrome apps. Our tech stack leverages modern technologies such as React.js, Python/Flask, and MongoDB. As an early member of the team, you will work cross-functionally with our Design, Product, and Back-End teams to build beautiful and elegant products out of complex problems. You will be responsible for architecting the front-end, should know HTML, CSS, and modern JavaScript cold, and be comfortable writing and communicating with REST APIs.`,
+      requirements: `Proficiency in HTML/CSS/JS with modern libraries (React.js, Vue.js, etc.)
+      Strong coding ability; able to work in large code-bases with fluency
+      Solid grasp of computer science, algorithms and data structures
+      Past work building web or mobile applications in a real world setting
+      Detailed ability to implement pixel-perfect UI from pixel-perfect mock-ups
+      "Full-stack" mentality; ability to write backend code in Python or Node.js
+      Adaptable, humble, and interested in making an impact
+      3+ years experience in Front-End or UI Developer job
+      [Required] BSc in Computer Science, or equivalent work experience`,
+      perks: `A fast-paced and collaborative environment
+      Build category-defining products
+      Work with world class talent (ex Facebook, Palantir, Dropbox, LinkedIn)
+      A chance to be an early member of the team, with equity to match
+      Make an impact, and help make everyone a genius at their job
+      Medical, dental and vision coverage
+      Unlimited PTO policy`,
+      content: `<div id="vjs-tab-job" data-tab-bind="job"><div id="vjs-desc"><div><div><div>CoderPad is on a mission to fix the technical interviewing process. By focusing on the candidate experience and building a product that allows interviews to be done in whichever language the candidate is most comfortable, we make it easy to quickly get a quality signal of an engineer’s skills. More than 1,500 companies have conducted over 2.5 million CoderPad interviews since our launch in 2013.</div><div></div><br>
+      <div>
+      CoderPad is headquartered in San Francisco, CA. This role may work remotely in the U.S. as a W2 FTE (sorry, no exceptions).<br>
+      </div><div></div><br>
+      <div><b>What does a Software Engineer at CoderPad do?</b></div><div></div><br>
+      <div>
+      As a Senior Frontend Engineer, you'll build candidate- and interviewer-facing interfaces that focus on simplicity and intuitive controls. Throughout every project that you work on, you'll be tasked with ensuring that candidates feel comfortable using our tools and are able to put forth the best possible version of themselves. You'll integrate with our distributed team of engineers, and partner with other engineers to define project plans and execute on them. This role reports to the VPE.
+      </div></div><div><div><h3 class="jobSectionHeader"><b>Sample Projects:</b></h3><div><ul><li>
+      Integrating IDE features like breakpoints, autocompletion, and file navigation to continue to deliver a best-in-class in-browser development experience</li><li>
+      Streamlining and optimizing account onboarding and upgrading in order to ensure that companies are using the CoderPad tool to its fullest potential</li><li>
+      Interviewing insights - delivering metrics to our partners to help them understand the efficiency of their process and what they can do to improve the time it takes to close a role and the quality of candidates hired</li><li>
+      Making decisions on how we implement in React - 75% of our app has been migrated from Rails to React, so ongoing migration and modernizing the frontend</li></ul></div></div></div>
+      <div><div><h3 class="jobSectionHeader"><b>Success Qualifications:</b></h3><div><ul><li>
+      Ability to make technical architectural decisions and provide direction on the product and to the team</li><li>
+      5-10 years of programming experience</li><li>
+      Highly proficient with JavaScript and React, HTML, CSS, and related web technologies</li><li>
+      Experience with NodeJS, and prior experience working with a Rails app is helpful</li><li>
+      Knowledge of cross-browser compatibility issues and client-side performance considerations</li><li>
+      Demonstrated design and UX sensibilities to offer opinions on how things look
+      </li><li>High-standards on the end-user experience
+      </li></ul></div></div></div><div><div>Qualified candidates must be able to work as full-time employees in the U.S. without sponsorship.<br>
+      </div><div></div><br>
+      <div>We have excellent benefits and value the contribution of every team member. If you’re up for the challenge, we are interested in hearing from you.</div><ul><li>Stock options</li><li>Competitive salaries</li><li>Remote-friendly environment</li><li>Paid time off</li><li>Medical, dental, &amp; vision insurance</li><li>401K</li><li>Apple equipment</li><li>Commuter subsidies</li><li>And more…</li></ul><div></div><br>
+      <div><i>
+      CoderPad is an equal opportunity employer. All applicants will be considered for employment regardless of race, color, national origin, religion, sex, age, disability, sexual orientation, gender identity, veteran or disability status.</i></div></div></div></div><div id="vjs-footer"><div class="result-link-bar-container result-link-bar-viewjob"><div class="result-link-bar"><span class="date date-a11y">2 days ago</span> <span id="tt_set_0" class="tt_set"></span><div id="editsaved2_e8051312ca0e60cc" class="edit_note_content" style="display:none;"></div></div></div><div id="mosaic-provider-reportcontent" class="mosaic mosaic-provider-reportcontent"><span><span class="mosaic-reportcontent-link"><a type="link">report job</a></span><div class="mosaic-reportcontent-content"></div></span></div></div></div><div id="vjs-tab-company" data-tab-bind="company" style="display: none;"></div><div id="vjs-tab-insights" data-tab-bind="insights" style="display: none;"></div>`,
+    },
+    tags: ['JavaScript', 'React', 'Node'],
+    time: '28d',
+  },
+  {
+    id: 11,
+    company: 'Cognizant Technology Solutions',
+    jobTitle: 'React Lead',
+    location: 'San Francisco, CA 94102 (Downtown area)',
+    description: {
+      company: `Founded by a team of Facebook, Dropbox, and LinkedIn alumni in 2017, Forethought’s mission is to "enable everyone to be a genius at their job". We're building AI-driven user experiences that embed information into employee workflows, starting with our AI solution for customer support agents: Agatha.
+      Forethought has raised over $10M in VC funding from top-investors including New Enterprise Associates (NEA), Village Global (the venture firm backed by Mark Zuckerberg, Bill Gates, and Reid Hoffman), K9 Ventures, and the CEOs of Robinhood, Front, and Carta. In 2018, Forethought launched and won at TechCrunch Disrupt - the world's most prestigious startup competition - and was featured in Forbes 30 Under 30.
+      We are building the future of unstructured information in the enterprise, tackling a $30B+ market opportunity, and we’re assembling a world-class team to help us get there.`,
+      role: `As a member of the Front-End Team, you will be responsible for developing the user-facing products, features, and platforms at Forethought. You will build features ranging from beautiful search tools for workers, to integrated Zendesk, Slack, or Chrome apps. Our tech stack leverages modern technologies such as React.js, Python/Flask, and MongoDB. As an early member of the team, you will work cross-functionally with our Design, Product, and Back-End teams to build beautiful and elegant products out of complex problems. You will be responsible for architecting the front-end, should know HTML, CSS, and modern JavaScript cold, and be comfortable writing and communicating with REST APIs.`,
+      requirements: `Proficiency in HTML/CSS/JS with modern libraries (React.js, Vue.js, etc.)
+      Strong coding ability; able to work in large code-bases with fluency
+      Solid grasp of computer science, algorithms and data structures
+      Past work building web or mobile applications in a real world setting
+      Detailed ability to implement pixel-perfect UI from pixel-perfect mock-ups
+      "Full-stack" mentality; ability to write backend code in Python or Node.js
+      Adaptable, humble, and interested in making an impact
+      3+ years experience in Front-End or UI Developer job
+      [Required] BSc in Computer Science, or equivalent work experience`,
+      perks: `A fast-paced and collaborative environment
+      Build category-defining products
+      Work with world class talent (ex Facebook, Palantir, Dropbox, LinkedIn)
+      A chance to be an early member of the team, with equity to match
+      Make an impact, and help make everyone a genius at their job
+      Medical, dental and vision coverage
+      Unlimited PTO policy`,
+      content: `<div id="vjs-tab-job" data-tab-bind="job"><div id="vjs-desc"><div><div><div>CoderPad is on a mission to fix the technical interviewing process. By focusing on the candidate experience and building a product that allows interviews to be done in whichever language the candidate is most comfortable, we make it easy to quickly get a quality signal of an engineer’s skills. More than 1,500 companies have conducted over 2.5 million CoderPad interviews since our launch in 2013.</div><div></div><br>
+      <div>
+      CoderPad is headquartered in San Francisco, CA. This role may work remotely in the U.S. as a W2 FTE (sorry, no exceptions).<br>
+      </div><div></div><br>
+      <div><b>What does a Software Engineer at CoderPad do?</b></div><div></div><br>
+      <div>
+      As a Senior Frontend Engineer, you'll build candidate- and interviewer-facing interfaces that focus on simplicity and intuitive controls. Throughout every project that you work on, you'll be tasked with ensuring that candidates feel comfortable using our tools and are able to put forth the best possible version of themselves. You'll integrate with our distributed team of engineers, and partner with other engineers to define project plans and execute on them. This role reports to the VPE.
+      </div></div><div><div><h3 class="jobSectionHeader"><b>Sample Projects:</b></h3><div><ul><li>
+      Integrating IDE features like breakpoints, autocompletion, and file navigation to continue to deliver a best-in-class in-browser development experience</li><li>
+      Streamlining and optimizing account onboarding and upgrading in order to ensure that companies are using the CoderPad tool to its fullest potential</li><li>
+      Interviewing insights - delivering metrics to our partners to help them understand the efficiency of their process and what they can do to improve the time it takes to close a role and the quality of candidates hired</li><li>
+      Making decisions on how we implement in React - 75% of our app has been migrated from Rails to React, so ongoing migration and modernizing the frontend</li></ul></div></div></div>
+      <div><div><h3 class="jobSectionHeader"><b>Success Qualifications:</b></h3><div><ul><li>
+      Ability to make technical architectural decisions and provide direction on the product and to the team</li><li>
+      5-10 years of programming experience</li><li>
+      Highly proficient with JavaScript and React, HTML, CSS, and related web technologies</li><li>
+      Experience with NodeJS, and prior experience working with a Rails app is helpful</li><li>
+      Knowledge of cross-browser compatibility issues and client-side performance considerations</li><li>
+      Demonstrated design and UX sensibilities to offer opinions on how things look
+      </li><li>High-standards on the end-user experience
+      </li></ul></div></div></div><div><div>Qualified candidates must be able to work as full-time employees in the U.S. without sponsorship.<br>
+      </div><div></div><br>
+      <div>We have excellent benefits and value the contribution of every team member. If you’re up for the challenge, we are interested in hearing from you.</div><ul><li>Stock options</li><li>Competitive salaries</li><li>Remote-friendly environment</li><li>Paid time off</li><li>Medical, dental, &amp; vision insurance</li><li>401K</li><li>Apple equipment</li><li>Commuter subsidies</li><li>And more…</li></ul><div></div><br>
+      <div><i>
+      CoderPad is an equal opportunity employer. All applicants will be considered for employment regardless of race, color, national origin, religion, sex, age, disability, sexual orientation, gender identity, veteran or disability status.</i></div></div></div></div><div id="vjs-footer"><div class="result-link-bar-container result-link-bar-viewjob"><div class="result-link-bar"><span class="date date-a11y">2 days ago</span> <span id="tt_set_0" class="tt_set"></span><div id="editsaved2_e8051312ca0e60cc" class="edit_note_content" style="display:none;"></div></div></div><div id="mosaic-provider-reportcontent" class="mosaic mosaic-provider-reportcontent"><span><span class="mosaic-reportcontent-link"><a type="link">report job</a></span><div class="mosaic-reportcontent-content"></div></span></div></div></div><div id="vjs-tab-company" data-tab-bind="company" style="display: none;"></div><div id="vjs-tab-insights" data-tab-bind="insights" style="display: none;"></div>`,
+    },
+    tags: ['JavaScript', 'React', 'Node'],
+    time: '28d',
+  },
+  {
+    id: 12,
+    company: 'Cognizant Technology Solutions',
+    jobTitle: 'React Lead',
+    location: 'San Francisco, CA 94102 (Downtown area)',
+    description: {
+      company: `Founded by a team of Facebook, Dropbox, and LinkedIn alumni in 2017, Forethought’s mission is to "enable everyone to be a genius at their job". We're building AI-driven user experiences that embed information into employee workflows, starting with our AI solution for customer support agents: Agatha.
+      Forethought has raised over $10M in VC funding from top-investors including New Enterprise Associates (NEA), Village Global (the venture firm backed by Mark Zuckerberg, Bill Gates, and Reid Hoffman), K9 Ventures, and the CEOs of Robinhood, Front, and Carta. In 2018, Forethought launched and won at TechCrunch Disrupt - the world's most prestigious startup competition - and was featured in Forbes 30 Under 30.
+      We are building the future of unstructured information in the enterprise, tackling a $30B+ market opportunity, and we’re assembling a world-class team to help us get there.`,
+      role: `As a member of the Front-End Team, you will be responsible for developing the user-facing products, features, and platforms at Forethought. You will build features ranging from beautiful search tools for workers, to integrated Zendesk, Slack, or Chrome apps. Our tech stack leverages modern technologies such as React.js, Python/Flask, and MongoDB. As an early member of the team, you will work cross-functionally with our Design, Product, and Back-End teams to build beautiful and elegant products out of complex problems. You will be responsible for architecting the front-end, should know HTML, CSS, and modern JavaScript cold, and be comfortable writing and communicating with REST APIs.`,
+      requirements: `Proficiency in HTML/CSS/JS with modern libraries (React.js, Vue.js, etc.)
+      Strong coding ability; able to work in large code-bases with fluency
+      Solid grasp of computer science, algorithms and data structures
+      Past work building web or mobile applications in a real world setting
+      Detailed ability to implement pixel-perfect UI from pixel-perfect mock-ups
+      "Full-stack" mentality; ability to write backend code in Python or Node.js
+      Adaptable, humble, and interested in making an impact
+      3+ years experience in Front-End or UI Developer job
+      [Required] BSc in Computer Science, or equivalent work experience`,
+      perks: `A fast-paced and collaborative environment
+      Build category-defining products
+      Work with world class talent (ex Facebook, Palantir, Dropbox, LinkedIn)
+      A chance to be an early member of the team, with equity to match
+      Make an impact, and help make everyone a genius at their job
+      Medical, dental and vision coverage
+      Unlimited PTO policy`,
+      content: `<div id="vjs-tab-job" data-tab-bind="job"><div id="vjs-desc"><div><div><div>CoderPad is on a mission to fix the technical interviewing process. By focusing on the candidate experience and building a product that allows interviews to be done in whichever language the candidate is most comfortable, we make it easy to quickly get a quality signal of an engineer’s skills. More than 1,500 companies have conducted over 2.5 million CoderPad interviews since our launch in 2013.</div><div></div><br>
+      <div>
+      CoderPad is headquartered in San Francisco, CA. This role may work remotely in the U.S. as a W2 FTE (sorry, no exceptions).<br>
+      </div><div></div><br>
+      <div><b>What does a Software Engineer at CoderPad do?</b></div><div></div><br>
+      <div>
+      As a Senior Frontend Engineer, you'll build candidate- and interviewer-facing interfaces that focus on simplicity and intuitive controls. Throughout every project that you work on, you'll be tasked with ensuring that candidates feel comfortable using our tools and are able to put forth the best possible version of themselves. You'll integrate with our distributed team of engineers, and partner with other engineers to define project plans and execute on them. This role reports to the VPE.
+      </div></div><div><div><h3 class="jobSectionHeader"><b>Sample Projects:</b></h3><div><ul><li>
+      Integrating IDE features like breakpoints, autocompletion, and file navigation to continue to deliver a best-in-class in-browser development experience</li><li>
+      Streamlining and optimizing account onboarding and upgrading in order to ensure that companies are using the CoderPad tool to its fullest potential</li><li>
+      Interviewing insights - delivering metrics to our partners to help them understand the efficiency of their process and what they can do to improve the time it takes to close a role and the quality of candidates hired</li><li>
+      Making decisions on how we implement in React - 75% of our app has been migrated from Rails to React, so ongoing migration and modernizing the frontend</li></ul></div></div></div>
+      <div><div><h3 class="jobSectionHeader"><b>Success Qualifications:</b></h3><div><ul><li>
+      Ability to make technical architectural decisions and provide direction on the product and to the team</li><li>
+      5-10 years of programming experience</li><li>
+      Highly proficient with JavaScript and React, HTML, CSS, and related web technologies</li><li>
+      Experience with NodeJS, and prior experience working with a Rails app is helpful</li><li>
+      Knowledge of cross-browser compatibility issues and client-side performance considerations</li><li>
+      Demonstrated design and UX sensibilities to offer opinions on how things look
+      </li><li>High-standards on the end-user experience
+      </li></ul></div></div></div><div><div>Qualified candidates must be able to work as full-time employees in the U.S. without sponsorship.<br>
+      </div><div></div><br>
+      <div>We have excellent benefits and value the contribution of every team member. If you’re up for the challenge, we are interested in hearing from you.</div><ul><li>Stock options</li><li>Competitive salaries</li><li>Remote-friendly environment</li><li>Paid time off</li><li>Medical, dental, &amp; vision insurance</li><li>401K</li><li>Apple equipment</li><li>Commuter subsidies</li><li>And more…</li></ul><div></div><br>
+      <div><i>
+      CoderPad is an equal opportunity employer. All applicants will be considered for employment regardless of race, color, national origin, religion, sex, age, disability, sexual orientation, gender identity, veteran or disability status.</i></div></div></div></div><div id="vjs-footer"><div class="result-link-bar-container result-link-bar-viewjob"><div class="result-link-bar"><span class="date date-a11y">2 days ago</span> <span id="tt_set_0" class="tt_set"></span><div id="editsaved2_e8051312ca0e60cc" class="edit_note_content" style="display:none;"></div></div></div><div id="mosaic-provider-reportcontent" class="mosaic mosaic-provider-reportcontent"><span><span class="mosaic-reportcontent-link"><a type="link">report job</a></span><div class="mosaic-reportcontent-content"></div></span></div></div></div><div id="vjs-tab-company" data-tab-bind="company" style="display: none;"></div><div id="vjs-tab-insights" data-tab-bind="insights" style="display: none;"></div>`,
+    },
+    tags: ['JavaScript', 'React', 'Node'],
+    time: '28d',
+  },
+  {
+    id: 13,
+    company: 'Cognizant Technology Solutions',
+    jobTitle: 'React Lead',
+    location: 'San Francisco, CA 94102 (Downtown area)',
+    description: {
+      company: `Founded by a team of Facebook, Dropbox, and LinkedIn alumni in 2017, Forethought’s mission is to "enable everyone to be a genius at their job". We're building AI-driven user experiences that embed information into employee workflows, starting with our AI solution for customer support agents: Agatha.
+      Forethought has raised over $10M in VC funding from top-investors including New Enterprise Associates (NEA), Village Global (the venture firm backed by Mark Zuckerberg, Bill Gates, and Reid Hoffman), K9 Ventures, and the CEOs of Robinhood, Front, and Carta. In 2018, Forethought launched and won at TechCrunch Disrupt - the world's most prestigious startup competition - and was featured in Forbes 30 Under 30.
+      We are building the future of unstructured information in the enterprise, tackling a $30B+ market opportunity, and we’re assembling a world-class team to help us get there.`,
+      role: `As a member of the Front-End Team, you will be responsible for developing the user-facing products, features, and platforms at Forethought. You will build features ranging from beautiful search tools for workers, to integrated Zendesk, Slack, or Chrome apps. Our tech stack leverages modern technologies such as React.js, Python/Flask, and MongoDB. As an early member of the team, you will work cross-functionally with our Design, Product, and Back-End teams to build beautiful and elegant products out of complex problems. You will be responsible for architecting the front-end, should know HTML, CSS, and modern JavaScript cold, and be comfortable writing and communicating with REST APIs.`,
+      requirements: `Proficiency in HTML/CSS/JS with modern libraries (React.js, Vue.js, etc.)
+      Strong coding ability; able to work in large code-bases with fluency
+      Solid grasp of computer science, algorithms and data structures
+      Past work building web or mobile applications in a real world setting
+      Detailed ability to implement pixel-perfect UI from pixel-perfect mock-ups
+      "Full-stack" mentality; ability to write backend code in Python or Node.js
+      Adaptable, humble, and interested in making an impact
+      3+ years experience in Front-End or UI Developer job
+      [Required] BSc in Computer Science, or equivalent work experience`,
+      perks: `A fast-paced and collaborative environment
+      Build category-defining products
+      Work with world class talent (ex Facebook, Palantir, Dropbox, LinkedIn)
+      A chance to be an early member of the team, with equity to match
+      Make an impact, and help make everyone a genius at their job
+      Medical, dental and vision coverage
+      Unlimited PTO policy`,
+      content: `<div id="vjs-tab-job" data-tab-bind="job"><div id="vjs-desc"><div><div><div>CoderPad is on a mission to fix the technical interviewing process. By focusing on the candidate experience and building a product that allows interviews to be done in whichever language the candidate is most comfortable, we make it easy to quickly get a quality signal of an engineer’s skills. More than 1,500 companies have conducted over 2.5 million CoderPad interviews since our launch in 2013.</div><div></div><br>
+      <div>
+      CoderPad is headquartered in San Francisco, CA. This role may work remotely in the U.S. as a W2 FTE (sorry, no exceptions).<br>
+      </div><div></div><br>
+      <div><b>What does a Software Engineer at CoderPad do?</b></div><div></div><br>
+      <div>
+      As a Senior Frontend Engineer, you'll build candidate- and interviewer-facing interfaces that focus on simplicity and intuitive controls. Throughout every project that you work on, you'll be tasked with ensuring that candidates feel comfortable using our tools and are able to put forth the best possible version of themselves. You'll integrate with our distributed team of engineers, and partner with other engineers to define project plans and execute on them. This role reports to the VPE.
+      </div></div><div><div><h3 class="jobSectionHeader"><b>Sample Projects:</b></h3><div><ul><li>
+      Integrating IDE features like breakpoints, autocompletion, and file navigation to continue to deliver a best-in-class in-browser development experience</li><li>
+      Streamlining and optimizing account onboarding and upgrading in order to ensure that companies are using the CoderPad tool to its fullest potential</li><li>
+      Interviewing insights - delivering metrics to our partners to help them understand the efficiency of their process and what they can do to improve the time it takes to close a role and the quality of candidates hired</li><li>
+      Making decisions on how we implement in React - 75% of our app has been migrated from Rails to React, so ongoing migration and modernizing the frontend</li></ul></div></div></div>
+      <div><div><h3 class="jobSectionHeader"><b>Success Qualifications:</b></h3><div><ul><li>
+      Ability to make technical architectural decisions and provide direction on the product and to the team</li><li>
+      5-10 years of programming experience</li><li>
+      Highly proficient with JavaScript and React, HTML, CSS, and related web technologies</li><li>
+      Experience with NodeJS, and prior experience working with a Rails app is helpful</li><li>
+      Knowledge of cross-browser compatibility issues and client-side performance considerations</li><li>
+      Demonstrated design and UX sensibilities to offer opinions on how things look
+      </li><li>High-standards on the end-user experience
+      </li></ul></div></div></div><div><div>Qualified candidates must be able to work as full-time employees in the U.S. without sponsorship.<br>
+      </div><div></div><br>
+      <div>We have excellent benefits and value the contribution of every team member. If you’re up for the challenge, we are interested in hearing from you.</div><ul><li>Stock options</li><li>Competitive salaries</li><li>Remote-friendly environment</li><li>Paid time off</li><li>Medical, dental, &amp; vision insurance</li><li>401K</li><li>Apple equipment</li><li>Commuter subsidies</li><li>And more…</li></ul><div></div><br>
+      <div><i>
+      CoderPad is an equal opportunity employer. All applicants will be considered for employment regardless of race, color, national origin, religion, sex, age, disability, sexual orientation, gender identity, veteran or disability status.</i></div></div></div></div><div id="vjs-footer"><div class="result-link-bar-container result-link-bar-viewjob"><div class="result-link-bar"><span class="date date-a11y">2 days ago</span> <span id="tt_set_0" class="tt_set"></span><div id="editsaved2_e8051312ca0e60cc" class="edit_note_content" style="display:none;"></div></div></div><div id="mosaic-provider-reportcontent" class="mosaic mosaic-provider-reportcontent"><span><span class="mosaic-reportcontent-link"><a type="link">report job</a></span><div class="mosaic-reportcontent-content"></div></span></div></div></div><div id="vjs-tab-company" data-tab-bind="company" style="display: none;"></div><div id="vjs-tab-insights" data-tab-bind="insights" style="display: none;"></div>`,
+    },
+    tags: ['JavaScript', 'React', 'Node'],
+    time: '28d',
+  },
 ];

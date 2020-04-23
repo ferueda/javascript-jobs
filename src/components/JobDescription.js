@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const BaseBtn = styled.button`
+const BaseBtn = styled.a`
   background-color: #2980b9;
   color: #fff;
   padding: 10px 55px;
@@ -11,6 +11,7 @@ const BaseBtn = styled.button`
   font-weight: 600;
   outline: none;
   cursor: pointer;
+  text-decoration: none;
 `;
 
 const ApplyBtn = styled(BaseBtn)`
@@ -58,13 +59,13 @@ const JobDescription = ({ data }) => {
   return (
     <ContentContainer>
       <ApplyBtnContainer>
-        <ApplyBtn onClick={() => window.open('https://google.com/', '__blank')}>
+        <ApplyBtn href='https://google.com/' target='_blank'>
           Apply now
         </ApplyBtn>
       </ApplyBtnContainer>
       <div dangerouslySetInnerHTML={{ __html: data.content }}></div>
       <ApplyBtnContainer>
-        <ApplyBtn onClick={() => window.open('https://google.com/', '__blank')}>
+        <ApplyBtn href='https://google.com/' target='_blank'>
           Apply now
         </ApplyBtn>
       </ApplyBtnContainer>
