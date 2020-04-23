@@ -35,7 +35,7 @@ const ApplyBtnContainer = styled.div`
 `;
 
 const ContentContainer = styled.div`
-  width: 100%;
+  width: 80%;
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -58,11 +58,15 @@ const JobDescription = ({ data }) => {
   return (
     <ContentContainer>
       <ApplyBtnContainer>
-        <ApplyBtn>Apply now</ApplyBtn>
+        <ApplyBtn onClick={() => window.open('https://google.com/', '__blank')}>
+          Apply now
+        </ApplyBtn>
       </ApplyBtnContainer>
-      <div dangerouslySetInnerHTML={{ __html: data.test }}></div>
+      <div dangerouslySetInnerHTML={{ __html: data.content }}></div>
       <ApplyBtnContainer>
-        <ApplyBtn>Apply now</ApplyBtn>
+        <ApplyBtn onClick={() => window.open('https://google.com/', '__blank')}>
+          Apply now
+        </ApplyBtn>
       </ApplyBtnContainer>
     </ContentContainer>
   );

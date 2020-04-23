@@ -89,6 +89,7 @@ const TimeContainer = styled.div`
 `;
 
 const JobCard = ({
+  id,
   thumb,
   company,
   jobTitle,
@@ -98,6 +99,7 @@ const JobCard = ({
   time,
   active,
   description,
+  handleActiveChange,
 }) => {
   const setCompanyLogoFromName = (companyName) => {
     const companyNameArray = companyName.split(' ');
@@ -110,7 +112,7 @@ const JobCard = ({
 
   return (
     <React.Fragment>
-      <JobCardContainer active={active}>
+      <JobCardContainer active={active === id} onClick={handleActiveChange}>
         <CompanyThumbContainer>
           {thumb ? (
             <CompanyThumbImg src={thumb} alt={`${company} logo`} />
@@ -131,7 +133,7 @@ const JobCard = ({
         </TagsContainer>
         <TimeContainer>{time}</TimeContainer>
       </JobCardContainer>
-      {active ? <JobDescription data={description} /> : null}
+      {active === id && <JobDescription data={description} />}
     </React.Fragment>
   );
 };

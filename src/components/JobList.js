@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import JobCard from './JobCard';
 
@@ -11,6 +11,16 @@ const JobsContainer = styled.div`
 `;
 
 const JobList = ({ jobs }) => {
+  const [isActive, setIsActive] = useState(null);
+
+  const handleActiveChange = (jobId) => {
+    if (isActive === jobId) {
+      setIsActive(null);
+    } else {
+      setIsActive(jobId);
+    }
+  };
+
   return (
     <JobsContainer>
       {jobs.map((job) => {
@@ -24,8 +34,10 @@ const JobList = ({ jobs }) => {
             tags={job.tags}
             time={job.time}
             salary={job.salary}
-            active={job.active}
+            active={isActive}
+            handleActiveChange={() => handleActiveChange(job.id)}
             description={job.description}
+            id={job.id}
           />
         );
       })}
