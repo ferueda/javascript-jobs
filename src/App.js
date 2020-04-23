@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { createGlobalStyle } from 'styled-components';
-import { jobs } from './jobs';
+import { jobs as j } from './jobs';
 import JobList from './components/JobList';
 import Hero from './components/Hero';
 
@@ -28,11 +28,32 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 function App() {
+  const [jobs, setJobs] = useState([]);
+  const [filter, setFilter] = useState('');
+
+  useEffect(() => {
+    setJobs(j);
+  }, []);
+
+  const handleSearch = (event) => {
+    event.preventDefault();
+    const value = event.target.tech.value;
+    if (value !== '') {
+      setFilter(value);
+    }
+  };
+
+  const jobsToShow = !filter
+    ? jobs
+    : jobs.filter((job) =>
+        job.tags.some((tag) => tag.toLowerCase().includes(filter.toLowerCase()))
+      );
+
   return (
     <React.Fragment>
       <GlobalStyle />
-      <Hero />
-      <JobList jobs={jobs} />
+      <Hero handleSearch={handleSearch} />
+      <JobList jobs={jobsToShow} />
     </React.Fragment>
   );
 }

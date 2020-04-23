@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const HeroInput = styled.input`
@@ -28,10 +28,22 @@ const FlexForm = styled.form`
   display: flex;
 `;
 
-const Search = () => {
+const Search = ({ placeholder, handleSearch }) => {
+  const [search, setSearch] = useState('');
+
+  const onChange = (event) => {
+    setSearch(event.target.value);
+  };
+
   return (
-    <FlexForm>
-      <HeroInput type='text' placeholder='React...' />
+    <FlexForm onSubmit={handleSearch}>
+      <HeroInput
+        name='tech'
+        value={search}
+        onChange={onChange}
+        type='text'
+        placeholder={placeholder}
+      />
       <InputBtn>
         <svg
           xmlns='http://www.w3.org/2000/svg'

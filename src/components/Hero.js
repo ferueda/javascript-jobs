@@ -20,16 +20,16 @@ const HeroContainer = styled.div`
 `;
 
 const HeroTitle = styled.h1`
-  font-size: 5rem;
+  font-size: 6rem;
   font-weight: 900;
   color: #f0db4f;
 `;
 
-const Hero = () => {
+const Hero = ({ handleSearch }) => {
   return (
     <HeroContainer>
       <HeroTitle>JavaScript Jobs</HeroTitle>
-      <Search />
+      <Search placeholder='react...' handleSearch={handleSearch} />
     </HeroContainer>
   );
 };

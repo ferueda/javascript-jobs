@@ -670,7 +670,7 @@ export const jobs = [
       <div><i>
       CoderPad is an equal opportunity employer. All applicants will be considered for employment regardless of race, color, national origin, religion, sex, age, disability, sexual orientation, gender identity, veteran or disability status.</i></div></div></div></div><div id="vjs-footer"><div class="result-link-bar-container result-link-bar-viewjob"><div class="result-link-bar"><span class="date date-a11y">2 days ago</span> <span id="tt_set_0" class="tt_set"></span><div id="editsaved2_e8051312ca0e60cc" class="edit_note_content" style="display:none;"></div></div></div><div id="mosaic-provider-reportcontent" class="mosaic mosaic-provider-reportcontent"><span><span class="mosaic-reportcontent-link"><a type="link">report job</a></span><div class="mosaic-reportcontent-content"></div></span></div></div></div><div id="vjs-tab-company" data-tab-bind="company" style="display: none;"></div><div id="vjs-tab-insights" data-tab-bind="insights" style="display: none;"></div>`,
     },
-    tags: ['JavaScript', 'React', 'Node'],
+    tags: ['JavaScript', 'Node'],
     time: '28d',
   },
   {
@@ -725,7 +725,7 @@ export const jobs = [
       <div><i>
       CoderPad is an equal opportunity employer. All applicants will be considered for employment regardless of race, color, national origin, religion, sex, age, disability, sexual orientation, gender identity, veteran or disability status.</i></div></div></div></div><div id="vjs-footer"><div class="result-link-bar-container result-link-bar-viewjob"><div class="result-link-bar"><span class="date date-a11y">2 days ago</span> <span id="tt_set_0" class="tt_set"></span><div id="editsaved2_e8051312ca0e60cc" class="edit_note_content" style="display:none;"></div></div></div><div id="mosaic-provider-reportcontent" class="mosaic mosaic-provider-reportcontent"><span><span class="mosaic-reportcontent-link"><a type="link">report job</a></span><div class="mosaic-reportcontent-content"></div></span></div></div></div><div id="vjs-tab-company" data-tab-bind="company" style="display: none;"></div><div id="vjs-tab-insights" data-tab-bind="insights" style="display: none;"></div>`,
     },
-    tags: ['JavaScript', 'React', 'Node'],
+    tags: ['JavaScript', 'Node'],
     time: '28d',
   },
   {
