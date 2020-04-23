@@ -23,12 +23,23 @@ const HeroTitle = styled.h1`
   font-size: 6rem;
   font-weight: 900;
   color: #f0db4f;
+
+  a,
+  a:link,
+  a:visited,
+  a:hover,
+  a:active {
+    text-decoration: none;
+    color: inherit;
+  }
 `;
 
 const Hero = ({ handleSearch }) => {
   return (
     <HeroContainer>
-      <HeroTitle>JavaScript Jobs</HeroTitle>
+      <HeroTitle>
+        <a href='/'>JavaScript Jobs</a>
+      </HeroTitle>
       <Search placeholder='react...' handleSearch={handleSearch} />
     </HeroContainer>
   );

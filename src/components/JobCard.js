@@ -11,6 +11,7 @@ const JobCardContainer = styled.div`
   padding: 10px;
   background-color: ${({ active }) => (active ? '#ecf0f1' : '')};
   border-bottom: 1px solid #ecf0f1;
+  transition: 0.1s ease-out;
   cursor: pointer;
   &:hover {
     background-color: #ecf0f1;

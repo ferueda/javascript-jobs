@@ -3,6 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 import { jobs as j } from './jobs';
 import JobList from './components/JobList';
 import Hero from './components/Hero';
+import Nav from './components/Nav';
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -45,14 +46,18 @@ function App() {
 
   const jobsToShow = !filter
     ? jobs
-    : jobs.filter((job) =>
-        job.tags.some((tag) => tag.toLowerCase().includes(filter.toLowerCase()))
+    : jobs.filter(
+        (job) =>
+          job.tags.some((tag) =>
+            tag.toLowerCase().includes(filter.toLowerCase())
+          ) || job.jobTitle.toLowerCase().includes(filter.toLowerCase())
       );
 
   return (
     <React.Fragment>
       <GlobalStyle />
       <Hero handleSearch={handleSearch} />
+      <Nav />
       <JobList jobs={jobsToShow} />
     </React.Fragment>
   );
