@@ -78,9 +78,9 @@ const Tags = styled.span`
   border: 2px solid #2c3e50;
   font-size: 1.25rem;
   font-weight: 900;
-  padding: 2.5px 5px;
+  padding: 0.25rem 0.5rem;
   border-radius: 3px;
-  margin: 2px 2px;
+  margin: 0.2rem 0.2rem;
 `;
 
 const TimeContainer = styled.div`

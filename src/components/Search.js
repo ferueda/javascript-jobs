@@ -36,7 +36,12 @@ const Search = ({ placeholder, handleSearch }) => {
   };
 
   return (
-    <FlexForm onSubmit={handleSearch}>
+    <FlexForm
+      onSubmit={(e) => {
+        handleSearch(e);
+        setSearch('');
+      }}
+    >
       <HeroInput
         name='tech'
         value={search}

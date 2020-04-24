@@ -5,7 +5,7 @@ const StyledNav = styled.nav`
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
-  max-width: 800px;
+  max-width: 900px;
   overflow-x: auto;
   margin: 2rem auto 1rem auto;
 `;
@@ -33,9 +33,13 @@ const TechContainer = styled.div`
     background-color: #ecf0f1;
   }
 
-  .active {
+  &.active {
     transform: scale(0.95);
     background-color: #ecf0f1;
+  }
+
+  &:active {
+    transform: scale(0.9);
   }
 
   span {
@@ -44,9 +48,12 @@ const TechContainer = styled.div`
   }
 `;
 
-const Tech = ({ imgSrc, tech }) => {
+const Tech = ({ imgSrc, tech, handleFilters, filter }) => {
   return (
-    <TechContainer>
+    <TechContainer
+      onClick={() => handleFilters(tech.toLowerCase())}
+      className={filter.includes(tech.toLowerCase()) && 'active'}
+    >
       <div>
         <img src={imgSrc} alt={`${tech} logo`} />
       </div>
@@ -55,7 +62,7 @@ const Tech = ({ imgSrc, tech }) => {
   );
 };
 
-const Nav = () => {
+const Nav = ({ handleFilters, filter }) => {
   const logosSrc = [
     'Front end',
     'Back end',
@@ -76,6 +83,8 @@ const Nav = () => {
             key={logo}
             imgSrc={`assets/logos/${logo}.svg`}
             tech={`${logo}`}
+            handleFilters={handleFilters}
+            filter={filter}
           />
         );
       })}

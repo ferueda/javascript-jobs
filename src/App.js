@@ -4,6 +4,7 @@ import { jobs as j } from './jobs';
 import JobList from './components/JobList';
 import Hero from './components/Hero';
 import Nav from './components/Nav';
+import SearchGuide from './components/SearchGuide';
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -30,7 +31,7 @@ const GlobalStyle = createGlobalStyle`
 
 function App() {
   const [jobs, setJobs] = useState([]);
-  const [filter, setFilter] = useState('');
+  const [filter, setFilter] = useState([]);
 
   useEffect(() => {
     setJobs(j);
@@ -40,24 +41,35 @@ function App() {
     event.preventDefault();
     const value = event.target.tech.value;
     if (value !== '') {
-      setFilter(value);
+      setFilter([value]);
     }
   };
 
-  const jobsToShow = !filter
+  const handleFilters = (tech) => {
+    if (filter.includes(tech)) {
+      setFilter(filter.filter((t) => t !== tech));
+    } else {
+      setFilter((filter) => [...filter, tech]);
+    }
+  };
+
+  const jobsToShow = !filter.length
     ? jobs
     : jobs.filter(
         (job) =>
-          job.tags.some((tag) =>
-            tag.toLowerCase().includes(filter.toLowerCase())
-          ) || job.jobTitle.toLowerCase().includes(filter.toLowerCase())
+          job.tags.some((tag) => filter.includes(tag.toLowerCase())) ||
+          job.jobTitle
+            .toLowerCase()
+            .split(' ')
+            .some((word) => filter.includes(word))
       );
 
   return (
     <React.Fragment>
       <GlobalStyle />
       <Hero handleSearch={handleSearch} />
-      <Nav />
+      <Nav handleFilters={handleFilters} filter={filter} />
+      {filter.length && <SearchGuide filter={filter} />}
       <JobList jobs={jobsToShow} />
     </React.Fragment>
   );
