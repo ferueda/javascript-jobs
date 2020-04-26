@@ -34,8 +34,27 @@ function App() {
   const [filter, setFilter] = useState([]);
 
   useEffect(() => {
-    const localData = () => JSON.parse(JSON.stringify(j));
-    setJobs(localData().data);
+    const localData = JSON.parse(JSON.stringify(j)).data;
+
+    const localDataFiltered = Array.from(
+      new Set(localData.map((s) => s.id))
+    ).map((id) => {
+      return {
+        id,
+        jobTitle: localData.find((s) => s.id === id).jobTitle,
+        company: localData.find((s) => s.id === id).company,
+        companyLogo: localData.find((s) => s.id === id).companyLogo,
+        location: localData.find((s) => s.id === id).location,
+        salary: localData.find((s) => s.id === id).salary,
+        time: localData.find((s) => s.id === id).time,
+        rating: localData.find((s) => s.id === id).rating,
+        apply: localData.find((s) => s.id === id).apply,
+        content: localData.find((s) => s.id === id).content,
+        tags: localData.find((s) => s.id === id).tags,
+      };
+    });
+
+    setJobs(localDataFiltered);
   }, []);
 
   const handleSearch = (event) => {
