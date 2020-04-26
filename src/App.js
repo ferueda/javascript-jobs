@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { createGlobalStyle } from 'styled-components';
-import { jobs as j } from './jobs';
+import j from './jobs.json';
 import JobList from './components/JobList';
 import Hero from './components/Hero';
 import Nav from './components/Nav';
@@ -34,7 +34,8 @@ function App() {
   const [filter, setFilter] = useState([]);
 
   useEffect(() => {
-    setJobs(j);
+    const localData = () => JSON.parse(JSON.stringify(j));
+    setJobs(localData().data);
   }, []);
 
   const handleSearch = (event) => {
@@ -53,6 +54,10 @@ function App() {
     }
   };
 
+  const handleSearchGuideTagRemove = (term) => {
+    setFilter(filter.filter((t) => t !== term));
+  };
+
   const jobsToShow = !filter.length
     ? jobs
     : jobs.filter(
@@ -69,7 +74,12 @@ function App() {
       <GlobalStyle />
       <Hero handleSearch={handleSearch} />
       <Nav handleFilters={handleFilters} filter={filter} />
-      {filter.length && <SearchGuide filter={filter} />}
+      {filter.length && (
+        <SearchGuide
+          handleTagRemove={handleSearchGuideTagRemove}
+          filter={filter}
+        />
+      )}
       <JobList jobs={jobsToShow} />
     </React.Fragment>
   );

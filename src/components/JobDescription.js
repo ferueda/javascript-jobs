@@ -55,17 +55,17 @@ const ContentContainer = styled.div`
   }
 `;
 
-const JobDescription = ({ data }) => {
+const JobDescription = ({ data, apply }) => {
   return (
     <ContentContainer>
       <ApplyBtnContainer>
-        <ApplyBtn href='https://google.com/' target='_blank'>
+        <ApplyBtn href={apply} target='_blank'>
           Apply now
         </ApplyBtn>
       </ApplyBtnContainer>
-      <div dangerouslySetInnerHTML={{ __html: data.content }}></div>
+      <div dangerouslySetInnerHTML={{ __html: data }}></div>
       <ApplyBtnContainer>
-        <ApplyBtn href='https://google.com/' target='_blank'>
+        <ApplyBtn href={apply} target='_blank'>
           Apply now
         </ApplyBtn>
       </ApplyBtnContainer>

@@ -87,8 +87,9 @@ const TimeContainer = styled.div`
   display: flex;
   align-items: center;
   font-size: 1.45rem;
-  min-width: 26px;
+  min-width: 3.6rem;
   color: #7f8c8d;
+  text-align: center;
 `;
 
 const JobCard = ({
@@ -103,6 +104,7 @@ const JobCard = ({
   active,
   description,
   handleActiveChange,
+  apply,
 }) => {
   const setCompanyLogoFromName = (companyName) => {
     const companyNameArray = companyName.split(' ');
@@ -136,7 +138,7 @@ const JobCard = ({
         </TagsContainer>
         <TimeContainer>{time}</TimeContainer>
       </JobCardContainer>
-      {active === id && <JobDescription data={description} />}
+      {active === id && <JobDescription apply={apply} data={description} />}
     </React.Fragment>
   );
 };
