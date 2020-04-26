@@ -136,7 +136,7 @@ const JobCard = ({
             <Tags key={tag} name={tag.toLowerCase()} children={tag} />
           ))}
         </TagsContainer>
-        <TimeContainer>{time}</TimeContainer>
+        <TimeContainer>{time !== '0' ? `${time}d` : 'today'}</TimeContainer>
       </JobCardContainer>
       {active === id && <JobDescription apply={apply} data={description} />}
     </React.Fragment>
