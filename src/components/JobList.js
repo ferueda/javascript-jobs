@@ -16,6 +16,11 @@ const JobListTitle = styled.h2`
   font-size: 2.5rem;
   margin: 15px auto;
   margin-left: 2.5rem;
+
+  span {
+    color: #7f8c8d;
+    font-weight: 100;
+  }
 `;
 
 const JobList = ({ jobs }) => {
@@ -31,7 +36,9 @@ const JobList = ({ jobs }) => {
 
   return (
     <JobsContainer>
-      <JobListTitle>Latest jobs</JobListTitle>
+      <JobListTitle>
+        Latest jobs <span>({jobs.length})</span>
+      </JobListTitle>
       {jobs.map((job) => {
         return (
           <JobCard

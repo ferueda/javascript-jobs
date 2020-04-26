@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { createGlobalStyle } from 'styled-components';
+import Fuse from 'fuse.js';
 import j from './jobs.json';
 import JobList from './components/JobList';
 import Hero from './components/Hero';
@@ -33,6 +34,18 @@ function App() {
   const [jobs, setJobs] = useState([]);
   const [filter, setFilter] = useState([]);
 
+  const techFilters = [
+    'Front end',
+    'Back end',
+    'JavaScript',
+    'React',
+    'Vue',
+    'Angular',
+    'Node',
+    'TypeScript',
+    'Gatsby',
+  ];
+
   useEffect(() => {
     const localData = JSON.parse(JSON.stringify(j)).data;
 
@@ -48,7 +61,7 @@ function App() {
           time: localData.find((s) => s.id === id).time,
           rating: localData.find((s) => s.id === id).rating,
           apply: localData.find((s) => s.id === id).apply,
-          content: localData.find((s) => s.id === id).content,
+          content: localData.find((s) => s.id === id).contentHTML,
           tags: localData.find((s) => s.id === id).tags,
         };
       })
@@ -77,29 +90,61 @@ function App() {
     setFilter(filter.filter((t) => t !== term));
   };
 
-  const jobsToShow = !filter.length
-    ? jobs
-    : jobs.filter(
-        (job) =>
-          job.tags.some((tag) => filter.includes(tag.toLowerCase())) ||
-          job.jobTitle
-            .toLowerCase()
-            .split(' ')
-            .some((word) => filter.includes(word))
+  const jobsToShow = () => {
+    if (!filter.length) {
+      return jobs;
+    }
+
+    if (
+      filter.every((f) => techFilters.map((t) => t.toLowerCase()).includes(f))
+    ) {
+      return jobs.filter((job) =>
+        filter.every((f) => job.tags.includes(f.toLowerCase()))
       );
+    } else {
+      const options = {
+        useExtendedSearch: true,
+        keys: ['jobTitle', 'content'],
+      };
+
+      const fuse = new Fuse(jobs, options);
+
+      const modFilters = filter.map((f) => `'${f}`).join(' ');
+
+      const fuseResult = fuse.search(modFilters);
+
+      const tagSearch = jobs.filter((job) =>
+        filter.every((f) => job.tags.includes(f.toLowerCase()))
+      );
+
+      const idArray = fuseResult.map((job) => job.item.id);
+
+      tagSearch.forEach((job) => {
+        if (!idArray.includes(job.id)) {
+          idArray.push(job.id);
+        }
+      });
+
+      return jobs.filter((job) => idArray.includes(job.id));
+    }
+  };
 
   return (
     <React.Fragment>
       <GlobalStyle />
       <Hero handleSearch={handleSearch} />
-      <Nav handleFilters={handleFilters} filter={filter} />
+      <Nav
+        handleFilters={handleFilters}
+        filter={filter}
+        techFilters={techFilters}
+      />
       {filter.length && (
         <SearchGuide
           handleTagRemove={handleSearchGuideTagRemove}
           filter={filter}
         />
       )}
-      <JobList jobs={jobsToShow} />
+      <JobList jobs={jobsToShow()} />
     </React.Fragment>
   );
 }

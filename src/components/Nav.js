@@ -62,18 +62,8 @@ const Tech = ({ imgSrc, tech, handleFilters, filter }) => {
   );
 };
 
-const Nav = ({ handleFilters, filter }) => {
-  const logosSrc = [
-    'Front end',
-    'Back end',
-    'JavaScript',
-    'React',
-    'Vue',
-    'Angular',
-    'Node',
-    'TypeScript',
-    'Gatsby',
-  ];
+const Nav = ({ handleFilters, filter, techFilters }) => {
+  const logosSrc = [...techFilters];
 
   return (
     <StyledNav>

@@ -12,7 +12,7 @@ const HeroContainer = styled.div`
   align-items: center;
   text-align: center;
   background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)),
-    url('/assets/sf-hero.jpg');
+    url('/assets/mel-hero.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -46,7 +46,7 @@ const Hero = ({ handleSearch }) => {
           JavaScript <span>Jobs</span>
         </a>
       </HeroTitle>
-      <Search placeholder='react...' handleSearch={handleSearch} />
+      <Search placeholder='senior...' handleSearch={handleSearch} />
     </HeroContainer>
   );
 };
