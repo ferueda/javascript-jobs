@@ -52,13 +52,14 @@ function App() {
           rating: localData.find((s) => s.id === id).rating,
           apply: localData.find((s) => s.id === id).apply,
           content: localData.find((s) => s.id === id).contentHTML,
+          city: localData.find((s) => s.id === id).queryCity,
           tags: localData.find((s) => s.id === id).tags,
         };
       })
       .sort((a, b) => b.timestamp - a.timestamp);
 
-    setJobs(localDataFiltered);
-  }, []);
+    setJobs(localDataFiltered.filter((job) => job.city === city));
+  }, [city]);
 
   const handleSearch = (event) => {
     event.preventDefault();
@@ -83,6 +84,8 @@ function App() {
   const handleCitySelection = (event) => {
     setCity(event.target.value);
   };
+
+  console.log('rendered');
 
   return (
     <React.Fragment>
