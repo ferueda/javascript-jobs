@@ -4,9 +4,11 @@ import styled from 'styled-components';
 const Container = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
   color: black;
   font-size: 2rem;
-  width: 40%;
+  width: auto;
+  margin-top: -4rem;
 `;
 
 const HeroInput = styled.input`
@@ -30,6 +32,7 @@ const InputBtn = styled.button`
   outline: none;
   border: none;
   width: 5rem;
+  height: 5rem;
 `;
 
 const FlexForm = styled.form`

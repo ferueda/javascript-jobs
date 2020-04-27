@@ -8,9 +8,8 @@ const HeroContainer = styled.div`
   height: 35vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   align-items: center;
-  text-align: center;
+  justify-content: space-evenly;
   /* background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)),
     url('/assets/mel-hero.jpg'); */
   background-image: ${({
@@ -27,6 +26,7 @@ const HeroTitle = styled.h1`
   font-size: 4.5rem;
   font-weight: 900;
   color: #f0db4f;
+  margin-top: -4rem;
 
   a,
   a:link,
