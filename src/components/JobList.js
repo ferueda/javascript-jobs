@@ -48,7 +48,7 @@ const JobList = ({ jobs }) => {
             jobTitle={job.jobTitle}
             location={job.location}
             tags={job.tags}
-            time={job.time}
+            timestamp={job.timestamp}
             salary={job.salary}
             active={isActive}
             handleActiveChange={() => handleActiveChange(job.id)}

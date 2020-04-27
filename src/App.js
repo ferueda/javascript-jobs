@@ -33,6 +33,7 @@ const GlobalStyle = createGlobalStyle`
 function App() {
   const [jobs, setJobs] = useState([]);
   const [filter, setFilter] = useState([]);
+  const [city, setCity] = useState('melbourne');
 
   const techFilters = [
     'Front end',
@@ -58,14 +59,14 @@ function App() {
           companyLogo: localData.find((s) => s.id === id).companyLogo,
           location: localData.find((s) => s.id === id).location,
           salary: localData.find((s) => s.id === id).salary,
-          time: localData.find((s) => s.id === id).time,
+          timestamp: localData.find((s) => s.id === id).timestamp,
           rating: localData.find((s) => s.id === id).rating,
           apply: localData.find((s) => s.id === id).apply,
           content: localData.find((s) => s.id === id).contentHTML,
           tags: localData.find((s) => s.id === id).tags,
         };
       })
-      .sort((a, b) => a.time - b.time);
+      .sort((a, b) => b.timestamp - a.timestamp);
 
     setJobs(localDataFiltered);
   }, []);

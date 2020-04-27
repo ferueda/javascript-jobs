@@ -100,7 +100,7 @@ const JobCard = ({
   location,
   salary,
   tags,
-  time,
+  timestamp,
   active,
   description,
   handleActiveChange,
@@ -114,6 +114,9 @@ const JobCard = ({
       return `${companyName.slice(0, 2)}`;
     }
   };
+
+  const today = new Date().getTime();
+  const time = Math.floor((today - timestamp) / (1000 * 3600 * 24));
 
   return (
     <React.Fragment>
@@ -136,7 +139,7 @@ const JobCard = ({
             <Tags key={tag} name={tag.toLowerCase()} children={tag} />
           ))}
         </TagsContainer>
-        <TimeContainer>{time !== '0' ? `${time}d` : 'today'}</TimeContainer>
+        <TimeContainer>{time !== 0 ? `${time}d` : 'today'}</TimeContainer>
       </JobCardContainer>
       {active === id && <JobDescription apply={apply} data={description} />}
     </React.Fragment>
