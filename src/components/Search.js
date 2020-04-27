@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  color: black;
+  font-size: 2rem;
+  width: 40%;
+`;
+
 const HeroInput = styled.input`
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
@@ -9,8 +17,8 @@ const HeroInput = styled.input`
   height: 5rem;
   padding: 0 1rem;
   text-align: left;
-  color: black;
-  font-size: 2rem;
+  font-size: inherit;
+  color: inherit;
   outline: none;
 `;
 
@@ -28,7 +36,18 @@ const FlexForm = styled.form`
   display: flex;
 `;
 
-const Search = ({ placeholder, handleSearch }) => {
+const CitySelect = styled.select`
+  border-radius: 3px;
+  font-size: inherit;
+  color: inherit;
+  outline: none;
+  text-align: center;
+  padding: 1rem;
+  height: 5rem;
+  margin-left: 1rem;
+`;
+
+const Search = ({ placeholder, handleSearch, handleCitySelection }) => {
   const [search, setSearch] = useState('');
 
   const onChange = (event) => {
@@ -36,32 +55,38 @@ const Search = ({ placeholder, handleSearch }) => {
   };
 
   return (
-    <FlexForm
-      onSubmit={(e) => {
-        handleSearch(e);
-        setSearch('');
-      }}
-    >
-      <HeroInput
-        name='tech'
-        value={search}
-        onChange={onChange}
-        type='text'
-        placeholder={placeholder}
-      />
-      <InputBtn>
-        <svg
-          xmlns='http://www.w3.org/2000/svg'
-          viewBox='0 0 24 24'
-          fill='black'
-          width='30px'
-          height='30px'
-        >
-          <path d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z' />
-          <path d='M0 0h24v24H0z' fill='none' />
-        </svg>
-      </InputBtn>
-    </FlexForm>
+    <Container>
+      <FlexForm
+        onSubmit={(e) => {
+          handleSearch(e);
+          setSearch('');
+        }}
+      >
+        <HeroInput
+          name='tech'
+          value={search}
+          onChange={onChange}
+          type='text'
+          placeholder={placeholder}
+        />
+        <InputBtn>
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            viewBox='0 0 24 24'
+            fill='black'
+            width='30px'
+            height='30px'
+          >
+            <path d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z' />
+            <path d='M0 0h24v24H0z' fill='none' />
+          </svg>
+        </InputBtn>
+      </FlexForm>
+      <CitySelect id='cityDopdown' onChange={handleCitySelection}>
+        <option value='sydney'>Sydney</option>
+        <option value='melbourne'>Melbourne</option>
+      </CitySelect>
+    </Container>
   );
 };
 

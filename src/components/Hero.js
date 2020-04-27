@@ -42,18 +42,6 @@ const HeroTitle = styled.h1`
   }
 `;
 
-const SearchContainer = styled.div``;
-
-const CitySelect = styled.select`
-  border-radius: 3px;
-  width: auto;
-  height: auto;
-  padding: 0.5rem;
-  font-size: 2rem;
-  font-weight: 100;
-  text-align: center;
-`;
-
 const Hero = ({ handleSearch, city, handleCitySelection }) => {
   return (
     <HeroContainer city={city}>
@@ -62,13 +50,11 @@ const Hero = ({ handleSearch, city, handleCitySelection }) => {
           JavaScript <span>Jobs</span>
         </a>
       </HeroTitle>
-      <div>
-        <Search placeholder='Enter a keyword' handleSearch={handleSearch} />
-        <CitySelect id='cityDopdown' onChange={handleCitySelection}>
-          <option value='sydney'>Sydney</option>
-          <option value='melbourne'>Melbourne</option>
-        </CitySelect>
-      </div>
+      <Search
+        placeholder='Enter a keyword'
+        handleSearch={handleSearch}
+        handleCitySelection={handleCitySelection}
+      />
     </HeroContainer>
   );
 };
