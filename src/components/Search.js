@@ -10,7 +10,7 @@ const HeroInput = styled.input`
   padding: 0 1rem;
   text-align: left;
   color: black;
-  font-size: 2.5rem;
+  font-size: 2rem;
   outline: none;
 `;
 

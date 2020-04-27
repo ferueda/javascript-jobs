@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { createGlobalStyle } from 'styled-components';
-import Fuse from 'fuse.js';
+
+import { jobsToShow } from './utils/helpers';
 import j from './jobs.json';
 import JobList from './components/JobList';
 import Hero from './components/Hero';
@@ -31,21 +32,9 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 function App() {
+  const [city, setCity] = useState('sydney');
   const [jobs, setJobs] = useState([]);
   const [filter, setFilter] = useState([]);
-  const [city, setCity] = useState('melbourne');
-
-  const techFilters = [
-    'Front end',
-    'Back end',
-    'JavaScript',
-    'React',
-    'Vue',
-    'Angular',
-    'Node',
-    'TypeScript',
-    'Gatsby',
-  ];
 
   useEffect(() => {
     const localData = JSON.parse(JSON.stringify(j)).data;
@@ -91,61 +80,26 @@ function App() {
     setFilter(filter.filter((t) => t !== term));
   };
 
-  const jobsToShow = () => {
-    if (!filter.length) {
-      return jobs;
-    }
-
-    if (
-      filter.every((f) => techFilters.map((t) => t.toLowerCase()).includes(f))
-    ) {
-      return jobs.filter((job) =>
-        filter.every((f) => job.tags.includes(f.toLowerCase()))
-      );
-    } else {
-      const options = {
-        useExtendedSearch: true,
-        keys: ['jobTitle', 'content'],
-      };
-
-      const fuse = new Fuse(jobs, options);
-
-      const modFilters = filter.map((f) => `'${f}`).join(' ');
-
-      const fuseResult = fuse.search(modFilters);
-
-      const tagSearch = jobs.filter((job) =>
-        filter.every((f) => job.tags.includes(f.toLowerCase()))
-      );
-
-      const idArray = fuseResult.map((job) => job.item.id);
-
-      tagSearch.forEach((job) => {
-        if (!idArray.includes(job.id)) {
-          idArray.push(job.id);
-        }
-      });
-
-      return jobs.filter((job) => idArray.includes(job.id));
-    }
+  const handleCitySelection = (event) => {
+    setCity(event.target.value);
   };
 
   return (
     <React.Fragment>
       <GlobalStyle />
-      <Hero handleSearch={handleSearch} />
-      <Nav
-        handleFilters={handleFilters}
-        filter={filter}
-        techFilters={techFilters}
+      <Hero
+        handleSearch={handleSearch}
+        handleCitySelection={handleCitySelection}
+        city={city}
       />
+      <Nav handleFilters={handleFilters} filter={filter} />
       {filter.length && (
         <SearchGuide
           handleTagRemove={handleSearchGuideTagRemove}
           filter={filter}
         />
       )}
-      <JobList jobs={jobsToShow()} />
+      <JobList jobs={jobsToShow(jobs, filter)} />
     </React.Fragment>
   );
 }

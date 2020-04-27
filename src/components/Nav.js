@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { techFilters } from '../utils/helpers';
 
 const StyledNav = styled.nav`
   display: flex;
@@ -62,7 +63,7 @@ const Tech = ({ imgSrc, tech, handleFilters, filter }) => {
   );
 };
 
-const Nav = ({ handleFilters, filter, techFilters }) => {
+const Nav = ({ handleFilters, filter }) => {
   const logosSrc = [...techFilters];
 
   return (

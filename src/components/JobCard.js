@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import JobDescription from './JobDescription';
+import { setCompanyLogoFromName } from '../utils/helpers';
 
 const JobCardContainer = styled.div`
   display: grid;
@@ -106,15 +107,6 @@ const JobCard = ({
   handleActiveChange,
   apply,
 }) => {
-  const setCompanyLogoFromName = (companyName) => {
-    const companyNameArray = companyName.split(' ');
-    if (companyNameArray.length > 1) {
-      return `${companyNameArray[0][0]}${companyNameArray[1][0]}`;
-    } else {
-      return `${companyName.slice(0, 2)}`;
-    }
-  };
-
   const today = new Date().getTime();
   const time = Math.floor((today - timestamp) / (1000 * 3600 * 24));
 

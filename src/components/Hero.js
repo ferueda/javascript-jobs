@@ -11,8 +11,12 @@ const HeroContainer = styled.div`
   justify-content: space-evenly;
   align-items: center;
   text-align: center;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)),
-    url('/assets/mel-hero.jpg');
+  /* background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)),
+    url('/assets/mel-hero.jpg'); */
+  background-image: ${({
+    city,
+  }) => `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)),
+    url('/assets/${city}-hero.jpg');`};
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -38,15 +42,33 @@ const HeroTitle = styled.h1`
   }
 `;
 
-const Hero = ({ handleSearch }) => {
+const SearchContainer = styled.div``;
+
+const CitySelect = styled.select`
+  border-radius: 3px;
+  width: auto;
+  height: auto;
+  padding: 0.5rem;
+  font-size: 2rem;
+  font-weight: 100;
+  text-align: center;
+`;
+
+const Hero = ({ handleSearch, city, handleCitySelection }) => {
   return (
-    <HeroContainer>
+    <HeroContainer city={city}>
       <HeroTitle>
         <a href='/'>
           JavaScript <span>Jobs</span>
         </a>
       </HeroTitle>
-      <Search placeholder='senior...' handleSearch={handleSearch} />
+      <div>
+        <Search placeholder='Enter a keyword' handleSearch={handleSearch} />
+        <CitySelect id='cityDopdown' onChange={handleCitySelection}>
+          <option value='sydney'>Sydney</option>
+          <option value='melbourne'>Melbourne</option>
+        </CitySelect>
+      </div>
     </HeroContainer>
   );
 };
