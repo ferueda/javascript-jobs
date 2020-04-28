@@ -35,7 +35,7 @@ export const jobsToShow = (jobs, filter) => {
   } else {
     const options = {
       useExtendedSearch: true,
-      keys: ['jobTitle', 'content'],
+      keys: ['job_title', 'content_text'],
     };
 
     const fuse = new Fuse(jobs, options);

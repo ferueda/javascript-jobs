@@ -38,7 +38,13 @@ function App() {
   useEffect(() => {
     fetch('http://localhost:3001/jobs')
       .then((res) => res.json())
-      .then((data) => setJobs(data.filter((job) => job.query_city === city)));
+      .then((data) =>
+        setJobs(
+          data
+            .filter((job) => job.query_city === city)
+            .sort((a, b) => b.timestamp - a.timestamp)
+        )
+      );
   }, [city]);
 
   const handleSearch = (event) => {
