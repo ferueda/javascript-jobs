@@ -23,7 +23,7 @@ const HeroContainer = styled.div`
 `;
 
 const HeroTitle = styled.h1`
-  font-size: 4.5rem;
+  font-size: 5rem;
   font-weight: 900;
   color: #f0db4f;
   margin-top: -4rem;

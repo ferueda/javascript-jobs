@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { createGlobalStyle } from 'styled-components';
 
 import { jobsToShow } from './utils/helpers';
-import j from './jobs.json';
 import JobList from './components/JobList';
 import Hero from './components/Hero';
 import Nav from './components/Nav';
@@ -37,28 +36,9 @@ function App() {
   const [filter, setFilter] = useState([]);
 
   useEffect(() => {
-    const localData = JSON.parse(JSON.stringify(j)).data;
-
-    const localDataFiltered = Array.from(new Set(localData.map((s) => s.id)))
-      .map((id) => {
-        return {
-          id,
-          jobTitle: localData.find((s) => s.id === id).jobTitle,
-          company: localData.find((s) => s.id === id).company,
-          companyLogo: localData.find((s) => s.id === id).companyLogo,
-          location: localData.find((s) => s.id === id).location,
-          salary: localData.find((s) => s.id === id).salary,
-          timestamp: localData.find((s) => s.id === id).timestamp,
-          rating: localData.find((s) => s.id === id).rating,
-          apply: localData.find((s) => s.id === id).apply,
-          content: localData.find((s) => s.id === id).contentHTML,
-          city: localData.find((s) => s.id === id).queryCity,
-          tags: localData.find((s) => s.id === id).tags,
-        };
-      })
-      .sort((a, b) => b.timestamp - a.timestamp);
-
-    setJobs(localDataFiltered.filter((job) => job.city === city));
+    fetch('http://localhost:3001/jobs')
+      .then((res) => res.json())
+      .then((data) => setJobs(data.filter((job) => job.query_city === city)));
   }, [city]);
 
   const handleSearch = (event) => {

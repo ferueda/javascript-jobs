@@ -107,8 +107,17 @@ const JobCard = ({
   handleActiveChange,
   apply,
 }) => {
-  const today = new Date().getTime();
-  const time = Math.floor((today - timestamp) / (1000 * 3600 * 24));
+  const dateDiff = (d1, d2) => {
+    const utc1 = Date.UTC(d1.getFullYear(), d1.getMonth(), d1.getDate());
+    const utc2 = Date.UTC(d2.getFullYear(), d2.getMonth(), d2.getDate());
+
+    return Math.floor((utc2 - utc1) / (1000 * 60 * 60 * 24));
+  };
+
+  const today = new Date();
+  const jobDate = new Date(timestamp);
+
+  const time = dateDiff(jobDate, today);
 
   return (
     <React.Fragment>

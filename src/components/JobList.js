@@ -43,18 +43,18 @@ const JobList = ({ jobs }) => {
         return (
           <JobCard
             key={job.id}
-            thumb={job.companyLogo}
-            company={job.company}
-            jobTitle={job.jobTitle}
+            thumb={job.company_logo}
+            company={job.company_name}
+            jobTitle={job.job_title}
             location={job.location}
             tags={job.tags}
             timestamp={job.timestamp}
             salary={job.salary}
             active={isActive}
             handleActiveChange={() => handleActiveChange(job.id)}
-            description={job.content}
+            description={job.content_html}
             id={job.id}
-            apply={job.apply}
+            apply={job.apply_link}
           />
         );
       })}
