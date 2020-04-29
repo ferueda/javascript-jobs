@@ -34,17 +34,20 @@ function App() {
   const [city, setCity] = useState('sydney');
   const [jobs, setJobs] = useState([]);
   const [filter, setFilter] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     fetch('http://localhost:3001/jobs')
       .then((res) => res.json())
-      .then((data) =>
+      .then((data) => {
+        setIsLoading(false);
         setJobs(
           data
             .filter((job) => job.query_city === city)
             .sort((a, b) => b.timestamp - a.timestamp)
-        )
-      );
+        );
+      });
   }, [city]);
 
   const handleSearch = (event) => {
@@ -88,7 +91,7 @@ function App() {
           filter={filter}
         />
       )}
-      <JobList jobs={jobsToShow(jobs, filter)} />
+      <JobList jobs={jobsToShow(jobs, filter)} loading={isLoading} />
     </React.Fragment>
   );
 }
