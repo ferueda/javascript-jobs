@@ -34,19 +34,15 @@ function App() {
   const [city, setCity] = useState('sydney');
   const [jobs, setJobs] = useState([]);
   const [filter, setFilter] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setIsLoading(true);
-    fetch('http://localhost:3001/jobs')
+    fetch(`http://localhost:3001/jobs?city=${city}`)
       .then((res) => res.json())
       .then((data) => {
         setIsLoading(false);
-        setJobs(
-          data
-            .filter((job) => job.query_city === city)
-            .sort((a, b) => b.timestamp - a.timestamp)
-        );
+        setJobs(data.jobs);
       });
   }, [city]);
 

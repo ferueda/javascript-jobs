@@ -35,8 +35,6 @@ const JobList = ({ jobs, loading }) => {
     }
   };
 
-  console.log(loading);
-
   return (
     <JobsContainer>
       <JobListTitle>
