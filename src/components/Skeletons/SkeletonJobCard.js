@@ -17,7 +17,21 @@ const Thumb = styled.div`
   width: 50px;
   height: 61px;
   border-radius: 3px;
-  background-color: #ecf0f1;
+  background: linear-gradient(90deg, #ecf0f1, #b6c1c5);
+  background-size: 200% 100%;
+  animation: change 2s ease-in-out infinite;
+
+  @keyframes change {
+    0% {
+      background-position: 0 0;
+    }
+    50% {
+      background-position: 100% 0;
+    }
+    100% {
+      background-position: 0 0;
+    }
+  }
 `;
 
 const InfoContainer = styled.div`
@@ -31,9 +45,23 @@ const Row = styled.div`
   font-size: 10px;
   width: ${({ width }) => `${width}px`};
   height: ${({ height }) => `${height}px`};
-  background-color: #ecf0f1;
   margin-top: 5px;
   margin-bottom: 5px;
+  background: linear-gradient(90deg, #ecf0f1, #b6c1c5);
+  background-size: 200% 100%;
+  animation: change 2s ease-in-out infinite;
+
+  @keyframes change {
+    0% {
+      background-position: 0 0;
+    }
+    50% {
+      background-position: 100% 0;
+    }
+    100% {
+      background-position: 0 0;
+    }
+  }
 `;
 
 const TagsContainer = styled.div`
@@ -44,11 +72,25 @@ const TagsContainer = styled.div`
 `;
 
 const Tag = styled.div`
-  background-color: #ecf0f1;
   margin: 2px;
   height: 20px;
   width: 50px;
   display: inline-block;
+  background: linear-gradient(90deg, #ecf0f1, #b6c1c5);
+  background-size: 200% 100%;
+  animation: change 2s ease-in-out infinite;
+
+  @keyframes change {
+    0% {
+      background-position: 0 0;
+    }
+    50% {
+      background-position: 100% 0;
+    }
+    100% {
+      background-position: 0 0;
+    }
+  }
 `;
 
 const SkeletonJobCard = () => {

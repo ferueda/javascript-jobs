@@ -42,7 +42,7 @@ const JobList = ({ jobs, loading }) => {
       <JobListTitle>
         Latest jobs <span>({jobs.length})</span>
       </JobListTitle>
-      {loading && <SkeletonJobCard />}
+      {loading && new Array(5).fill(<SkeletonJobCard />)}
       {!loading &&
         jobs.map((job) => {
           return (
