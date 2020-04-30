@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState } from 'react';
 import { createGlobalStyle } from 'styled-components';
 
+import { useJobsFetch } from './hooks/useJobsFetch';
 import { jobsToShow } from './utils/helpers';
 import JobList from './components/JobList';
 import Hero from './components/Hero';
@@ -29,27 +30,6 @@ const GlobalStyle = createGlobalStyle`
     height: auto;
   }
 `;
-
-const useJobsFetch = (city, skip) => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [jobs, setJobs] = useState([]);
-  const [hasMore, setHasMore] = useState(false);
-
-  const baseURL = 'http://localhost:3001/jobs';
-
-  useEffect(() => {
-    setIsLoading(true);
-    fetch(`${baseURL}?city=${city}&skip=${skip}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setJobs((jobs) => [...jobs, ...data.jobs]);
-        setHasMore(data.pagination.remainingRows > 0);
-        setIsLoading(false);
-      });
-  }, [city, skip]);
-
-  return { isLoading, jobs, setJobs, hasMore };
-};
 
 function App() {
   const [city, setCity] = useState('sydney');

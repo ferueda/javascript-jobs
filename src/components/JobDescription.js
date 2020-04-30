@@ -43,15 +43,25 @@ const ContentContainer = styled.div`
   font-size: 1.35rem;
   border-bottom: 1px solid #ecf0f1;
   h3 {
-    margin: 10px auto;
+    margin: 1rem auto;
   }
   ul {
     list-style-position: inside;
+    margin: 1rem auto;
   }
 
   li {
     margin-left: 3rem;
     line-height: 1.5;
+  }
+
+  div,
+  p {
+    margin: 1rem auto;
+  }
+
+  li > p {
+    display: inline;
   }
 `;
 

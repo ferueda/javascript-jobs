@@ -93,7 +93,7 @@ const Tag = styled.div`
   }
 `;
 
-const SkeletonJobCard = () => {
+export const SkeletonJobCard = () => {
   return (
     <StyledDiv>
       <Thumb />
@@ -111,4 +111,14 @@ const SkeletonJobCard = () => {
   );
 };
 
-export default SkeletonJobCard;
+const ThreeSkeletonJobCards = () => {
+  return (
+    <React.Fragment>
+      <SkeletonJobCard />
+      <SkeletonJobCard />
+      <SkeletonJobCard />
+    </React.Fragment>
+  );
+};
+
+export default ThreeSkeletonJobCards;

@@ -1,13 +1,14 @@
 import React, { useState, useRef, useCallback } from 'react';
 import styled from 'styled-components';
 import JobCard from './JobCard';
-import SkeletonJobCard from './Skeletons/SkeletonJobCard';
+import ThreeSkeletonJobCard from './Skeletons/SkeletonJobCard';
 
 const JobsContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
+  margin-bottom: 2rem;
   max-width: 1000px;
 `;
 
@@ -58,7 +59,7 @@ const JobList = ({ jobs, loading, hasMore, setSkip }) => {
         Latest jobs <span>({jobs.length})</span>
       </JobListTitle>
       {jobs.map((job, index) => {
-        if (jobs.length === index + 5) {
+        if (jobs.length === index + 1) {
           return (
             <JobCard
               cbFunc={lastJobCardRef}
@@ -97,7 +98,7 @@ const JobList = ({ jobs, loading, hasMore, setSkip }) => {
           );
         }
       })}
-      {loading && new Array(5).fill(<SkeletonJobCard />)}
+      {loading && <ThreeSkeletonJobCard />}
     </JobsContainer>
   );
 };
