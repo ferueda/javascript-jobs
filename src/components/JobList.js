@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import styled from 'styled-components';
 import JobCard from './JobCard';
 import SkeletonJobCard from './Skeletons/SkeletonJobCard';
@@ -24,8 +24,26 @@ const JobListTitle = styled.h2`
   }
 `;
 
-const JobList = ({ jobs, loading }) => {
+const JobList = ({ jobs, loading, hasMore, setSkip }) => {
   const [isActive, setIsActive] = useState(null);
+
+  const observer = useRef();
+
+  const lastJobCardRef = useCallback(
+    (node) => {
+      if (loading) return;
+      if (observer.current) observer.current.disconnect();
+      observer.current = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting && hasMore) {
+          setSkip((skip) => skip + 20);
+          console.log('visible');
+        }
+      });
+      if (node) observer.current.observe(node);
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [loading, hasMore]
+  );
 
   const handleActiveChange = (jobId) => {
     if (isActive === jobId) {
@@ -40,9 +58,27 @@ const JobList = ({ jobs, loading }) => {
       <JobListTitle>
         Latest jobs <span>({jobs.length})</span>
       </JobListTitle>
-      {loading && new Array(5).fill(<SkeletonJobCard />)}
-      {!loading &&
-        jobs.map((job) => {
+      {jobs.map((job, index) => {
+        if (jobs.length === index + 1) {
+          return (
+            <JobCard
+              cbFunc={lastJobCardRef}
+              key={job.id}
+              thumb={job.company_logo}
+              company={job.company_name}
+              jobTitle={job.job_title}
+              location={job.location}
+              tags={job.tags}
+              timestamp={job.timestamp}
+              salary={job.salary}
+              active={isActive}
+              handleActiveChange={() => handleActiveChange(job.id)}
+              description={job.content_html}
+              id={job.id}
+              apply={job.apply_link}
+            />
+          );
+        } else {
           return (
             <JobCard
               key={job.id}
@@ -60,7 +96,9 @@ const JobList = ({ jobs, loading }) => {
               apply={job.apply_link}
             />
           );
-        })}
+        }
+      })}
+      {loading && new Array(5).fill(<SkeletonJobCard />)}
     </JobsContainer>
   );
 };

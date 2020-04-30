@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { createGlobalStyle } from 'styled-components';
 
 import { jobsToShow } from './utils/helpers';
@@ -30,21 +30,33 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-function App() {
-  const [city, setCity] = useState('sydney');
-  const [jobs, setJobs] = useState([]);
-  const [filter, setFilter] = useState([]);
+const useJobsFetch = (city, skip) => {
   const [isLoading, setIsLoading] = useState(true);
+  const [jobs, setJobs] = useState([]);
+  const [hasMore, setHasMore] = useState(false);
+
+  const baseURL = 'http://localhost:3001/jobs';
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(`http://localhost:3001/jobs?city=${city}`)
+    fetch(`${baseURL}?city=${city}&skip=${skip}`)
       .then((res) => res.json())
       .then((data) => {
+        setJobs((jobs) => [...jobs, ...data.jobs]);
+        setHasMore(data.pagination.remainingRows > 0);
         setIsLoading(false);
-        setJobs(data.jobs);
       });
-  }, [city]);
+  }, [city, skip]);
+
+  return { isLoading, jobs, setJobs, hasMore };
+};
+
+function App() {
+  const [city, setCity] = useState('sydney');
+  const [filter, setFilter] = useState([]);
+  const [skip, setSkip] = useState(0);
+
+  const { jobs, setJobs, isLoading, hasMore } = useJobsFetch(city, skip);
 
   const handleSearch = (event) => {
     event.preventDefault();
@@ -68,6 +80,8 @@ function App() {
 
   const handleCitySelection = (event) => {
     setCity(event.target.value);
+    setJobs([]);
+    setSkip(0);
   };
 
   console.log('rendered');
@@ -87,7 +101,12 @@ function App() {
           filter={filter}
         />
       )}
-      <JobList jobs={jobsToShow(jobs, filter)} loading={isLoading} />
+      <JobList
+        jobs={jobsToShow(jobs, filter)}
+        loading={isLoading}
+        hasMore={hasMore}
+        setSkip={setSkip}
+      />
     </React.Fragment>
   );
 }

@@ -107,6 +107,7 @@ const JobCard = ({
   description,
   handleActiveChange,
   apply,
+  cbFunc,
 }) => {
   const dateDiff = (d1, d2) => {
     const utc1 = Date.UTC(d1.getFullYear(), d1.getMonth(), d1.getDate());
@@ -122,7 +123,11 @@ const JobCard = ({
 
   return (
     <React.Fragment>
-      <JobCardContainer active={active === id} onClick={handleActiveChange}>
+      <JobCardContainer
+        ref={cbFunc}
+        active={active === id}
+        onClick={handleActiveChange}
+      >
         <CompanyThumbContainer>
           {thumb ? (
             <CompanyThumbImg src={thumb} alt={`${company} logo`} />
