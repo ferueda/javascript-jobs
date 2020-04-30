@@ -36,7 +36,6 @@ const JobList = ({ jobs, loading, hasMore, setSkip }) => {
       observer.current = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting && hasMore) {
           setSkip((skip) => skip + 20);
-          console.log('visible');
         }
       });
       if (node) observer.current.observe(node);
@@ -59,7 +58,7 @@ const JobList = ({ jobs, loading, hasMore, setSkip }) => {
         Latest jobs <span>({jobs.length})</span>
       </JobListTitle>
       {jobs.map((job, index) => {
-        if (jobs.length === index + 1) {
+        if (jobs.length === index + 5) {
           return (
             <JobCard
               cbFunc={lastJobCardRef}
