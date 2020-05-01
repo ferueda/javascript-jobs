@@ -5,7 +5,7 @@ export const useJobsFetch = (city, skip) => {
   const [jobs, setJobs] = useState([]);
   const [hasMore, setHasMore] = useState(false);
 
-  const baseURL = 'http://localhost:3001/jobs';
+  const baseURL = 'https://au-js-jobs.herokuapp.com/jobs';
 
   useEffect(() => {
     let didCancel = false;
