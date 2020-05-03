@@ -25,7 +25,7 @@ const JobListTitle = styled.h2`
   }
 `;
 
-const JobList = ({ jobs, loading, hasMore, setSkip }) => {
+const JobList = ({ jobs, loading, hasMore, dispatchJobsFetch }) => {
   const [isActive, setIsActive] = useState(null);
 
   const observer = useRef();
@@ -36,7 +36,7 @@ const JobList = ({ jobs, loading, hasMore, setSkip }) => {
       if (observer.current) observer.current.disconnect();
       observer.current = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting && hasMore) {
-          setSkip((skip) => skip + 20);
+          dispatchJobsFetch({ type: 'LOAD_MORE_JOBS' });
         }
       });
       if (node) observer.current.observe(node);

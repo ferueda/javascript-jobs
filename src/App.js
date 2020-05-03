@@ -32,11 +32,16 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 function App() {
-  const [city, setCity] = useState('sydney');
   const [filter, setFilter] = useState([]);
-  const [skip, setSkip] = useState(0);
 
-  const { jobs, setJobs, isLoading, hasMore } = useJobsFetch(city, skip);
+  const {
+    jobs,
+    isLoading,
+    hasMore,
+    isError,
+    city,
+    dispatchJobsFetch,
+  } = useJobsFetch();
 
   const handleSearch = (event) => {
     event.preventDefault();
@@ -59,9 +64,10 @@ function App() {
   };
 
   const handleCitySelection = (event) => {
-    setCity(event.target.value);
-    setJobs([]);
-    setSkip(0);
+    dispatchJobsFetch({
+      type: 'CHANGE_CITY',
+      payload: { city: event.target.value },
+    });
   };
 
   console.log('rendered');
@@ -85,8 +91,9 @@ function App() {
         jobs={jobsToShow(jobs, filter)}
         loading={isLoading}
         hasMore={hasMore}
-        setSkip={setSkip}
+        dispatchJobsFetch={dispatchJobsFetch}
       />
+      {isError && <h3>Something went wrong. Please refresh</h3>}
     </React.Fragment>
   );
 }

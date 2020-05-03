@@ -1,31 +1,83 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useReducer } from 'react';
 
-export const useJobsFetch = (city, skip) => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [jobs, setJobs] = useState([]);
-  const [hasMore, setHasMore] = useState(false);
+const jobsFetchReducer = (state, action) => {
+  switch (action.type) {
+    case 'FETCH_INIT':
+      return {
+        ...state,
+        isLoading: true,
+        isError: false,
+      };
+    case 'FETCH_SUCCESS':
+      return {
+        ...state,
+        isLoading: false,
+        isError: false,
+        jobs: [...state.jobs, ...action.payload.jobs],
+        hasMore: action.payload.remainingRows > 0,
+      };
+    case 'FETCH_FAILURE':
+      return {
+        ...state,
+        isLoading: false,
+        isError: true,
+      };
+    case 'CHANGE_CITY':
+      return {
+        ...state,
+        jobs: [],
+        skip: 0,
+        city: action.payload.city,
+      };
+    case 'LOAD_MORE_JOBS':
+      return {
+        ...state,
+        skip: state.skip + 20,
+      };
+    default:
+      return state;
+  }
+};
+
+export const useJobsFetch = () => {
+  const [
+    { jobs, isLoading, isError, hasMore, skip, city },
+    dispatchJobsFetch,
+  ] = useReducer(jobsFetchReducer, {
+    jobs: [],
+    isLoading: false,
+    isError: false,
+    hasMore: false,
+    skip: 0,
+    city: 'sydney',
+  });
 
   const baseURL = 'https://au-js-jobs.herokuapp.com/jobs';
 
   useEffect(() => {
     let didCancel = false;
 
-    setIsLoading(true);
+    dispatchJobsFetch({ type: 'FETCH_INIT' });
 
     fetch(`${baseURL}?city=${city}&skip=${skip}`)
       .then((res) => res.json())
       .then((data) => {
         if (!didCancel) {
-          setJobs((jobs) => [...jobs, ...data.jobs]);
-          setHasMore(data.pagination.remainingRows > 0);
-          setIsLoading(false);
+          dispatchJobsFetch({
+            type: 'FETCH_SUCCESS',
+            payload: {
+              jobs: data.jobs,
+              remainingRows: data.pagination.remainingRows,
+            },
+          });
         }
-      });
+      })
+      .catch(() => dispatchJobsFetch({ type: 'FETCH_FAILURE' }));
 
     return () => {
       didCancel = true;
     };
   }, [city, skip]);
 
-  return { isLoading, jobs, setJobs, hasMore };
+  return { isLoading, jobs, hasMore, isError, dispatchJobsFetch, skip, city };
 };
