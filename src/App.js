@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { createGlobalStyle } from 'styled-components';
 
 import { useJobsFetch } from './hooks/useJobsFetch';
@@ -43,13 +43,13 @@ function App() {
     dispatchJobsFetch,
   } = useJobsFetch();
 
-  const handleSearch = (event) => {
+  const handleSearch = useCallback((event) => {
     event.preventDefault();
     const value = event.target.tech.value;
     if (value !== '') {
       setFilter([value]);
     }
-  };
+  }, []);
 
   const handleFilters = (tech) => {
     if (filter.includes(tech)) {
@@ -63,12 +63,15 @@ function App() {
     setFilter(filter.filter((t) => t !== term));
   };
 
-  const handleCitySelection = (event) => {
-    dispatchJobsFetch({
-      type: 'CHANGE_CITY',
-      payload: { city: event.target.value },
-    });
-  };
+  const handleCitySelection = useCallback(
+    (event) => {
+      dispatchJobsFetch({
+        type: 'CHANGE_CITY',
+        payload: { city: event.target.value },
+      });
+    },
+    [dispatchJobsFetch]
+  );
 
   const jobsToShow = filterJobs(jobs, filter);
 

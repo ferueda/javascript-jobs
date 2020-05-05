@@ -60,4 +60,4 @@ const Hero = ({ handleSearch, city, handleCitySelection }) => {
   );
 };
 
-export default Hero;
+export default React.memo(Hero);

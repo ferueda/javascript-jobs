@@ -121,6 +121,8 @@ const JobCard = ({
 
   const time = dateDiff(jobDate, today);
 
+  // console.log('card rerendered');
+
   return (
     <React.Fragment>
       <JobCardContainer
@@ -153,4 +155,4 @@ const JobCard = ({
   );
 };
 
-export default JobCard;
+export default React.memo(JobCard);

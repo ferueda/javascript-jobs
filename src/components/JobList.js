@@ -25,7 +25,7 @@ const JobListTitle = styled.h2`
   }
 `;
 
-const JobList = React.memo(({ jobs, loading, hasMore, dispatchJobsFetch }) => {
+const JobList = ({ jobs, loading, hasMore, dispatchJobsFetch }) => {
   const [isActive, setIsActive] = useState(null);
 
   const observer = useRef();
@@ -45,13 +45,16 @@ const JobList = React.memo(({ jobs, loading, hasMore, dispatchJobsFetch }) => {
     [loading, hasMore]
   );
 
-  const handleActiveChange = (jobId) => {
-    if (isActive === jobId) {
-      setIsActive(null);
-    } else {
-      setIsActive(jobId);
-    }
-  };
+  const handleActiveChange = useCallback(
+    (jobId) => {
+      if (isActive === jobId) {
+        setIsActive(null);
+      } else {
+        setIsActive(jobId);
+      }
+    },
+    [isActive]
+  );
 
   console.log('List: render');
 
@@ -104,6 +107,6 @@ const JobList = React.memo(({ jobs, loading, hasMore, dispatchJobsFetch }) => {
       {loading && <ThreeSkeletonJobCard />}
     </JobsContainer>
   );
-});
+};
 
-export default JobList;
+export default React.memo(JobList);
