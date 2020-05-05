@@ -1,4 +1,4 @@
-import { useEffect, useReducer } from 'react';
+import { useEffect, useReducer, useRef } from 'react';
 
 const jobsFetchReducer = (state, action) => {
   switch (action.type) {
@@ -49,8 +49,18 @@ export const useJobsFetch = () => {
     isError: false,
     hasMore: false,
     skip: 0,
-    city: 'sydney',
+    city: localStorage.getItem('city') || 'sydney',
   });
+
+  const isMounted = useRef(false);
+
+  useEffect(() => {
+    if (!isMounted.current) {
+      isMounted.current = true;
+    } else {
+      localStorage.setItem('city', city);
+    }
+  }, [city]);
 
   const baseURL = 'https://au-js-jobs.herokuapp.com/jobs';
 

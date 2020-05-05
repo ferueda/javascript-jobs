@@ -50,7 +50,7 @@ const CitySelect = styled.select`
   margin-left: 1rem;
 `;
 
-const Search = ({ placeholder, handleSearch, handleCitySelection }) => {
+const Search = ({ placeholder, city, handleSearch, handleCitySelection }) => {
   const [search, setSearch] = useState('');
 
   const onChange = (event) => {
@@ -85,7 +85,7 @@ const Search = ({ placeholder, handleSearch, handleCitySelection }) => {
           </svg>
         </InputBtn>
       </FlexForm>
-      <CitySelect id='cityDopdown' onChange={handleCitySelection}>
+      <CitySelect id='cityDopdown' onChange={handleCitySelection} value={city}>
         <option value='sydney'>Sydney</option>
         <option value='melbourne'>Melbourne</option>
       </CitySelect>

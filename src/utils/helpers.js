@@ -21,7 +21,7 @@ export const setCompanyLogoFromName = (companyName) => {
   }
 };
 
-export const jobsToShow = (jobs, filter) => {
+export const filterJobs = (jobs, filter) => {
   if (!filter.length) {
     return jobs;
   }

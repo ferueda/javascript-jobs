@@ -25,7 +25,7 @@ const JobListTitle = styled.h2`
   }
 `;
 
-const JobList = ({ jobs, loading, hasMore, dispatchJobsFetch }) => {
+const JobList = React.memo(({ jobs, loading, hasMore, dispatchJobsFetch }) => {
   const [isActive, setIsActive] = useState(null);
 
   const observer = useRef();
@@ -53,11 +53,11 @@ const JobList = ({ jobs, loading, hasMore, dispatchJobsFetch }) => {
     }
   };
 
+  console.log('List: render');
+
   return (
     <JobsContainer>
-      <JobListTitle>
-        Latest jobs <span>({jobs.length})</span>
-      </JobListTitle>
+      <JobListTitle>Latest jobs</JobListTitle>
       {jobs.map((job, index) => {
         if (
           (jobs.length > 5 && jobs.length === index + 5) ||
@@ -104,6 +104,6 @@ const JobList = ({ jobs, loading, hasMore, dispatchJobsFetch }) => {
       {loading && <ThreeSkeletonJobCard />}
     </JobsContainer>
   );
-};
+});
 
 export default JobList;

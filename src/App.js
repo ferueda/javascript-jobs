@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { createGlobalStyle } from 'styled-components';
 
 import { useJobsFetch } from './hooks/useJobsFetch';
-import { jobsToShow } from './utils/helpers';
+import { filterJobs } from './utils/helpers';
 import JobList from './components/JobList';
 import Hero from './components/Hero';
 import Nav from './components/Nav';
@@ -70,7 +70,9 @@ function App() {
     });
   };
 
-  console.log('rendered');
+  const jobsToShow = filterJobs(jobs, filter);
+
+  console.log('App: render');
 
   return (
     <React.Fragment>
@@ -88,7 +90,7 @@ function App() {
         />
       )}
       <JobList
-        jobs={jobsToShow(jobs, filter)}
+        jobs={jobsToShow}
         loading={isLoading}
         hasMore={hasMore}
         dispatchJobsFetch={dispatchJobsFetch}

@@ -52,6 +52,7 @@ const Hero = ({ handleSearch, city, handleCitySelection }) => {
       </HeroTitle>
       <Search
         placeholder='Enter a keyword'
+        city={city}
         handleSearch={handleSearch}
         handleCitySelection={handleCitySelection}
       />
