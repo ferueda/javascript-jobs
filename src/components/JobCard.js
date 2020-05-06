@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import JobDescription from './JobDescription';
-import { setCompanyLogoFromName } from '../utils/helpers';
+import { setCompanyLogoFromName, getDateDiff } from '../utils/helpers';
 
 const JobCardContainer = styled.div`
   display: grid;
@@ -109,19 +109,10 @@ const JobCard = ({
   apply,
   cbFunc,
 }) => {
-  const dateDiff = (d1, d2) => {
-    const utc1 = Date.UTC(d1.getFullYear(), d1.getMonth(), d1.getDate());
-    const utc2 = Date.UTC(d2.getFullYear(), d2.getMonth(), d2.getDate());
-
-    return Math.floor((utc2 - utc1) / (1000 * 60 * 60 * 24));
-  };
-
   const today = new Date();
   const jobDate = new Date(timestamp);
 
-  const time = dateDiff(jobDate, today);
-
-  // console.log('card rerendered');
+  const time = getDateDiff(jobDate, today);
 
   return (
     <React.Fragment>

@@ -56,16 +56,17 @@ const JobList = ({ jobs, loading, hasMore, dispatchJobsFetch }) => {
     [isActive]
   );
 
-  useEffect(() => {
-    let didCancel = false;
+  // useEffect(() => {
+  //   let didCancel = false;
 
-    if (jobs.length === 0 && hasMore && !didCancel) {
-      dispatchJobsFetch({ type: 'LOAD_MORE_JOBS' });
-    }
-    return () => {
-      didCancel = true;
-    };
-  }, [jobs, hasMore, dispatchJobsFetch]);
+  //   if (jobs.length === 0 && hasMore && !didCancel && !loading) {
+  //     console.log('running');
+  //     dispatchJobsFetch({ type: 'LOAD_MORE_JOBS' });
+  //   }
+  //   return () => {
+  //     didCancel = true;
+  //   };
+  // }, [jobs, hasMore, loading, dispatchJobsFetch]);
 
   console.log('List: render');
 
