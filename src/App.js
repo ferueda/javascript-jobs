@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import { createGlobalStyle } from 'styled-components';
 
 import { useJobsFetch } from './hooks/useJobsFetch';
@@ -73,7 +73,7 @@ function App() {
     [dispatchJobsFetch]
   );
 
-  const jobsToShow = filterJobs(jobs, filter);
+  const jobsToShow = useMemo(() => filterJobs(jobs, filter), [jobs, filter]);
 
   console.log('App: render');
 

@@ -9,7 +9,6 @@ export const techFilters = [
   'Angular',
   'Node',
   'TypeScript',
-  'Gatsby',
 ];
 
 export const setCompanyLogoFromName = (companyName) => {

@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useRef, useCallback, useEffect } from 'react';
 import styled from 'styled-components';
 import JobCard from './JobCard';
 import ThreeSkeletonJobCard from './Skeletons/SkeletonJobCard';
@@ -55,6 +55,17 @@ const JobList = ({ jobs, loading, hasMore, dispatchJobsFetch }) => {
     },
     [isActive]
   );
+
+  useEffect(() => {
+    let didCancel = false;
+
+    if (jobs.length === 0 && hasMore && !didCancel) {
+      dispatchJobsFetch({ type: 'LOAD_MORE_JOBS' });
+    }
+    return () => {
+      didCancel = true;
+    };
+  }, [jobs, hasMore, dispatchJobsFetch]);
 
   console.log('List: render');
 

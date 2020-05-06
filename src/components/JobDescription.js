@@ -60,7 +60,8 @@ const ContentContainer = styled.div`
     margin: 1rem auto;
   }
 
-  li > p {
+  li > p,
+  li > div {
     display: inline;
   }
 `;
