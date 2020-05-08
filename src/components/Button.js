@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const PrimaryBtn = styled.a`
-  background-color: #2980b9;
+const PrimaryLinkBtn = styled.a`
+  background-color: #e74c3c;
   color: #fff;
   padding: 10px 55px;
-  border: 2px solid #2980b9;
+  border: 2px solid #e74c3c;
   border-radius: 3px;
   font-size: 1.5rem;
   font-weight: 600;
@@ -13,29 +13,74 @@ const PrimaryBtn = styled.a`
   cursor: pointer;
   text-decoration: none;
 
+  transition: all 0.1s ease-out;
+
   &:hover {
     opacity: 0.8;
   }
 `;
 
-const TransparentBtn = styled(PrimaryBtn)`
+const TransparentLinkBtn = styled(PrimaryLinkBtn)`
   background-color: transparent;
-  color: #2980b9;
+  color: #e74c3c;
+  &:hover {
+    background-color: #e74c3c;
+    color: #fff;
+  }
+`;
+
+const PrimaryRegularBtn = styled.button`
+  background-color: #e74c3c;
+  color: #fff;
+  padding: 10px 55px;
+  border: 2px solid #e74c3c;
+  border-radius: 3px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+
+  transition: all 0.1s ease-out;
+
   &:hover {
     opacity: 0.8;
   }
 `;
 
-const Button = ({ type, children, href }) => {
-  return type === 'transparent' ? (
-    <TransparentBtn href={href} target='_blank'>
+const TransparentRegularBtn = styled(PrimaryRegularBtn)`
+  background-color: transparent;
+  color: #e74c3c;
+  &:hover {
+    background-color: #e74c3c;
+    color: #fff;
+  }
+`;
+
+export const LinkButton = ({ color, children, href }) => {
+  return color === 'transparent' ? (
+    <TransparentLinkBtn href={href} target='_blank'>
       {children}
-    </TransparentBtn>
+    </TransparentLinkBtn>
   ) : (
-    <PrimaryBtn href={href} target='_blank'>
+    <PrimaryLinkBtn href={href} target='_blank'>
       {children}
-    </PrimaryBtn>
+    </PrimaryLinkBtn>
   );
 };
 
-export default Button;
+export const RegularButton = ({ color, type, children, onClick }) => {
+  return color === 'transparent' ? (
+    <TransparentRegularBtn
+      type={type || 'button'}
+      onClick={onClick}
+      target='_blank'
+    >
+      {children}
+    </TransparentRegularBtn>
+  ) : (
+    <PrimaryRegularBtn type={type || 'button'} onClick={onClick}>
+      {children}
+    </PrimaryRegularBtn>
+  );
+};

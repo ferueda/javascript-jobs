@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Search from './Search';
+import { LinkButton, RegularButton } from './Button';
 
 const HeroContainer = styled.div`
   width: 100%;
@@ -42,6 +43,12 @@ const HeroTitle = styled.h1`
   }
 `;
 
+const ButtonContainer = styled.div`
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+`;
+
 const Hero = ({ handleSearch, city, handleCitySelection }) => {
   return (
     <HeroContainer city={city}>
@@ -56,6 +63,9 @@ const Hero = ({ handleSearch, city, handleCitySelection }) => {
         handleSearch={handleSearch}
         handleCitySelection={handleCitySelection}
       />
+      <ButtonContainer>
+        <RegularButton>Post a job</RegularButton>
+      </ButtonContainer>
     </HeroContainer>
   );
 };

@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Button from './Button';
+import { LinkButton } from './Button';
 
-const ApplyBtnContainer = styled.div`
+const ButtonContainer = styled.div`
   display: flex;
   align-content: center;
   align-self: center;
@@ -44,13 +44,13 @@ const ContentContainer = styled.div`
 const JobDescription = ({ data, apply }) => {
   return (
     <ContentContainer>
-      <ApplyBtnContainer>
-        <Button href={apply}>Apply now</Button>
-      </ApplyBtnContainer>
+      <ButtonContainer>
+        <LinkButton href={apply}>Apply now</LinkButton>
+      </ButtonContainer>
       <div dangerouslySetInnerHTML={{ __html: data }}></div>
-      <ApplyBtnContainer>
-        <Button href={apply}>Apply now</Button>
-      </ApplyBtnContainer>
+      <ButtonContainer>
+        <LinkButton href={apply}>Apply now</LinkButton>
+      </ButtonContainer>
     </ContentContainer>
   );
 };

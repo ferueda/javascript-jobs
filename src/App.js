@@ -86,7 +86,7 @@ function App() {
         city={city}
       />
       <Nav handleFilters={handleFilters} filter={filter} />
-      {filter.length && (
+      {Boolean(filter.length) && (
         <SearchGuide
           handleTagRemove={handleSearchGuideTagRemove}
           filter={filter}
