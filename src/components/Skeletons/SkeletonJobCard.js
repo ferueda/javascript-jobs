@@ -5,15 +5,26 @@ const StyledDiv = styled.div`
   display: grid;
   grid-template-columns: auto 1fr 1fr;
   grid-template-rows: 1fr;
+  grid-template-areas: 'Thumb Info Tags';
   gap: 15px;
   width: 100%;
   padding: 10px;
   border-bottom: 1px solid #ecf0f1;
   border-radius: 3px;
   overflow: hidden;
+
+  @media (max-width: 600px) {
+    grid-template-areas:
+      'Thumb Info '
+      'Thumb Tags';
+
+    gap: 10px;
+    row-gap: 5px;
+  }
 `;
 
 const Thumb = styled.div`
+  grid-area: Thumb;
   width: 50px;
   height: 61px;
   border-radius: 3px;
@@ -35,6 +46,7 @@ const Thumb = styled.div`
 `;
 
 const InfoContainer = styled.div`
+  grid-area: Info;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -51,6 +63,12 @@ const Row = styled.div`
   background-size: 200% 100%;
   animation: change 2s ease-in-out infinite;
 
+  @media (max-width: 600px) {
+    margin: 2px 0;
+    margin-right: auto;
+    height: 90%;
+  }
+
   @keyframes change {
     0% {
       background-position: 0 0;
@@ -65,10 +83,14 @@ const Row = styled.div`
 `;
 
 const TagsContainer = styled.div`
+  grid-area: Tags;
   display: flex;
-
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 600px) {
+    justify-content: flex-start;
+  }
 `;
 
 const Tag = styled.div`
@@ -79,6 +101,11 @@ const Tag = styled.div`
   background: linear-gradient(90deg, #ecf0f1, #b6c1c5);
   background-size: 200% 100%;
   animation: change 2s ease-in-out infinite;
+
+  @media (max-width: 600px) {
+    height: 15px;
+    width: 40px;
+  }
 
   @keyframes change {
     0% {
