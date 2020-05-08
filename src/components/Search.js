@@ -9,6 +9,10 @@ const Container = styled.div`
   font-size: 2rem;
   width: auto;
   margin-top: -4rem;
+
+  @media (max-width: 500px) {
+    flex-direction: column;
+  }
 `;
 
 const HeroInput = styled.input`
@@ -48,6 +52,12 @@ const CitySelect = styled.select`
   padding: 1rem;
   height: 5rem;
   margin-left: 1rem;
+
+  @media (max-width: 500px) {
+    width: 100%;
+    margin: auto;
+    margin-top: 1.5rem;
+  }
 `;
 
 const Search = ({ placeholder, city, handleSearch, handleCitySelection }) => {

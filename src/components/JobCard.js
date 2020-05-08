@@ -8,9 +8,9 @@ const JobCardContainer = styled.div`
   display: grid;
   grid-template-columns: auto 3fr 1fr 3fr auto;
   grid-template-rows: 1fr;
-  gap: 15px;
+  gap: 1.5rem;
   width: 100%;
-  padding: 10px;
+  padding: 1rem;
   background-color: ${({ active }) => (active ? '#ecf0f1' : '')};
   border-bottom: 1px solid #ecf0f1;
   transition: 0.1s ease-out;
@@ -20,6 +20,11 @@ const JobCardContainer = styled.div`
   }
   border-radius: 3px;
   overflow: hidden;
+
+  @media (max-width: 500px) {
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: 2fr 1fr;
+  }
 `;
 
 const CompanyThumbContainer = styled.div`
@@ -31,6 +36,11 @@ const CompanyThumbContainer = styled.div`
   color: #bdc3c7;
   font-size: 3rem;
   font-weight: 900;
+
+  @media (max-width: 500px) {
+    width: 35px;
+    font-size: 2.5rem;
+  }
 `;
 
 const CompanyThumbImg = styled.img`
@@ -66,6 +76,8 @@ const SalaryContainer = styled.div`
   align-items: center;
   font-weight: 600;
   font-size: 1.4rem;
+  @media (max-width: 500px) {
+  }
 `;
 
 const TagsContainer = styled.div`

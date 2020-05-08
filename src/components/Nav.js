@@ -8,7 +8,8 @@ const StyledNav = styled.nav`
   justify-content: space-between;
   max-width: 900px;
   overflow-x: auto;
-  margin: 2rem auto 1rem auto;
+  margin: 2rem auto 0 auto;
+  padding-bottom: 1rem;
 `;
 
 const TechContainer = styled.div`

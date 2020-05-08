@@ -2,11 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Search from './Search';
-import { LinkButton, RegularButton } from './Button';
+import { RegularButton } from './Button';
 
 const HeroContainer = styled.div`
   width: 100%;
   height: 35vh;
+  min-height: 20rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -41,12 +42,20 @@ const HeroTitle = styled.h1`
   span {
     color: #fff;
   }
+
+  @media (max-width: 500px) {
+    font-size: 4rem;
+  }
 `;
 
 const ButtonContainer = styled.div`
   position: absolute;
   top: 2rem;
   right: 2rem;
+
+  @media (max-width: 800px) {
+    display: none;
+  }
 `;
 
 const Hero = ({ handleSearch, city, handleCitySelection }) => {

@@ -23,6 +23,10 @@ const JobListTitle = styled.h2`
     color: #7f8c8d;
     font-weight: 100;
   }
+
+  @media (max-width: 500px) {
+    margin: 1.5rem auto;
+  }
 `;
 
 const JobList = ({ jobs, loading, hasMore, dispatchJobsFetch }) => {
