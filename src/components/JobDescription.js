@@ -12,7 +12,7 @@ const ButtonContainer = styled.div`
 
 const ContentContainer = styled.div`
   width: 80%;
-  padding: 10px;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   font-size: 1.35rem;
@@ -38,6 +38,10 @@ const ContentContainer = styled.div`
   li > p,
   li > div {
     display: inline;
+  }
+
+  @media (max-width: 600px) {
+    width: 95%;
   }
 `;
 

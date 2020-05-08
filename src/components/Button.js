@@ -15,17 +15,22 @@ const PrimaryLinkBtn = styled.a`
 
   transition: all 0.1s ease-out;
 
-  &:hover {
-    opacity: 0.8;
+  @media (hover) {
+    &:hover {
+      opacity: 0.8;
+    }
   }
 `;
 
 const TransparentLinkBtn = styled(PrimaryLinkBtn)`
   background-color: transparent;
   color: #e74c3c;
-  &:hover {
-    background-color: #e74c3c;
-    color: #fff;
+
+  @media (hover) {
+    &:hover {
+      background-color: #e74c3c;
+      color: #fff;
+    }
   }
 `;
 
@@ -43,17 +48,22 @@ const PrimaryRegularBtn = styled.button`
 
   transition: all 0.1s ease-out;
 
-  &:hover {
-    opacity: 0.8;
+  @media (hover) {
+    &:hover {
+      opacity: 0.8;
+    }
   }
 `;
 
 const TransparentRegularBtn = styled(PrimaryRegularBtn)`
   background-color: transparent;
   color: #e74c3c;
-  &:hover {
-    background-color: #e74c3c;
-    color: #fff;
+
+  @media (hover) {
+    &:hover {
+      background-color: #e74c3c;
+      color: #fff;
+    }
   }
 `;
 

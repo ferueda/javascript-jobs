@@ -6,6 +6,9 @@ const SearchGuideContainer = styled.div`
   margin: 3rem auto 1rem auto;
   font-size: 1.8rem;
   font-weight: 900;
+  @media (max-width: 600px) {
+    display: none;
+  }
 `;
 
 const SearchSpan = styled.span`

@@ -10,7 +10,7 @@ const Container = styled.div`
   width: auto;
   margin-top: -4rem;
 
-  @media (max-width: 500px) {
+  @media (max-width: 600px) {
     flex-direction: column;
   }
 `;
@@ -53,7 +53,7 @@ const CitySelect = styled.select`
   height: 5rem;
   margin-left: 1rem;
 
-  @media (max-width: 500px) {
+  @media (max-width: 600px) {
     width: 100%;
     margin: auto;
     margin-top: 1.5rem;

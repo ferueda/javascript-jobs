@@ -24,7 +24,7 @@ const JobListTitle = styled.h2`
     font-weight: 100;
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 600px) {
     margin: 1.5rem auto;
   }
 `;

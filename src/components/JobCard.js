@@ -16,13 +16,16 @@ const JobCardContainer = styled.div`
   border-bottom: 1px solid #ecf0f1;
   transition: 0.1s ease-out;
   cursor: pointer;
-  &:hover {
-    background-color: #ecf0f1;
-  }
   border-radius: 3px;
   overflow: hidden;
 
-  @media (max-width: 500px) {
+  @media (hover) {
+    &:hover {
+      background-color: #ecf0f1;
+    }
+  }
+
+  @media (max-width: 600px) {
     grid-template-columns: auto 3fr 1fr auto;
     grid-template-rows: auto;
     grid-template-areas:
@@ -44,7 +47,7 @@ const CompanyThumbContainer = styled.div`
   font-size: 3rem;
   font-weight: 900;
 
-  @media (max-width: 500px) {
+  @media (max-width: 600px) {
     width: 40px;
     font-size: 2.5rem;
   }
@@ -77,7 +80,7 @@ const JobInfoContainer = styled.div`
     font-size: 1.25em;
     color: #7f8c8d;
   }
-  @media (max-width: 500px) {
+  @media (max-width: 600px) {
     font-size: 0.85rem;
 
     h3 {
@@ -97,7 +100,7 @@ const SalaryContainer = styled.div`
   align-items: center;
   font-weight: 600;
   font-size: 1.4rem;
-  @media (max-width: 500px) {
+  @media (max-width: 600px) {
     display: none;
   }
 `;
@@ -123,8 +126,8 @@ const Tags = styled.span`
     margin-left: 0;
   }
 
-  @media (max-width: 500px) {
-    font-size: 1rem;
+  @media (max-width: 600px) {
+    font-size: 1.2rem;
     border: 1px solid #2c3e50;
     font-weight: 500;
     margin: 0.15rem 0.15rem;
@@ -140,7 +143,7 @@ const TimeContainer = styled.div`
   color: #7f8c8d;
   text-align: center;
 
-  @media (max-width: 500px) {
+  @media (max-width: 600px) {
     font-size: 1.25rem;
   }
 `;
