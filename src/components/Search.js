@@ -67,12 +67,16 @@ const Search = ({ placeholder, city, handleSearch, handleCitySelection }) => {
     setSearch(event.target.value);
   };
 
+  const onCityChange = (event) => {
+    setSearch('');
+    handleCitySelection(event);
+  };
+
   return (
     <Container>
       <FlexForm
         onSubmit={(e) => {
           handleSearch(e);
-          setSearch('');
         }}
       >
         <HeroInput
@@ -95,7 +99,7 @@ const Search = ({ placeholder, city, handleSearch, handleCitySelection }) => {
           </svg>
         </InputBtn>
       </FlexForm>
-      <CitySelect id='cityDopdown' onChange={handleCitySelection} value={city}>
+      <CitySelect id='cityDopdown' onChange={onCityChange} value={city}>
         <option value='sydney'>Sydney</option>
         <option value='melbourne'>Melbourne</option>
       </CitySelect>

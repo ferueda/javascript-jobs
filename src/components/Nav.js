@@ -30,6 +30,13 @@ const TechContainer = styled.div`
     margin-right: 10px;
   }
 
+  @media (hover) {
+    &:hover {
+      transform: scale(0.95);
+      background-color: #ecf0f1;
+    }
+  }
+
   &.active {
     transform: scale(0.95);
     background-color: #ecf0f1;
@@ -42,13 +49,6 @@ const TechContainer = styled.div`
   span {
     font-weight: 600;
     font-size: 1.4rem;
-  }
-
-  @media (hover) {
-    &:hover {
-      transform: scale(0.95);
-      background-color: #ecf0f1;
-    }
   }
 `;
 

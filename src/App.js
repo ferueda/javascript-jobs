@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useMemo } from 'react';
+import React, { useState, useCallback, useMemo, useEffect } from 'react';
 import { createGlobalStyle } from 'styled-components';
 
 import { useJobsFetch } from './hooks/useJobsFetch';
@@ -32,8 +32,6 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 function App() {
-  const [filter, setFilter] = useState([]);
-
   const {
     jobs,
     isLoading,
@@ -41,26 +39,34 @@ function App() {
     isError,
     city,
     dispatchJobsFetch,
+    filters,
   } = useJobsFetch();
 
   const handleSearch = useCallback((event) => {
     event.preventDefault();
     const value = event.target.tech.value;
     if (value !== '') {
-      setFilter([value]);
+      // setFilter([value]);
     }
   }, []);
 
+  // const handleFilters = (tech) => {
+  //   if (filter.includes(tech)) {
+  //     setFilter(filter.filter((t) => t !== tech));
+  //   } else {
+  //     setFilter((filter) => [...filter, tech]);
+  //   }
+  // };
+
   const handleFilters = (tech) => {
-    if (filter.includes(tech)) {
-      setFilter(filter.filter((t) => t !== tech));
-    } else {
-      setFilter((filter) => [...filter, tech]);
-    }
+    dispatchJobsFetch({
+      type: 'CHANGE_FILTERS',
+      payload: tech,
+    });
   };
 
   const handleSearchGuideTagRemove = (term) => {
-    setFilter(filter.filter((t) => t !== term));
+    // setFilter(filter.filter((t) => t !== term));
   };
 
   const handleCitySelection = useCallback(
@@ -73,7 +79,22 @@ function App() {
     [dispatchJobsFetch]
   );
 
-  const jobsToShow = useMemo(() => filterJobs(jobs, filter), [jobs, filter]);
+  // const jobsToShow = useMemo(() => filterJobs(jobs, filter), [jobs, filter]);
+
+  // useEffect(() => {
+  //   let didCancel = false;
+
+  //   if (filter.length && hasMore && jobsToShow.length === 0 && !didCancel) {
+  //     console.log('run');
+  //     dispatchJobsFetch({
+  //       type: 'LOAD_MORE_JOBS',
+  //     });
+  //   }
+
+  //   return () => {
+  //     didCancel = true;
+  //   };
+  // }, [filter, hasMore, jobsToShow, dispatchJobsFetch]);
 
   console.log('App: render');
 
