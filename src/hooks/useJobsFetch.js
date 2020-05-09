@@ -1,4 +1,5 @@
 import { useEffect, useReducer, useRef } from 'react';
+import { generateURL } from '../utils/helpers';
 
 const jobsFetchReducer = (state, action) => {
   switch (action.type) {
@@ -62,7 +63,7 @@ const jobsFetchReducer = (state, action) => {
           jobs: [],
           skip: 0,
           totalRows: 0,
-          filters: [action.payload],
+          filters: [action.payload.toLowerCase().trim()],
         };
       } else break;
     default:
@@ -97,22 +98,13 @@ export const useJobsFetch = () => {
 
   // const baseURL = 'https://au-js-jobs.herokuapp.com/jobs';
   const baseURL = 'http://localhost:3001/jobs';
-  const tagParams = filters.map((f) => f.replace(' ', '-')).join('+');
-
-  const getUrl = (baseURL, city, skip, filters, tagParams) => {
-    if (filters.length) {
-      return `${baseURL}?city=${city}&skip=${skip}&tags=${tagParams}`;
-    } else {
-      return `${baseURL}?city=${city}&skip=${skip}`;
-    }
-  };
 
   useEffect(() => {
     let didCancel = false;
 
     dispatchJobsFetch({ type: 'FETCH_INIT' });
 
-    fetch(getUrl(baseURL, city, skip, filters, tagParams))
+    fetch(generateURL(baseURL, city, skip, filters))
       .then((res) => res.json())
       .then((data) => {
         if (!didCancel) {
@@ -131,7 +123,7 @@ export const useJobsFetch = () => {
     return () => {
       didCancel = true;
     };
-  }, [city, skip, tagParams, filters]);
+  }, [city, skip, filters]);
 
   return {
     isLoading,

@@ -65,3 +65,15 @@ export const getDateDiff = (d1, d2) => {
 
   return Math.floor((utc2 - utc1) / (1000 * 60 * 60 * 24));
 };
+
+export const generateURL = (baseURL, city, skip, filters) => {
+  if (filters.length) {
+    const tagFilters = filters.filter((f) => filters.includes(f.toLowerCase()));
+
+    const tagParams = tagFilters.map((f) => f.replace(' ', '%20')).join('+');
+
+    return `${baseURL}?city=${city}&skip=${skip}&q=${tagParams}`;
+  } else {
+    return `${baseURL}?city=${city}&skip=${skip}`;
+  }
+};
