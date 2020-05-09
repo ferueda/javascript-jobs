@@ -43,31 +43,23 @@ function App() {
     totalRows,
   } = useJobsFetch();
 
-  const handleSearch = useCallback((event) => {
-    event.preventDefault();
-    const value = event.target.tech.value;
-    if (value !== '') {
-      // setFilter([value]);
-    }
-  }, []);
+  const handleSearch = useCallback(
+    (event) => {
+      event.preventDefault();
+      const value = event.target.tech.value;
+      dispatchJobsFetch({
+        type: 'SEARCH',
+        payload: value,
+      });
+    },
+    [dispatchJobsFetch]
+  );
 
-  // const handleFilters = (tech) => {
-  //   if (filter.includes(tech)) {
-  //     setFilter(filter.filter((t) => t !== tech));
-  //   } else {
-  //     setFilter((filter) => [...filter, tech]);
-  //   }
-  // };
-
-  const handleFilters = (tech) => {
+  const handleFilters = (value) => {
     dispatchJobsFetch({
       type: 'CHANGE_FILTERS',
-      payload: tech,
+      payload: value,
     });
-  };
-
-  const handleSearchGuideTagRemove = (term) => {
-    // setFilter(filter.filter((t) => t !== term));
   };
 
   const handleCitySelection = useCallback(
@@ -79,23 +71,6 @@ function App() {
     },
     [dispatchJobsFetch]
   );
-
-  // const jobsToShow = useMemo(() => filterJobs(jobs, filter), [jobs, filter]);
-
-  // useEffect(() => {
-  //   let didCancel = false;
-
-  //   if (filter.length && hasMore && jobsToShow.length === 0 && !didCancel) {
-  //     console.log('run');
-  //     dispatchJobsFetch({
-  //       type: 'LOAD_MORE_JOBS',
-  //     });
-  //   }
-
-  //   return () => {
-  //     didCancel = true;
-  //   };
-  // }, [filter, hasMore, jobsToShow, dispatchJobsFetch]);
 
   console.log('App: render');
 
@@ -109,10 +84,7 @@ function App() {
       />
       <Nav handleFilters={handleFilters} filter={filters} />
       {Boolean(filters.length) && (
-        <SearchGuide
-          handleTagRemove={handleSearchGuideTagRemove}
-          filter={filters}
-        />
+        <SearchGuide handleTagRemove={handleFilters} filter={filters} />
       )}
       <JobList
         jobs={jobs}

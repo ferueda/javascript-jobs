@@ -43,17 +43,13 @@ const SearchSpan = styled.span`
 `;
 
 const SearchGuide = ({ filter, handleTagRemove }) => {
-  const onTagRemove = (term) => {
-    handleTagRemove(term);
-  };
-
   return (
     <SearchGuideContainer>
       Searching for:
-      {filter.map((term) => {
+      {filter.map((value) => {
         return (
-          <SearchSpan key={term} onClick={() => onTagRemove(term)}>
-            {term}
+          <SearchSpan key={value} onClick={() => handleTagRemove(value)}>
+            {value}
             <span>X</span>
           </SearchSpan>
         );
