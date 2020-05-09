@@ -15,7 +15,7 @@ const PrimaryLinkBtn = styled.a`
 
   transition: all 0.1s ease-out;
 
-  @media (hover) {
+  @media (hover: hover) and (pointer: fine) {
     &:hover {
       opacity: 0.8;
     }
@@ -26,7 +26,7 @@ const TransparentLinkBtn = styled(PrimaryLinkBtn)`
   background-color: transparent;
   color: #e74c3c;
 
-  @media (hover) {
+  @media (hover: hover) and (pointer: fine) {
     &:hover {
       background-color: #e74c3c;
       color: #fff;
@@ -48,7 +48,7 @@ const PrimaryRegularBtn = styled.button`
 
   transition: all 0.1s ease-out;
 
-  @media (hover) {
+  @media (hover: hover) and (pointer: fine) {
     &:hover {
       opacity: 0.8;
     }
@@ -59,7 +59,7 @@ const TransparentRegularBtn = styled(PrimaryRegularBtn)`
   background-color: transparent;
   color: #e74c3c;
 
-  @media (hover) {
+  @media (hover: hover) and (pointer: fine) {
     &:hover {
       background-color: #e74c3c;
       color: #fff;

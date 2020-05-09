@@ -35,9 +35,11 @@ const SearchSpan = styled.span`
     transition: 0.1s ease-out;
   }
 
-  &:hover {
-    span {
-      color: red;
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      span {
+        color: red;
+      }
     }
   }
 `;

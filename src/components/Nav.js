@@ -30,7 +30,7 @@ const TechContainer = styled.div`
     margin-right: 10px;
   }
 
-  @media (hover) {
+  @media (hover: hover) and (pointer: fine) {
     &:hover {
       transform: scale(0.95);
       background-color: #ecf0f1;

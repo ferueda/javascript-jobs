@@ -32,6 +32,11 @@ const Thumb = styled.div`
   background-size: 200% 100%;
   animation: change 2s ease-in-out infinite;
 
+  @media (max-width: 600px) {
+    width: 40px;
+    height: 50px;
+  }
+
   @keyframes change {
     0% {
       background-position: 0 0;

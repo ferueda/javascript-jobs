@@ -19,7 +19,7 @@ const JobCardContainer = styled.div`
   border-radius: 3px;
   overflow: hidden;
 
-  @media (hover) {
+  @media (hover: hover) and (pointer: fine) {
     &:hover {
       background-color: #ecf0f1;
     }
