@@ -57,7 +57,7 @@ const jobsFetchReducer = (state, action) => {
         };
       }
     case 'SEARCH':
-      if (action.payload !== '') {
+      if (action.payload.trim() !== '') {
         return {
           ...state,
           jobs: [],
@@ -65,7 +65,7 @@ const jobsFetchReducer = (state, action) => {
           totalRows: 0,
           filters: [action.payload.toLowerCase().trim()],
         };
-      } else break;
+      } else return state;
     default:
       return state;
   }
