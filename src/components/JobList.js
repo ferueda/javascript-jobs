@@ -29,7 +29,7 @@ const JobListTitle = styled.h2`
   }
 `;
 
-const JobList = ({ jobs, loading, hasMore, dispatchJobsFetch }) => {
+const JobList = ({ jobs, loading, hasMore, dispatchJobsFetch, totalRows }) => {
   const [isActive, setIsActive] = useState(null);
 
   const observer = useRef();
@@ -60,23 +60,13 @@ const JobList = ({ jobs, loading, hasMore, dispatchJobsFetch }) => {
     [isActive]
   );
 
-  // useEffect(() => {
-  //   let didCancel = false;
-
-  //   if (jobs.length === 0 && hasMore && !didCancel && !loading) {
-  //     console.log('running');
-  //     dispatchJobsFetch({ type: 'LOAD_MORE_JOBS' });
-  //   }
-  //   return () => {
-  //     didCancel = true;
-  //   };
-  // }, [jobs, hasMore, loading, dispatchJobsFetch]);
-
   console.log('List: render');
 
   return (
     <JobsContainer>
-      <JobListTitle>Latest jobs</JobListTitle>
+      <JobListTitle>
+        Latest jobs <span>({totalRows})</span>
+      </JobListTitle>
       {jobs.map((job, index) => {
         if (
           (jobs.length > 5 && jobs.length === index + 5) ||

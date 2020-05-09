@@ -15,6 +15,7 @@ const jobsFetchReducer = (state, action) => {
         isError: false,
         jobs: [...state.jobs, ...action.payload.jobs],
         hasMore: action.payload.remainingRows > 0,
+        totalRows: action.payload.totalRows,
       };
     case 'FETCH_FAILURE':
       return {
@@ -28,6 +29,7 @@ const jobsFetchReducer = (state, action) => {
         jobs: [],
         filters: [],
         skip: 0,
+        totalRows: 0,
         city: action.payload.city,
       };
     case 'LOAD_MORE_JOBS':
@@ -39,7 +41,10 @@ const jobsFetchReducer = (state, action) => {
       if (state.filters.includes(action.payload)) {
         return {
           ...state,
+          jobs: [],
+          skip: 0,
           filters: state.filters.filter((f) => f !== action.payload),
+          totalRows: 0,
         };
       } else {
         return {
@@ -47,6 +52,7 @@ const jobsFetchReducer = (state, action) => {
           jobs: [],
           skip: 0,
           filters: [...state.filters, action.payload],
+          totalRows: 0,
         };
       }
     default:
@@ -56,7 +62,7 @@ const jobsFetchReducer = (state, action) => {
 
 export const useJobsFetch = () => {
   const [
-    { jobs, isLoading, isError, hasMore, skip, city, filters },
+    { jobs, isLoading, isError, hasMore, skip, city, filters, totalRows },
     dispatchJobsFetch,
   ] = useReducer(jobsFetchReducer, {
     jobs: [],
@@ -66,6 +72,7 @@ export const useJobsFetch = () => {
     skip: 0,
     city: localStorage.getItem('city') || 'sydney',
     filters: [],
+    totalRows: 0,
   });
 
   const isMounted = useRef(false);
@@ -82,12 +89,20 @@ export const useJobsFetch = () => {
   const baseURL = 'http://localhost:3001/jobs';
   const tagParams = filters.map((f) => f.replace(' ', '-')).join('+');
 
+  const getUrl = (baseURL, city, skip, filters, tagParams) => {
+    if (filters.length) {
+      return `${baseURL}?city=${city}&skip=${skip}&tags=${tagParams}`;
+    } else {
+      return `${baseURL}?city=${city}&skip=${skip}`;
+    }
+  };
+
   useEffect(() => {
     let didCancel = false;
 
     dispatchJobsFetch({ type: 'FETCH_INIT' });
 
-    fetch(`${baseURL}?city=${city}&skip=${skip}&tags=${tagParams}`)
+    fetch(getUrl(baseURL, city, skip, filters, tagParams))
       .then((res) => res.json())
       .then((data) => {
         if (!didCancel) {
@@ -96,6 +111,7 @@ export const useJobsFetch = () => {
             payload: {
               jobs: data.jobs,
               remainingRows: data.pagination.remainingRows,
+              totalRows: data.pagination.totalRows,
             },
           });
         }
@@ -105,7 +121,7 @@ export const useJobsFetch = () => {
     return () => {
       didCancel = true;
     };
-  }, [city, skip, tagParams]);
+  }, [city, skip, tagParams, filters]);
 
   return {
     isLoading,
@@ -116,5 +132,6 @@ export const useJobsFetch = () => {
     skip,
     city,
     filters,
+    totalRows,
   };
 };

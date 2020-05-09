@@ -40,6 +40,7 @@ function App() {
     city,
     dispatchJobsFetch,
     filters,
+    totalRows,
   } = useJobsFetch();
 
   const handleSearch = useCallback((event) => {
@@ -106,18 +107,19 @@ function App() {
         handleCitySelection={handleCitySelection}
         city={city}
       />
-      <Nav handleFilters={handleFilters} filter={filter} />
-      {Boolean(filter.length) && (
+      <Nav handleFilters={handleFilters} filter={filters} />
+      {Boolean(filters.length) && (
         <SearchGuide
           handleTagRemove={handleSearchGuideTagRemove}
-          filter={filter}
+          filter={filters}
         />
       )}
       <JobList
-        jobs={jobsToShow}
+        jobs={jobs}
         loading={isLoading}
         hasMore={hasMore}
         dispatchJobsFetch={dispatchJobsFetch}
+        totalRows={totalRows}
       />
       {isError && <h3>Something went wrong. Please refresh</h3>}
     </React.Fragment>
