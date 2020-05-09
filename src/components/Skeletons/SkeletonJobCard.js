@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const StyledDiv = styled.div`
   display: grid;
-  grid-template-columns: auto 1fr 1fr;
+  grid-template-columns: auto 1fr 2fr;
   grid-template-rows: 1fr;
   grid-template-areas: 'Thumb Info Tags';
   gap: 15px;
