@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback, useEffect } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import styled from 'styled-components';
 import JobCard from './JobCard';
 import ThreeSkeletonJobCard from './Skeletons/SkeletonJobCard';
@@ -68,10 +68,7 @@ const JobList = ({ jobs, loading, hasMore, dispatchJobsFetch, totalRows }) => {
         Latest jobs <span>({totalRows})</span>
       </JobListTitle>
       {jobs.map((job, index) => {
-        if (
-          (jobs.length > 5 && jobs.length === index + 5) ||
-          (jobs.length <= 5 && jobs.length === index + 1)
-        ) {
+        if ((jobs.length > 5 && jobs.length === index + 5) || (jobs.length <= 5 && jobs.length === index + 1)) {
           return (
             <JobCard
               cbFunc={lastJobCardRef}

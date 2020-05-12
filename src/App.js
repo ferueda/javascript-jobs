@@ -1,8 +1,7 @@
-import React, { useState, useCallback, useMemo, useEffect } from 'react';
+import React, { useCallback } from 'react';
 import { createGlobalStyle } from 'styled-components';
 
 import { useJobsFetch } from './hooks/useJobsFetch';
-import { filterJobs } from './utils/helpers';
 import JobList from './components/JobList';
 import Hero from './components/Hero';
 import Nav from './components/Nav';
@@ -32,16 +31,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 function App() {
-  const {
-    jobs,
-    isLoading,
-    hasMore,
-    isError,
-    city,
-    dispatchJobsFetch,
-    filters,
-    totalRows,
-  } = useJobsFetch();
+  const { jobs, isLoading, hasMore, isError, city, dispatchJobsFetch, filters, totalRows } = useJobsFetch();
 
   const handleSearch = useCallback(
     (event) => {
@@ -77,15 +67,9 @@ function App() {
   return (
     <React.Fragment>
       <GlobalStyle />
-      <Hero
-        handleSearch={handleSearch}
-        handleCitySelection={handleCitySelection}
-        city={city}
-      />
+      <Hero handleSearch={handleSearch} handleCitySelection={handleCitySelection} city={city} />
       <Nav handleFilters={handleFilters} filter={filters} />
-      {Boolean(filters.length) && (
-        <SearchGuide handleTagRemove={handleFilters} filter={filters} />
-      )}
+      {Boolean(filters.length) && <SearchGuide handleTagRemove={handleFilters} filter={filters} />}
       <JobList
         jobs={jobs}
         loading={isLoading}
