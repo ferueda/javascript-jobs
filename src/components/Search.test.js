@@ -1,15 +1,19 @@
-import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
+import 'jest-axe/extend-expect';
+import React from 'react';
 import { render } from '@testing-library/react';
+import { axe } from 'jest-axe';
 import Search from './Search';
 
-describe('Search component', () => {
-  const componentProps = {
-    placeholder: 'Enter something',
-    city: 'Santiago',
+describe("Hero's Search component", () => {
+  const searchProps = {
+    placeholder: 'TEST_PLACEHOLDER',
+    city: 'TEST_CITY',
   };
 
-  const component = render(<Search {...componentProps} />);
-
-  expect(component.container.nodeType).toBe('text');
+  test('the form is accessible', async () => {
+    const { container } = render(<Search {...searchProps} />);
+    const result = await axe(container);
+    expect(result).toHaveNoViolations();
+  });
 });
