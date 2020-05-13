@@ -11,13 +11,37 @@ describe('<Button />', () => {
       children: 'TEST BUTTON',
     };
 
-    test('it renders', () => {
-      const { getByText } = render(<LinkButton {...props} />);
+    const renderLinkButton = () => {
+      const utils = render(<LinkButton {...props} />);
+      const button = utils.getByText(props.children);
 
-      const button = getByText(props.children);
+      return {
+        ...utils,
+        button,
+      };
+    };
+
+    test('it renders with the right props', () => {
+      const { button } = renderLinkButton();
 
       expect(button).toBeInTheDocument();
       expect(button.textContent).toBe(props.children);
+      expect(button).toHaveAttribute('href', props.href);
+    });
+
+    test('it renders with the right styles', () => {
+      const { button } = renderLinkButton();
+
+      expect(button).toHaveStyle('background-color: #e74c3c');
+      expect(button).toHaveStyle('color: #fff');
+    });
+
+    test('transparent LinkButton renders with the right styles', () => {
+      const { getByText } = render(<LinkButton {...props} color="transparent" />);
+      const button = getByText(props.children);
+
+      expect(button).toHaveStyle('background-color: transparent');
+      expect(button).toHaveStyle('color: #e74c3c');
     });
   });
 });
