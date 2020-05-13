@@ -67,7 +67,14 @@ describe('<Search />', () => {
     });
   });
 
-  describe('Dropdown element (city selection)', () => {
-    test('dropdown renders', () => {});
+  describe('dropdown element (city selection)', () => {
+    test('dropdown elements are rendered', () => {
+      const { getByLabelText, queryAllByRole } = render(<Search {...searchProps} />);
+      const select = getByLabelText(/select city/i);
+      const options = queryAllByRole('option');
+
+      expect(select).toBeInTheDocument();
+      expect(options.length).toBeGreaterThan(0);
+    });
   });
 });
