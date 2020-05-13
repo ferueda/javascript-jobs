@@ -20,50 +20,54 @@ describe('<Search />', () => {
     handleCitySelection: mockCitySelectionHandler,
   };
 
-  test('search handler is called when submitting form', () => {
-    const testInputValue = 'TEST';
+  describe('Form element', () => {
+    test('form, input and button elements are rendered', () => {
+      const { getByLabelText, getByTestId } = render(<Search {...searchProps} />);
 
-    const { getByLabelText, getByTestId } = render(<Search {...searchProps} />);
+      const form = getByTestId(/keyword-form/i);
+      const input = getByLabelText(/keyword input/i);
+      const button = getByLabelText(/search keyword/i);
 
-    const form = getByTestId(/keyword-form/i);
-    const input = getByLabelText(/keyword input/i);
+      expect(form).toBeInTheDocument();
+      expect(input).toBeInTheDocument();
+      expect(button).toBeInTheDocument();
+    });
 
-    fireEvent.change(input, { target: { value: testInputValue } });
-    fireEvent.submit(form);
+    test('input value updates on change', () => {
+      const { getByLabelText } = render(<Search {...searchProps} />);
 
-    expect(mockSearchHandler).toHaveBeenCalledTimes(1);
-    expect(mockSearchHandler).toReturn();
-    expect(mockSearchHandler).toHaveReturnedWith(testInputValue);
+      const testInputValue = 'TEST';
+
+      const input = getByLabelText(/keyword input/i);
+      user.type(input, testInputValue);
+
+      expect(input.value).toBe(testInputValue);
+    });
+
+    test('search handler is called and returns with the right value after submitting form', () => {
+      const testInputValue = 'TEST';
+
+      const { getByLabelText, getByTestId } = render(<Search {...searchProps} />);
+
+      const form = getByTestId(/keyword-form/i);
+      const input = getByLabelText(/keyword input/i);
+
+      fireEvent.change(input, { target: { value: testInputValue } });
+      fireEvent.submit(form);
+
+      expect(mockSearchHandler).toHaveBeenCalledTimes(1);
+      expect(mockSearchHandler).toReturn();
+      expect(mockSearchHandler).toHaveReturnedWith(testInputValue);
+    });
+
+    test('the form is accessible', async () => {
+      const { container } = render(<Search {...searchProps} />);
+      const result = await axe(container);
+      expect(result).toHaveNoViolations();
+    });
   });
 
-  test('search handler returns the right value when form is submitted', () => {
-    const testInputValue = 'TEST';
-
-    const { getByLabelText, getByTestId } = render(<Search {...searchProps} />);
-
-    const form = getByTestId(/keyword-form/i);
-    const input = getByLabelText(/keyword input/i);
-
-    fireEvent.change(input, { target: { value: testInputValue } });
-    fireEvent.submit(form);
-
-    expect(mockSearchHandler).toHaveReturnedWith(testInputValue);
-  });
-
-  test('input value updates on change', () => {
-    const { getByLabelText } = render(<Search {...searchProps} />);
-
-    const testInputValue = 'TEST';
-
-    const input = getByLabelText(/keyword input/i);
-    user.type(input, testInputValue);
-
-    expect(input.value).toBe(testInputValue);
-  });
-
-  test('the form is accessible', async () => {
-    const { container } = render(<Search {...searchProps} />);
-    const result = await axe(container);
-    expect(result).toHaveNoViolations();
+  describe('Dropdown element (city selection)', () => {
+    test('dropdown renders', () => {});
   });
 });
