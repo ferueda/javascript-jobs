@@ -7,13 +7,8 @@ import { axe } from 'jest-axe';
 import Search from '../components/Search';
 
 describe('<Search />', () => {
-  const mockSearchHandler = jest.fn((event) => {
-    const formElement = event.target;
-    return formElement.querySelector('input').value;
-  });
-  const mockCitySelectionHandler = jest.fn((event) => {
-    return event.target.value;
-  });
+  const mockSearchHandler = jest.fn((event) => event.target.querySelector('input').value);
+  const mockCitySelectionHandler = jest.fn((event) => event.target.value);
 
   const searchProps = {
     placeholder: 'TEST_PLACEHOLDER',
@@ -23,36 +18,42 @@ describe('<Search />', () => {
   };
 
   describe('form element', () => {
-    test('form, input and button elements are rendered', () => {
-      const { getByLabelText, getByTestId } = render(<Search {...searchProps} />);
+    const renderForm = () => {
+      const utils = render(<Search {...searchProps} />);
 
-      const form = getByTestId(/keyword-form/i);
-      const input = getByLabelText(/keyword input/i);
-      const button = getByLabelText(/search keyword/i);
+      const testInputValue = 'TEST';
+      const form = utils.getByTestId(/keyword-form/i);
+      const input = utils.getByLabelText(/keyword input/i);
+      const button = utils.getByLabelText(/search keyword/i);
+
+      return {
+        ...utils,
+        form,
+        input,
+        button,
+        testInputValue,
+      };
+    };
+
+    test('form, input and button elements are rendered', () => {
+      const { form, input, button } = renderForm();
 
       expect(form).toBeInTheDocument();
       expect(input).toBeInTheDocument();
       expect(button).toBeInTheDocument();
+      expect(input.placeholder).toBe(searchProps.placeholder);
     });
 
     test('input value updates on change', () => {
-      const { getByLabelText } = render(<Search {...searchProps} />);
+      const { input, testInputValue } = renderForm();
 
-      const testInputValue = 'TEST';
-
-      const input = getByLabelText(/keyword input/i);
       user.type(input, testInputValue);
 
       expect(input.value).toBe(testInputValue);
     });
 
     test('search handler is called and returns the right value after submitting form', () => {
-      const testInputValue = 'TEST';
-
-      const { getByLabelText, getByTestId } = render(<Search {...searchProps} />);
-
-      const form = getByTestId(/keyword-form/i);
-      const input = getByLabelText(/keyword input/i);
+      const { form, input, testInputValue } = renderForm();
 
       fireEvent.change(input, { target: { value: testInputValue } });
       fireEvent.submit(form);
@@ -65,15 +66,27 @@ describe('<Search />', () => {
     test('the form is accessible', async () => {
       const { container } = render(<Search {...searchProps} />);
       const result = await axe(container);
+
       expect(result).toHaveNoViolations();
     });
   });
 
   describe('dropdown element (city selection)', () => {
+    const renderSelect = () => {
+      const utils = render(<Search {...searchProps} />);
+
+      const select = utils.getByLabelText(/select city/i);
+      const options = utils.queryAllByRole('option');
+
+      return {
+        ...utils,
+        select,
+        options,
+      };
+    };
+
     test('dropdown elements are rendered', () => {
-      const { getByLabelText, queryAllByRole } = render(<Search {...searchProps} />);
-      const select = getByLabelText(/select city/i);
-      const options = queryAllByRole('option');
+      const { select, options } = renderSelect();
 
       expect(select).toBeInTheDocument();
       expect(options.length).toBeGreaterThan(0);
@@ -94,10 +107,7 @@ describe('<Search />', () => {
     });
 
     test('on change, handler func is called and returs the right value', () => {
-      const { getByLabelText, queryAllByRole } = render(<Search {...searchProps} />);
-
-      const select = getByLabelText(/select city/i);
-      const options = queryAllByRole('option');
+      const { select, options } = renderSelect();
 
       fireEvent.change(select, { target: { value: options[0].value } });
 
