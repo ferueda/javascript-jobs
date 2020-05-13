@@ -72,13 +72,13 @@ const Search = ({ placeholder, city, handleSearch, handleCitySelection }) => {
     handleCitySelection(event);
   };
 
+  const onSubmit = (event) => {
+    handleSearch(event);
+  };
+
   return (
     <Container>
-      <FlexForm
-        onSubmit={(e) => {
-          handleSearch(e);
-        }}
-      >
+      <FlexForm data-testid="keyword-form" onSubmit={onSubmit}>
         <HeroInput
           aria-label="keyword input"
           name="tech"
