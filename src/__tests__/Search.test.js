@@ -1,10 +1,10 @@
 import '@testing-library/jest-dom/extend-expect';
 import 'jest-axe/extend-expect';
 import React from 'react';
-import { render, fireEvent, queryAllByTestId } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import user from '@testing-library/user-event';
 import { axe } from 'jest-axe';
-import Search from './Search';
+import Search from '../components/Search';
 
 describe('<Search />', () => {
   const mockSearchHandler = jest.fn((event) => {
@@ -17,7 +17,7 @@ describe('<Search />', () => {
 
   const searchProps = {
     placeholder: 'TEST_PLACEHOLDER',
-    city: 'TEST_CITY',
+    city: 'sydney',
     handleSearch: mockSearchHandler,
     handleCitySelection: mockCitySelectionHandler,
   };
