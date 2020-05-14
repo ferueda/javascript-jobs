@@ -1,19 +1,19 @@
-import '@testing-library/jest-dom/extend-expect';
-import React from 'react';
-import { render } from '@testing-library/react';
-import Hero from '../components/Hero';
+import "@testing-library/jest-dom/extend-expect";
+import React from "react";
+import { render } from "@testing-library/react";
+import Hero from "../components/Hero";
 
-describe('<Hero />', () => {
+describe("<Hero />", () => {
   const mockedHandleSearch = jest.fn();
   const mockedHandleCitySelection = jest.fn();
 
   const props = {
     handleSearch: mockedHandleSearch,
-    city: 'TEST_CITY',
+    city: "TEST_CITY",
     handleCitySelection: mockedHandleCitySelection,
   };
 
-  test('it renders', () => {
+  test("it renders", () => {
     const { getByText, getByRole, getByTestId } = render(<Hero {...props} />);
 
     const container = getByRole(/container/i);
@@ -60,6 +60,7 @@ describe('<Hero />', () => {
               class="sc-AxiKw hjBueW"
             >
               <svg
+                aria-label="search button"
                 fill="black"
                 height="30px"
                 viewBox="0 0 24 24"
@@ -107,11 +108,11 @@ describe('<Hero />', () => {
     `);
   });
 
-  test('it renders the backgroud images', () => {
+  test("it renders the backgroud images", () => {
     const { getByRole } = render(<Hero {...props} city="sydney" />);
 
     const container = getByRole(/container/i);
 
-    expect(container).toHaveStyle('background-image:');
+    expect(container).toHaveStyle("background-image:");
   });
 });

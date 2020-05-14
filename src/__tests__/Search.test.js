@@ -25,6 +25,7 @@ describe('<Search />', () => {
       const form = utils.getByTestId(/keyword-form/i);
       const input = utils.getByLabelText(/keyword input/i);
       const button = utils.getByLabelText(/search keyword/i);
+      const svgIcon = utils.get;
 
       return {
         ...utils,
