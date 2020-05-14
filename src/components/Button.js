@@ -69,11 +69,11 @@ const TransparentRegularBtn = styled(PrimaryRegularBtn)`
 
 export const LinkButton = ({ color, children, href }) => {
   return color === 'transparent' ? (
-    <TransparentLinkBtn href={href} target='_blank'>
+    <TransparentLinkBtn role="button" href={href} target="_blank">
       {children}
     </TransparentLinkBtn>
   ) : (
-    <PrimaryLinkBtn href={href} target='_blank'>
+    <PrimaryLinkBtn role="button" href={href} target="_blank">
       {children}
     </PrimaryLinkBtn>
   );
@@ -81,11 +81,7 @@ export const LinkButton = ({ color, children, href }) => {
 
 export const RegularButton = ({ color, type, children, onClick }) => {
   return color === 'transparent' ? (
-    <TransparentRegularBtn
-      type={type || 'button'}
-      onClick={onClick}
-      target='_blank'
-    >
+    <TransparentRegularBtn type={type || 'button'} onClick={onClick} target="_blank">
       {children}
     </TransparentRegularBtn>
   ) : (

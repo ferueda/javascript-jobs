@@ -14,9 +14,7 @@ const HeroContainer = styled.div`
   justify-content: space-evenly;
   /* background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)),
     url('/assets/mel-hero.jpg'); */
-  background-image: ${({
-    city,
-  }) => `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)),
+  background-image: ${({ city }) => `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)),
     url('/assets/${city}-hero.jpg');`};
   background-position: center;
   background-repeat: no-repeat;
@@ -60,14 +58,14 @@ const ButtonContainer = styled.div`
 
 const Hero = ({ handleSearch, city, handleCitySelection }) => {
   return (
-    <HeroContainer city={city}>
+    <HeroContainer role="container" city={city}>
       <HeroTitle>
-        <a href='/'>
+        <a href="/">
           JavaScript <span>Jobs</span>
         </a>
       </HeroTitle>
       <Search
-        placeholder='Enter a keyword'
+        placeholder="Enter a keyword"
         city={city}
         handleSearch={handleSearch}
         handleCitySelection={handleCitySelection}
