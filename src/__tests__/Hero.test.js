@@ -1,28 +1,28 @@
-import "@testing-library/jest-dom/extend-expect";
-import React from "react";
-import { render, fireEvent, getByRole } from "@testing-library/react";
-import user from "@testing-library/user-event";
-import Hero from "../components/Hero";
-import Search from "../components/Search";
+import '@testing-library/jest-dom/extend-expect';
+import React from 'react';
+import { render } from '@testing-library/react';
+import Hero from '../components/Hero';
 
-describe("<Hero />", () => {
+describe('<Hero />', () => {
   const mockedHandleSearch = jest.fn();
   const mockedHandleCitySelection = jest.fn();
 
   const props = {
     handleSearch: mockedHandleSearch,
-    city: "TEST_CITY",
+    city: 'TEST_CITY',
     handleCitySelection: mockedHandleCitySelection,
   };
 
-  test("it renders", () => {
-    const { getByText, getByRole, debug } = render(<Hero {...props} />);
+  test('it renders', () => {
+    const { getByText, getByRole, getByTestId } = render(<Hero {...props} />);
 
     const container = getByRole(/container/i);
     const title = getByText(/javascript/i);
+    const form = getByTestId(/keyword-form/i);
 
     expect(container).toBeInTheDocument();
     expect(title).toBeInTheDocument();
+    expect(form).toBeInTheDocument();
     expect(container).toMatchInlineSnapshot(`
       <div
         class="sc-fzozJi enguNp"
@@ -105,7 +105,13 @@ describe("<Hero />", () => {
         </div>
       </div>
     `);
+  });
 
-    debug();
+  test('it renders the backgroud images', () => {
+    const { getByRole } = render(<Hero {...props} city="sydney" />);
+
+    const container = getByRole(/container/i);
+
+    expect(container).toHaveStyle('background-image:');
   });
 });
