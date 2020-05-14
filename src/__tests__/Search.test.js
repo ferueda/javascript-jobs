@@ -25,7 +25,7 @@ describe('<Search />', () => {
       const form = utils.getByTestId(/keyword-form/i);
       const input = utils.getByLabelText(/keyword input/i);
       const button = utils.getByLabelText(/search keyword/i);
-      const svgIcon = utils.get;
+      const svgIcon = utils.getByLabelText(/search button/i);
 
       return {
         ...utils,
@@ -33,15 +33,17 @@ describe('<Search />', () => {
         input,
         button,
         testInputValue,
+        svgIcon,
       };
     };
 
     test('form, input and button elements are rendered', () => {
-      const { form, input, button } = renderForm();
+      const { form, input, button, svgIcon } = renderForm();
 
       expect(form).toBeInTheDocument();
       expect(input).toBeInTheDocument();
       expect(button).toBeInTheDocument();
+      expect(svgIcon).toBeInTheDocument();
       expect(input.placeholder).toBe(searchProps.placeholder);
     });
 
