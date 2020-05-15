@@ -38,14 +38,24 @@ describe('<Nav />', () => {
   });
 
   test('on click, handler is called', async () => {
-    const { techDescp, debug } = renderComponent();
+    const { techDescp } = renderComponent();
     const clickedLogo = techDescp[2];
 
-    await wait(() => user.click(clickedLogo));
+    user.click(clickedLogo);
 
     expect(mockedHandleFilters).toHaveBeenCalledTimes(1);
     expect(mockedHandleFilters).toHaveBeenCalledWith(
       clickedLogo.textContent.toLowerCase()
     );
+  });
+
+  test('with filters, "active" css class is active', () => {
+    const testFilters = ['javascript', 'angular'];
+    const { getByRole } = render(<Nav {...navProps} filter={testFilters} />);
+
+    const nav = getByRole('navigation');
+    const withActiveClass = nav.querySelectorAll('.active');
+
+    expect(withActiveClass).toHaveLength(testFilters.length);
   });
 });
