@@ -50,7 +50,11 @@ const SearchGuide = ({ filter, handleTagRemove }) => {
       Searching for:
       {filter.map((value) => {
         return (
-          <SearchSpan key={value} onClick={() => handleTagRemove(value)}>
+          <SearchSpan
+            key={value}
+            onClick={() => handleTagRemove(value)}
+            data-testid="tech filter"
+          >
             {value}
             <span>X</span>
           </SearchSpan>
