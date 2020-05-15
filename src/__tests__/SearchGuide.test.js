@@ -21,15 +21,15 @@ describe('<SearchGuide />', () => {
     expect(element).toBeInTheDocument();
   });
 
-  test('do not render filter tags when filter is empty', () => {
-    const { getAllByTestId } = render(<SearchGuide {...props} />);
+  test('do not render filter tags when no filter is selected', () => {
+    const { queryAllByTestId } = render(<SearchGuide {...props} />);
 
-    expect(getAllByTestId('tech filter'));
+    expect(queryAllByTestId('tech filter')).toHaveLength(0);
   });
 
-  test('renders with the right filter tags when filter is not empty', () => {
+  test('renders with the right filter tags when filters are selected', () => {
     const filters = ['javascript', 'angular'];
-    const { debug, getAllByTestId } = render(
+    const { getAllByTestId } = render(
       <SearchGuide {...props} filter={filters} />
     );
 
@@ -38,16 +38,24 @@ describe('<SearchGuide />', () => {
     expect(filterSpans).toHaveLength(filters.length);
     expect(filterSpans[0].textContent).toContain(filters[0]);
     expect(filterSpans[1].textContent).toContain(filters[1]);
-
-    debug();
   });
 
-  // test('on click, calls handler', () => {
-  //   const filters = ['javascript', 'angular'];
-  //   const { debug, getByText } = render(
-  //     <SearchGuide {...props} filter={filters} />
-  //   );
+  test('on click calls handler', () => {
+    const filters = ['javascript', 'angular'];
+    const { getAllByTestId } = render(
+      <SearchGuide {...props} filter={filters} />
+    );
 
-  //   debug();
-  // });
+    const filterSpans = getAllByTestId('tech filter');
+
+    expect(mockedHandleTagRemove).toHaveBeenCalledTimes(0);
+
+    user.click(filterSpans[0]);
+    expect(mockedHandleTagRemove).toHaveBeenCalledTimes(1);
+    expect(mockedHandleTagRemove).toHaveBeenCalledWith(filters[0]);
+
+    user.click(filterSpans[1]);
+    expect(mockedHandleTagRemove).toHaveBeenCalledTimes(2);
+    expect(mockedHandleTagRemove).toHaveBeenCalledWith(filters[1]);
+  });
 });
