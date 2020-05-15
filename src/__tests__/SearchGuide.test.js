@@ -1,10 +1,10 @@
-import '@testing-library/jest-dom/extend-expect';
-import React from 'react';
-import { render, fireEvent, getAllByTestId } from '@testing-library/react';
-import user from '@testing-library/user-event';
-import SearchGuide from '../components/SearchGuide';
+import "@testing-library/jest-dom/extend-expect";
+import React from "react";
+import { render, fireEvent, getAllByTestId } from "@testing-library/react";
+import user from "@testing-library/user-event";
+import SearchGuide from "../components/SearchGuide";
 
-describe('<SearchGuide />', () => {
+describe("<SearchGuide />", () => {
   const testFilter = [];
   const mockedHandleTagRemove = jest.fn();
 
@@ -17,7 +17,7 @@ describe('<SearchGuide />', () => {
     const utils = render(<SearchGuide {...props} />);
 
     const element = utils.getByText(/searching/i);
-    const techFilters = utils.queryAllByTestId('tech filter');
+    const techFilters = utils.queryAllByTestId("tech filter");
 
     return {
       ...utils,
@@ -26,18 +26,25 @@ describe('<SearchGuide />', () => {
     };
   };
 
-  test('it renders', () => {
+  test("it renders", () => {
     const { element } = renderComponent();
     expect(element).toBeInTheDocument();
+    expect(element).toMatchInlineSnapshot(`
+      <div
+        class="sc-AxjAm gsZbhr"
+      >
+        Searching for:
+      </div>
+    `);
   });
 
-  test('do not render filter tags when no filter is selected', () => {
+  test("do not render filter tags when no filter is selected", () => {
     const { techFilters } = renderComponent();
     expect(techFilters).toHaveLength(0);
   });
 
-  test('renders with the right filter tags when filters are selected', () => {
-    const filters = ['javascript', 'angular'];
+  test("renders with the right filter tags when filters are selected", () => {
+    const filters = ["javascript", "angular"];
     const props = { ...testProps, filter: [...filters] };
 
     const { techFilters } = renderComponent(props);
@@ -45,10 +52,32 @@ describe('<SearchGuide />', () => {
     expect(techFilters).toHaveLength(filters.length);
     expect(techFilters[0].textContent).toContain(filters[0]);
     expect(techFilters[1].textContent).toContain(filters[1]);
+    expect(techFilters).toMatchInlineSnapshot(`
+      Array [
+        <span
+          class="sc-AxirZ cgXzqD"
+          data-testid="tech filter"
+        >
+          javascript
+          <span>
+            X
+          </span>
+        </span>,
+        <span
+          class="sc-AxirZ cgXzqD"
+          data-testid="tech filter"
+        >
+          angular
+          <span>
+            X
+          </span>
+        </span>,
+      ]
+    `);
   });
 
-  test('on click calls handler', () => {
-    const filters = ['javascript', 'angular'];
+  test("on click calls handler", () => {
+    const filters = ["javascript", "angular"];
     const props = { ...testProps, filter: [...filters] };
 
     const { techFilters } = renderComponent(props);
