@@ -8,53 +8,58 @@ describe('<SearchGuide />', () => {
   const testFilter = [];
   const mockedHandleTagRemove = jest.fn();
 
-  const props = {
+  const testProps = {
     filter: testFilter,
     handleTagRemove: mockedHandleTagRemove,
   };
 
+  const renderComponent = (props = testProps) => {
+    const utils = render(<SearchGuide {...props} />);
+
+    const element = utils.getByText(/searching/i);
+    const techFilters = utils.queryAllByTestId('tech filter');
+
+    return {
+      ...utils,
+      element,
+      techFilters,
+    };
+  };
+
   test('it renders', () => {
-    const { getByText } = render(<SearchGuide {...props} />);
-
-    const element = getByText(/searching/i);
-
+    const { element } = renderComponent();
     expect(element).toBeInTheDocument();
   });
 
   test('do not render filter tags when no filter is selected', () => {
-    const { queryAllByTestId } = render(<SearchGuide {...props} />);
-
-    expect(queryAllByTestId('tech filter')).toHaveLength(0);
+    const { techFilters } = renderComponent();
+    expect(techFilters).toHaveLength(0);
   });
 
   test('renders with the right filter tags when filters are selected', () => {
     const filters = ['javascript', 'angular'];
-    const { getAllByTestId } = render(
-      <SearchGuide {...props} filter={filters} />
-    );
+    const props = { ...testProps, filter: [...filters] };
 
-    const filterSpans = getAllByTestId('tech filter');
+    const { techFilters } = renderComponent(props);
 
-    expect(filterSpans).toHaveLength(filters.length);
-    expect(filterSpans[0].textContent).toContain(filters[0]);
-    expect(filterSpans[1].textContent).toContain(filters[1]);
+    expect(techFilters).toHaveLength(filters.length);
+    expect(techFilters[0].textContent).toContain(filters[0]);
+    expect(techFilters[1].textContent).toContain(filters[1]);
   });
 
   test('on click calls handler', () => {
     const filters = ['javascript', 'angular'];
-    const { getAllByTestId } = render(
-      <SearchGuide {...props} filter={filters} />
-    );
+    const props = { ...testProps, filter: [...filters] };
 
-    const filterSpans = getAllByTestId('tech filter');
+    const { techFilters } = renderComponent(props);
 
     expect(mockedHandleTagRemove).toHaveBeenCalledTimes(0);
 
-    user.click(filterSpans[0]);
+    user.click(techFilters[0]);
     expect(mockedHandleTagRemove).toHaveBeenCalledTimes(1);
     expect(mockedHandleTagRemove).toHaveBeenCalledWith(filters[0]);
 
-    user.click(filterSpans[1]);
+    user.click(techFilters[1]);
     expect(mockedHandleTagRemove).toHaveBeenCalledTimes(2);
     expect(mockedHandleTagRemove).toHaveBeenCalledWith(filters[1]);
   });
