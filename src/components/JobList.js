@@ -68,7 +68,10 @@ const JobList = ({ jobs, loading, hasMore, dispatchJobsFetch, totalRows }) => {
         Latest jobs <span>({totalRows})</span>
       </JobListTitle>
       {jobs.map((job, index) => {
-        if ((jobs.length > 5 && jobs.length === index + 5) || (jobs.length <= 5 && jobs.length === index + 1)) {
+        if (
+          (jobs.length > 5 && jobs.length === index + 5) ||
+          (jobs.length <= 5 && jobs.length === index + 1)
+        ) {
           return (
             <JobCard
               cbFunc={lastJobCardRef}
