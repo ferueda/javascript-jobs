@@ -1,11 +1,11 @@
-import '@testing-library/jest-dom/extend-expect';
-import React from 'react';
-import { render, cleanup } from '@testing-library/react';
-import user from '@testing-library/user-event';
-import JobList from '../components/JobList';
-import jobsData from '../testsdata/jobs.json';
+import "@testing-library/jest-dom/extend-expect";
+import React from "react";
+import { render, cleanup } from "@testing-library/react";
+import user from "@testing-library/user-event";
+import JobList from "../components/JobList";
+import jobsData from "../testsdata/jobs.json";
 
-describe('<JobList />', () => {
+describe("<JobList />", () => {
   const mockedDispatchJobsFetch = jest.fn();
 
   beforeEach(() => {
@@ -37,10 +37,10 @@ describe('<JobList />', () => {
     );
 
     const title = utils.getByText(/latest jobs/i);
-    const jobsAmount = title.querySelector('span');
-    const cardsContainer = utils.getByRole('container');
-    const jobCards = utils.queryAllByTestId('jobcard');
-    const jobCardsSkeleton = utils.queryAllByTestId('jobcard skeleton');
+    const jobsAmount = title.querySelector("span");
+    const cardsContainer = utils.getByRole("container");
+    const jobCards = utils.queryAllByTestId("jobcard");
+    const jobCardsSkeleton = utils.queryAllByTestId("jobcard skeleton");
 
     return {
       ...utils,
@@ -52,7 +52,7 @@ describe('<JobList />', () => {
     };
   };
 
-  test('it renders', () => {
+  test("it renders", () => {
     const { title, jobsAmount, cardsContainer, jobCards } = renderComponent();
 
     expect(title).toBeInTheDocument();
@@ -61,7 +61,7 @@ describe('<JobList />', () => {
     expect(jobCards.length).not.toBe(0);
   });
 
-  test('renders the right values when 0 jobs are passed', () => {
+  test("renders the right values when 0 jobs are passed", () => {
     const testProps = {
       jobs: [],
       loading: false,
@@ -77,7 +77,7 @@ describe('<JobList />', () => {
     expect(jobCardsSkeleton).toHaveLength(0);
   });
 
-  test('loading component is rendered when state is loading', () => {
+  test("loading component is rendered when state is loading", () => {
     const testProps = {
       jobs: [],
       loading: true,
@@ -94,7 +94,7 @@ describe('<JobList />', () => {
     expect(jobCards).toHaveLength(0);
   });
 
-  test('renders loading component with the right jobs card', () => {
+  test("renders loading component with the right jobs card", () => {
     const testProps = {
       jobs: [...jobsData],
       loading: true,
@@ -111,7 +111,7 @@ describe('<JobList />', () => {
     expect(jobCards).toHaveLength(testProps.jobs.length);
   });
 
-  test('jobCards render the right elements', () => {
+  test("jobCards render the right elements", () => {
     const testProps = {
       jobs: [...jobsData],
       loading: false,
@@ -121,9 +121,9 @@ describe('<JobList />', () => {
 
     const { jobCards } = renderComponent(testProps);
 
-    const jobCardTitle = jobCards[0].querySelector('h2');
-    const jobCardCompany = jobCards[0].querySelector('h3');
-    const jobCardLocation = jobCards[0].querySelector('h4');
+    const jobCardTitle = jobCards[0].querySelector("h2");
+    const jobCardCompany = jobCards[0].querySelector("h3");
+    const jobCardLocation = jobCards[0].querySelector("h4");
 
     expect(jobCardTitle).toBeInTheDocument();
     expect(jobCardCompany).toBeInTheDocument();
@@ -132,5 +132,114 @@ describe('<JobList />', () => {
     expect(jobCardTitle.textContent).toBe(testProps.jobs[0].job_title);
     expect(jobCardCompany.textContent).toBe(testProps.jobs[0].company_name);
     expect(jobCardLocation.textContent).toBe(testProps.jobs[0].location);
+
+    expect(jobCards[0].textContent).toContain(testProps.jobs[0].tags[0]);
+    expect(jobCards[0].textContent).toContain(testProps.jobs[0].tags[1]);
+    expect(jobCards[0].textContent).toContain(testProps.jobs[0].tags[2]);
+
+    expect(jobCards[0]).toMatchInlineSnapshot(`
+      <div
+        class="sc-AxheI htsvqw"
+        data-testid="jobcard"
+      >
+        <div
+          class="sc-Axmtr dqiqxI"
+        >
+          OU
+        </div>
+        <div
+          class="sc-fzozJi OYKcP"
+        >
+          <h3>
+            Open Universities Australia
+          </h3>
+          <h2>
+            Engineering Lead
+          </h2>
+          <h4>
+            Docklands VIC
+          </h4>
+        </div>
+        <div
+          class="sc-fzoLsD kMLnbJ"
+        />
+        <div
+          class="sc-fzpans jPZBWT"
+        >
+          <span
+            class="sc-fzplWN kLBfpF"
+            name="javascript"
+          >
+            javascript
+          </span>
+          <span
+            class="sc-fzplWN kLBfpF"
+            name="react"
+          >
+            react
+          </span>
+          <span
+            class="sc-fzplWN kLBfpF"
+            name="node"
+          >
+            node
+          </span>
+          <span
+            class="sc-fzplWN kLBfpF"
+            name="typescript"
+          >
+            typescript
+          </span>
+        </div>
+        <div
+          class="sc-fznyAO jwTVrg"
+        >
+          12d
+        </div>
+      </div>
+    `);
+    expect(jobCards[testProps.jobs.length - 1]).toMatchInlineSnapshot(`
+      <div
+        class="sc-AxheI htsvqw"
+        data-testid="jobcard"
+      >
+        <div
+          class="sc-Axmtr dqiqxI"
+        >
+          H2
+        </div>
+        <div
+          class="sc-fzozJi OYKcP"
+        >
+          <h3>
+            H2X
+          </h3>
+          <h2>
+            Startup CTO
+          </h2>
+          <h4>
+            Sydney NSW
+          </h4>
+        </div>
+        <div
+          class="sc-fzoLsD kMLnbJ"
+        />
+        <div
+          class="sc-fzpans jPZBWT"
+        >
+          <span
+            class="sc-fzplWN kLBfpF"
+            name="react"
+          >
+            react
+          </span>
+        </div>
+        <div
+          class="sc-fznyAO jwTVrg"
+        >
+          14d
+        </div>
+      </div>
+    `);
   });
 });
