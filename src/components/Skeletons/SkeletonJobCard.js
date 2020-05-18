@@ -127,7 +127,7 @@ const Tag = styled.div`
 
 export const SkeletonJobCard = () => {
   return (
-    <StyledDiv>
+    <StyledDiv data-testid="jobcard skeleton">
       <Thumb />
       <InfoContainer>
         <Row width={150} height={10} />

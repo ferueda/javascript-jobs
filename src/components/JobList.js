@@ -63,7 +63,7 @@ const JobList = ({ jobs, loading, hasMore, dispatchJobsFetch, totalRows }) => {
   console.log('List: render');
 
   return (
-    <JobsContainer>
+    <JobsContainer role="container">
       <JobListTitle>
         Latest jobs <span>({totalRows})</span>
       </JobListTitle>

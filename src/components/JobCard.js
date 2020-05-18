@@ -174,6 +174,7 @@ const JobCard = ({
         ref={cbFunc}
         active={active === id}
         onClick={handleActiveChange}
+        data-testid="jobcard"
       >
         <CompanyThumbContainer>
           {thumb ? (
