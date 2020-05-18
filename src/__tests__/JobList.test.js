@@ -93,4 +93,44 @@ describe('<JobList />', () => {
     expect(jobCardsSkeleton).toHaveLength(3);
     expect(jobCards).toHaveLength(0);
   });
+
+  test('renders loading component with the right jobs card', () => {
+    const testProps = {
+      jobs: [...jobsData],
+      loading: true,
+      hasMore: true,
+      totalRows: 200,
+    };
+
+    const { jobsAmount, jobCards, jobCardsSkeleton } = renderComponent(
+      testProps
+    );
+
+    expect(jobsAmount.textContent).toContain(testProps.totalRows);
+    expect(jobCardsSkeleton).toHaveLength(3);
+    expect(jobCards).toHaveLength(testProps.jobs.length);
+  });
+
+  test('jobCards render the right elements', () => {
+    const testProps = {
+      jobs: [...jobsData],
+      loading: false,
+      hasMore: true,
+      totalRows: 200,
+    };
+
+    const { jobCards } = renderComponent(testProps);
+
+    const jobCardTitle = jobCards[0].querySelector('h2');
+    const jobCardCompany = jobCards[0].querySelector('h3');
+    const jobCardLocation = jobCards[0].querySelector('h4');
+
+    expect(jobCardTitle).toBeInTheDocument();
+    expect(jobCardCompany).toBeInTheDocument();
+    expect(jobCardLocation).toBeInTheDocument();
+
+    expect(jobCardTitle.textContent).toBe(testProps.jobs[0].job_title);
+    expect(jobCardCompany.textContent).toBe(testProps.jobs[0].company_name);
+    expect(jobCardLocation.textContent).toBe(testProps.jobs[0].location);
+  });
 });
