@@ -194,7 +194,7 @@ describe("<JobList />", () => {
         <div
           class="sc-fznyAO jwTVrg"
         >
-          12d
+          14d
         </div>
       </div>
     `);
@@ -237,7 +237,7 @@ describe("<JobList />", () => {
         <div
           class="sc-fznyAO jwTVrg"
         >
-          14d
+          16d
         </div>
       </div>
     `);

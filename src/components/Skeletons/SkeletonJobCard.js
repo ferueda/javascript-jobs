@@ -132,7 +132,7 @@ export const SkeletonJobCard = () => {
       <InfoContainer>
         <Row width={150} height={10} />
         <Row width={300} height={16} />
-        <Row width={120} height={7} />
+        <Row width={120} height={9} />
       </InfoContainer>
       <TagsContainer>
         <Tag />
