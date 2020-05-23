@@ -60,8 +60,6 @@ const JobList = ({ jobs, loading, hasMore, dispatchJobsFetch, totalRows }) => {
     [isActive]
   );
 
-  console.log('List: render');
-
   return (
     <JobsContainer role="container">
       <JobListTitle>

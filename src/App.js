@@ -31,7 +31,16 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 function App() {
-  const { jobs, isLoading, hasMore, isError, city, dispatchJobsFetch, filters, totalRows } = useJobsFetch();
+  const {
+    jobs,
+    isLoading,
+    hasMore,
+    isError,
+    city,
+    dispatchJobsFetch,
+    filters,
+    totalRows,
+  } = useJobsFetch();
 
   const handleSearch = useCallback(
     (event) => {
@@ -62,14 +71,18 @@ function App() {
     [dispatchJobsFetch]
   );
 
-  console.log('App: render');
-
   return (
     <React.Fragment>
       <GlobalStyle />
-      <Hero handleSearch={handleSearch} handleCitySelection={handleCitySelection} city={city} />
+      <Hero
+        handleSearch={handleSearch}
+        handleCitySelection={handleCitySelection}
+        city={city}
+      />
       <Nav handleFilters={handleFilters} filter={filters} />
-      {Boolean(filters.length) && <SearchGuide handleTagRemove={handleFilters} filter={filters} />}
+      {Boolean(filters.length) && (
+        <SearchGuide handleTagRemove={handleFilters} filter={filters} />
+      )}
       <JobList
         jobs={jobs}
         loading={isLoading}
