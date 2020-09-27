@@ -25,12 +25,8 @@ export const filterJobs = (jobs, filter) => {
     return jobs;
   }
 
-  if (
-    filter.every((f) => techFilters.map((t) => t.toLowerCase()).includes(f))
-  ) {
-    return jobs.filter((job) =>
-      filter.every((f) => job.tags.includes(f.toLowerCase()))
-    );
+  if (filter.every((f) => techFilters.map((t) => t.toLowerCase()).includes(f))) {
+    return jobs.filter((job) => filter.every((f) => job.tags.includes(f.toLowerCase())));
   } else {
     const options = {
       useExtendedSearch: true,
@@ -43,9 +39,7 @@ export const filterJobs = (jobs, filter) => {
 
     const fuseResult = fuse.search(modFilters);
 
-    const tagSearch = jobs.filter((job) =>
-      filter.every((f) => job.tags.includes(f.toLowerCase()))
-    );
+    const tagSearch = jobs.filter((job) => filter.every((f) => job.tags.includes(f.toLowerCase())));
 
     const idArray = fuseResult.map((job) => job.item.id);
 
@@ -77,3 +71,5 @@ export const generateURL = (baseURL, city, skip, filters) => {
     return `${baseURL}?city=${city}&skip=${skip}`;
   }
 };
+
+export const capitalizeWord = (word) => word.charAt(0).toUpperCase() + word.slice(1);
