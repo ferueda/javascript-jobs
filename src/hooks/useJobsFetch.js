@@ -1,4 +1,4 @@
-import { useEffect, useReducer, useRef } from 'react';
+import { useEffect, useReducer } from 'react';
 import { generateURL } from '../utils/helpers';
 
 const jobsFetchReducer = (state, action) => {
@@ -24,14 +24,13 @@ const jobsFetchReducer = (state, action) => {
         isLoading: false,
         isError: true,
       };
-    case 'CHANGE_CITY':
+    case 'UPDATE_CITY':
       return {
         ...state,
         jobs: [],
         filters: [],
         skip: 0,
         totalRows: 0,
-        city: action.payload.city,
       };
     case 'LOAD_MORE_JOBS':
       return {
@@ -71,9 +70,9 @@ const jobsFetchReducer = (state, action) => {
   }
 };
 
-export const useJobsFetch = () => {
+export const useJobsFetch = (city) => {
   const [
-    { jobs, isLoading, isError, hasMore, skip, city, filters, totalRows },
+    { jobs, isLoading, isError, hasMore, skip, filters, totalRows },
     dispatchJobsFetch,
   ] = useReducer(jobsFetchReducer, {
     jobs: [],
@@ -81,49 +80,41 @@ export const useJobsFetch = () => {
     isError: false,
     hasMore: false,
     skip: 0,
-    city: localStorage.getItem('city') || 'sydney',
     filters: [],
     totalRows: 0,
   });
 
-  const isMounted = useRef(false);
-
-  useEffect(() => {
-    if (!isMounted.current) {
-      isMounted.current = true;
-    } else {
-      localStorage.setItem('city', city);
-    }
-  }, [city]);
-
   const baseURL = 'https://au-js-jobs.herokuapp.com/jobs';
   // const baseURL = 'http://localhost:3001/jobs';
+  // const baseURL = 'http://localhost:3001/jobs';
+
+  const URL = generateURL(baseURL, city, skip, filters);
 
   useEffect(() => {
-    let didCancel = false;
+    const abortController = new AbortController();
 
     dispatchJobsFetch({ type: 'FETCH_INIT' });
 
-    fetch(generateURL(baseURL, city, skip, filters))
+    fetch(URL, { signal: abortController.signal })
       .then((res) => res.json())
       .then((data) => {
-        if (!didCancel) {
-          dispatchJobsFetch({
-            type: 'FETCH_SUCCESS',
-            payload: {
-              jobs: data.jobs,
-              remainingRows: data.pagination.remainingRows,
-              totalRows: data.pagination.totalRows,
-            },
-          });
-        }
+        dispatchJobsFetch({
+          type: 'FETCH_SUCCESS',
+          payload: {
+            jobs: data.jobs,
+            remainingRows: data.pagination.remainingRows,
+            totalRows: data.pagination.totalRows,
+          },
+        });
       })
-      .catch(() => dispatchJobsFetch({ type: 'FETCH_FAILURE' }));
+      .catch(() => {
+        if (!abortController.signal.aborted) {
+          dispatchJobsFetch({ type: 'FETCH_FAILURE' });
+        }
+      });
 
-    return () => {
-      didCancel = true;
-    };
-  }, [city, skip, filters]);
+    return () => abortController.abort();
+  }, [URL]);
 
   return {
     isLoading,
@@ -132,7 +123,6 @@ export const useJobsFetch = () => {
     isError,
     dispatchJobsFetch,
     skip,
-    city,
     filters,
     totalRows,
   };
