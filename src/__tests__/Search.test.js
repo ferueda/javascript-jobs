@@ -93,20 +93,6 @@ describe('<Search />', () => {
 
       expect(select).toBeInTheDocument();
       expect(options.length).toBeGreaterThan(0);
-      expect(options).toMatchInlineSnapshot(`
-        Array [
-          <option
-            value="sydney"
-          >
-            Sydney
-          </option>,
-          <option
-            value="melbourne"
-          >
-            Melbourne
-          </option>,
-        ]
-      `);
     });
 
     test('on change, handler func is called and returs the right value', () => {
