@@ -56,17 +56,22 @@ const ButtonContainer = styled.div`
   }
 `;
 
-const Hero = ({ handleSearch }) => {
+const Hero = ({ handleSearch, handleResetFilters, handleCityUpdate }) => {
   const { city } = useParams();
 
   return (
     <HeroContainer role="container" city={city}>
       <HeroTitle>
-        <Link to={`/${city}`}>
+        <Link to={{ pathname: `/${city}`, search: '' }} onClick={handleResetFilters}>
           JavaScript <span>Jobs</span>
         </Link>
       </HeroTitle>
-      <Search placeholder="Enter a keyword" city={city} handleSearch={handleSearch} />
+      <Search
+        placeholder="Enter a keyword"
+        city={city}
+        handleSearch={handleSearch}
+        handleCityUpdate={handleCityUpdate}
+      />
     </HeroContainer>
   );
 };
