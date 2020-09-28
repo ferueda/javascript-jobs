@@ -66,7 +66,7 @@ const CitySelect = styled.select`
   }
 `;
 
-const Search = ({ placeholder, city, handleSearch }) => {
+const Search = ({ placeholder, city, handleSearch, handleCityUpdate }) => {
   const [search, setSearch] = useState('');
 
   const history = useHistory();
@@ -75,9 +75,9 @@ const Search = ({ placeholder, city, handleSearch }) => {
     setSearch(event.target.value);
   };
 
-  const handleCityUpdate = ({ target }) => {
-    setSearch('');
+  const onCityUpdate = ({ target }) => {
     history.push(ROUTES.citiesRoute[target.value]);
+    handleCityUpdate();
   };
 
   const onSubmit = (event) => {
@@ -109,12 +109,7 @@ const Search = ({ placeholder, city, handleSearch }) => {
           </svg>
         </InputBtn>
       </FlexForm>
-      <CitySelect
-        aria-label="select city"
-        id="cityDopdown"
-        onChange={handleCityUpdate}
-        value={city}
-      >
+      <CitySelect aria-label="select city" id="cityDopdown" onChange={onCityUpdate} value={city}>
         {cities.map((city) => (
           <option value={city} key={city}>
             {capitalizeWord(city)}
