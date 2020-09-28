@@ -6,8 +6,11 @@ const SearchGuideContainer = styled.div`
   margin: 3rem auto 1rem auto;
   font-size: 1.8rem;
   font-weight: 900;
+
   @media (max-width: 600px) {
-    display: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 `;
 
@@ -35,6 +38,10 @@ const SearchSpan = styled.span`
     transition: 0.1s ease-out;
   }
 
+  @media (max-width: 600px) {
+    margin-top: 0.25rem;
+  }
+
   @media (hover: hover) and (pointer: fine) {
     &:hover {
       span {
@@ -44,17 +51,13 @@ const SearchSpan = styled.span`
   }
 `;
 
-const SearchGuide = ({ filter, handleTagRemove }) => {
+const SearchGuide = ({ filters, handleTagRemove }) => {
   return (
     <SearchGuideContainer>
       Searching for:
-      {filter.map((value) => {
+      {filters.map((value) => {
         return (
-          <SearchSpan
-            key={value}
-            onClick={() => handleTagRemove(value)}
-            data-testid="tech filter"
-          >
+          <SearchSpan key={value} onClick={() => handleTagRemove(value)} data-testid="tech filter">
             {value}
             <span>X</span>
           </SearchSpan>

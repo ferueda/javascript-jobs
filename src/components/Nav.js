@@ -52,11 +52,11 @@ const TechContainer = styled.div`
   }
 `;
 
-const Tech = ({ imgSrc, tech, handleFilters, filter }) => {
+const Tech = ({ imgSrc, tech, handleFilters, filters }) => {
   return (
     <TechContainer
       onClick={() => handleFilters(tech.toLowerCase())}
-      className={filter.includes(tech.toLowerCase()) && 'active'}
+      className={filters.includes(tech.toLowerCase()) && 'active'}
     >
       <div>
         <img src={imgSrc} alt={`${tech} logo`} />
@@ -66,7 +66,7 @@ const Tech = ({ imgSrc, tech, handleFilters, filter }) => {
   );
 };
 
-const Nav = ({ handleFilters, filter }) => {
+const Nav = ({ handleFilters, filters }) => {
   const logosSrc = [...techFilters];
 
   return (
@@ -78,7 +78,7 @@ const Nav = ({ handleFilters, filter }) => {
             imgSrc={`assets/logos/${logo}.svg`}
             tech={`${logo}`}
             handleFilters={handleFilters}
-            filter={filter}
+            filters={filters}
           />
         );
       })}
