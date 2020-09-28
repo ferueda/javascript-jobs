@@ -52,7 +52,7 @@ const Hero = ({ handleSearch, handleResetFilters, handleCityUpdate }) => {
   return (
     <HeroContainer role="container" city={city}>
       <HeroTitle>
-        <Link to={{ pathname: `/${city}`, search: '' }} onClick={handleResetFilters}>
+        <Link to={`/${city}`} onClick={handleResetFilters}>
           JavaScript <span>Jobs</span>
         </Link>
       </HeroTitle>
