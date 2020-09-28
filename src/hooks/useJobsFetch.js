@@ -28,7 +28,13 @@ const jobsFetchReducer = (state, action) => {
       return {
         ...state,
         jobs: [],
-        filters: [],
+        skip: 0,
+        totalRows: 0,
+      };
+    case 'UPDATE_FILTERS':
+      return {
+        ...state,
+        jobs: [],
         skip: 0,
         totalRows: 0,
       };
@@ -37,24 +43,6 @@ const jobsFetchReducer = (state, action) => {
         ...state,
         skip: state.skip + 20,
       };
-    case 'CHANGE_FILTERS':
-      if (state.filters.includes(action.payload)) {
-        return {
-          ...state,
-          jobs: [],
-          skip: 0,
-          filters: state.filters.filter((f) => f !== action.payload),
-          totalRows: 0,
-        };
-      } else {
-        return {
-          ...state,
-          jobs: [],
-          skip: 0,
-          filters: [...state.filters, action.payload],
-          totalRows: 0,
-        };
-      }
     case 'SEARCH':
       if (action.payload.trim() !== '') {
         return {
@@ -62,7 +50,6 @@ const jobsFetchReducer = (state, action) => {
           jobs: [],
           skip: 0,
           totalRows: 0,
-          filters: [action.payload.toLowerCase().trim()],
         };
       } else return state;
     default:
@@ -70,19 +57,18 @@ const jobsFetchReducer = (state, action) => {
   }
 };
 
-export const useJobsFetch = (city) => {
-  const [
-    { jobs, isLoading, isError, hasMore, skip, filters, totalRows },
-    dispatchJobsFetch,
-  ] = useReducer(jobsFetchReducer, {
-    jobs: [],
-    isLoading: false,
-    isError: false,
-    hasMore: false,
-    skip: 0,
-    filters: [],
-    totalRows: 0,
-  });
+export const useJobsFetch = (city, filters) => {
+  const [{ jobs, isLoading, isError, hasMore, skip, totalRows }, dispatchJobsFetch] = useReducer(
+    jobsFetchReducer,
+    {
+      jobs: [],
+      isLoading: false,
+      isError: false,
+      hasMore: false,
+      skip: 0,
+      totalRows: 0,
+    },
+  );
 
   const baseURL = 'https://au-js-jobs.herokuapp.com/jobs';
   // const baseURL = 'http://localhost:3001/jobs';
@@ -123,7 +109,6 @@ export const useJobsFetch = (city) => {
     isError,
     dispatchJobsFetch,
     skip,
-    filters,
     totalRows,
   };
 };
