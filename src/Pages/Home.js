@@ -22,11 +22,13 @@ const Home = () => {
     (event) => {
       event.preventDefault();
       const filter = event.target.tech.value;
-      setFilters([filter]);
-      dispatchJobsFetch({
-        type: 'SEARCH',
-        payload: filter,
-      });
+      if (filter !== '') {
+        setFilters([filter]);
+        dispatchJobsFetch({
+          type: 'SEARCH',
+          payload: filter,
+        });
+      }
     },
     [dispatchJobsFetch, setFilters],
   );
@@ -49,10 +51,12 @@ const Home = () => {
   };
 
   const handleResetFilters = () => {
-    setFilters([]);
-    dispatchJobsFetch({
-      type: 'UPDATE_FILTERS',
-    });
+    if (filters.length > 0) {
+      setFilters([]);
+      dispatchJobsFetch({
+        type: 'UPDATE_FILTERS',
+      });
+    }
   };
 
   if (!cities.includes(city)) {
