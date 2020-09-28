@@ -10,8 +10,6 @@ const useFilters = () => {
   const [filters, setFilters] = useState(query.q ? [...query.q.split(' ')] : []);
   const history = useHistory();
 
-  console.log(filters);
-
   useEffect(() => {
     const queryObject = {};
 
