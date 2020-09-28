@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback } from 'react';
 import { useParams, Redirect } from 'react-router-dom';
 
 import JobList from '../components/JobList';
@@ -15,9 +15,8 @@ import cities from '../constants/cities';
 const Home = () => {
   const { city } = useParams();
 
-  const { jobs, isLoading, hasMore, dispatchJobsFetch, filters, totalRows } = useJobsFetch(city);
-
-  const { filters: newFilters, setFilters } = useFilters();
+  const { filters, setFilters } = useFilters();
+  const { jobs, isLoading, hasMore, dispatchJobsFetch, totalRows } = useJobsFetch(city, filters);
 
   const handleSearch = useCallback(
     (event) => {
@@ -33,24 +32,28 @@ const Home = () => {
   );
 
   const handleFilters = (filter) => {
-    const lcFilter = filter.toLowerCase();
-
-    if (newFilters.includes(lcFilter)) {
-      setFilters((state) => state.filter((f) => f !== lcFilter));
+    if (filters.includes(filter)) {
+      setFilters((state) => state.filter((f) => f !== filter));
     } else {
-      setFilters((state) => [...state, lcFilter]);
+      setFilters((state) => [...state, filter]);
     }
 
     dispatchJobsFetch({
-      type: 'CHANGE_FILTERS',
-      payload: lcFilter,
+      type: 'UPDATE_FILTERS',
     });
   };
 
-  useEffect(() => {
+  const handleCityUpdate = () => {
     setFilters([]);
     dispatchJobsFetch({ type: 'UPDATE_CITY' });
-  }, [city, dispatchJobsFetch, setFilters]);
+  };
+
+  const handleResetFilters = () => {
+    setFilters([]);
+    dispatchJobsFetch({
+      type: 'UPDATE_FILTERS',
+    });
+  };
 
   if (!cities.includes(city)) {
     return <Redirect to={ROUTES.HOME} />;
@@ -58,10 +61,16 @@ const Home = () => {
 
   return (
     <>
-      <Hero handleSearch={handleSearch} />
-      <Nav handleFilters={handleFilters} filter={filters} />
+      <Hero
+        handleSearch={handleSearch}
+        handleResetFilters={handleResetFilters}
+        handleCityUpdate={handleCityUpdate}
+      />
+      <Nav handleFilters={handleFilters} filters={filters} />
 
-      {filters >= 1 ? <SearchGuide handleTagRemove={handleFilters} filter={filters} /> : null}
+      {filters.length >= 1 ? (
+        <SearchGuide handleTagRemove={handleFilters} filters={filters} />
+      ) : null}
 
       <JobList
         jobs={jobs}
