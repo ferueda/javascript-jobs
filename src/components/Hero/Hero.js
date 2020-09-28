@@ -46,16 +46,6 @@ const HeroTitle = styled.h1`
   }
 `;
 
-const ButtonContainer = styled.div`
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
-
-  @media (max-width: 800px) {
-    display: none;
-  }
-`;
-
 const Hero = ({ handleSearch, handleResetFilters, handleCityUpdate }) => {
   const { city } = useParams();
 
