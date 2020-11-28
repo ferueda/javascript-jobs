@@ -21,7 +21,7 @@ const Home = () => {
   const handleSearch = useCallback(
     (event) => {
       event.preventDefault();
-      const filter = event.target.tech.value;
+      const filter = event.target.tech.value.toLowerCase();
       if (filter !== '') {
         setFilters([filter]);
         dispatchJobsFetch({
